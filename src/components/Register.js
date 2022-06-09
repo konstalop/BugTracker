@@ -2,22 +2,23 @@ import React from "react";
 
 function Register() {
     return (
-        <div>
-            <h1>Register here</h1>
+        <div className="regDiv">
+            <h1>BugTracker</h1>
             <div>
                 <form>
                     <fieldset>
+                        <h4>Register here</h4>
                         <label className="nameReg">Name
-                        <input type="text" name="Name"/>
+                            <input type="text" name="Name"/>
                         </label>
                         <label className="emailReg">Email address
-                        <input type="email" name="email"/>
+                            <input type="email" name="email"/>
                         </label>
                         <label className="pwReg" name="password"> Password
-                        <input type="password" name="password"/>
+                            <input type="password" name="password"/>
                         </label>
                         <label className="confirmPwReg"> Confirm your password
-                        <input type="password" name="password" />
+                            <input type="password" name="password" />
                         </label>
                         <input type="submit" value="Register" />
                     </fieldset>

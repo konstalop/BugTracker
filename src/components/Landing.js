@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 function Landing() {
   return (
     <div className="landingText">
-      <h1>Bug Tracker</h1>
-      <p className="newUserText"> New user? Click <Link to="/register">here </Link> </p>
+      <h1>BugTracker</h1>
+      <p className="newUserText"> New user? Register <Link to="/register">here </Link> </p>
       <div className="loginDiv">
         <form className="loginForm">
           <fieldset>
