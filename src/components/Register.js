@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 function Register() {
     return (
@@ -7,7 +8,7 @@ function Register() {
             <div className="container-fields-auth">
                 <form className="form-auth">
                     <fieldset>
-                        <h4 className="header-form">Sign up</h4>  
+                        <h4 className="header-form">Sign up</h4> 
                             <input
                              type="text" 
                              name="Name"
@@ -37,8 +38,12 @@ function Register() {
                          value="Create account"
                          className="input-auth-submit" 
                          />
+                         <p className="new-user-text"><Link to="/" >Already an user? Sign in</Link></p>
                     </fieldset>
                 </form>
+                <div className="footer-container">
+                    <footer className="footer-auth">© 2022 | Konsta Löppönen</footer>
+                </div>
             </div>
         </div>
     )

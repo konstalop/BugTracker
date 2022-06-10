@@ -12,30 +12,44 @@ fieldset {
   border-radius: 15px;
 }
 
+.new-user-text {
+  color: #4281f5;
+  text-align: center;
+  font-size: 10px;
+}
 
-.newUserText, .header-auth {
+.footer-container {
+  padding: 10%;
+}
+
+.footer-auth {
+  color: white;
+  font-size: 10px;
+}
+
+ .header-auth {
   color: white;
   text-align: center;
+  font-size: 25px;
 }
 
 .header-form {
+  font-size: 20px;
   color: #4281f5
 }
 
 .container-fields-auth {
-  vertical-align: top;
   text-align: center;
 }
 
 .form-auth {
   display: inline-block;
-  vertical-align: middle;
   width: 0%;
-  margin-right: 220px;
+  margin-right: 350px;
 }
 
-
 .input-auth {
+  width: 300px;
   padding: 5px;
   border: 0;
   box-shadow:  0 0 15px 4px rgba(0, 0, 255, 0.1);
@@ -46,7 +60,7 @@ fieldset {
 }
 
 .input-auth-submit {
-  border: 0.5;
+  border: 0;
   width: 125px;
   height: 30px;
   margin: 10px;
