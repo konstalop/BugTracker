@@ -2,25 +2,41 @@ import React from "react";
 
 function Register() {
     return (
-        <div className="regDiv">
-            <h1>BugTracker</h1>
-            <div>
-                <form>
+        <div className="container-auth">
+            <h1 className="header-auth">BugTracker</h1>
+            <div className="container-fields-auth">
+                <form className="form-auth">
                     <fieldset>
-                        <h4>Register here</h4>
-                        <label className="nameReg">Name
-                            <input type="text" name="Name"/>
-                        </label>
-                        <label className="emailReg">Email address
-                            <input type="email" name="email"/>
-                        </label>
-                        <label className="pwReg" name="password"> Password
-                            <input type="password" name="password"/>
-                        </label>
-                        <label className="confirmPwReg"> Confirm your password
-                            <input type="password" name="password" />
-                        </label>
-                        <input type="submit" value="Register" />
+                        <h4 className="header-form">Sign up</h4>  
+                            <input
+                             type="text" 
+                             name="Name"
+                             className="input-auth"
+                             placeholder="Username"
+                            />              
+                            <input
+                             type="email" 
+                             name="email"
+                             className="input-auth"
+                             placeholder="Email address"
+                            />
+                            <input 
+                             type="password"
+                             name="password"
+                             className="input-auth"
+                             placeholder="Password"
+                            />
+                            <input
+                             type="password"
+                             name="password"
+                             className="input-auth"
+                             placeholder="Confirm your password"
+                            />
+                        <input
+                         type="submit"
+                         value="Create account"
+                         className="input-auth-submit" 
+                         />
                     </fieldset>
                 </form>
             </div>
