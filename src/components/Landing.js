@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-
+import Footer from './Footer';
 function Landing() {
   return (
     <div className="container-auth">
@@ -26,12 +26,10 @@ function Landing() {
             className="input-auth-submit" 
             value="Login" />
             <p className="new-user-text"><Link to="/register" >Create account</Link></p>
-      
+            <p className="new-user-text"><Link to="/">Forgot password?</Link></p>
          </fieldset>
         </form>
-        <div className="footer-container">
-          <footer className="footer-auth">© 2022 | Konsta Löppönen</footer>
-        </div>
+        <Footer></Footer>
       </div>
 
     </div>

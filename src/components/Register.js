@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
-
+import Footer from "./Footer";
 function Register() {
     return (
         <div className="container-auth">
@@ -41,9 +41,7 @@ function Register() {
                          <p className="new-user-text"><Link to="/" >Already an user? Sign in</Link></p>
                     </fieldset>
                 </form>
-                <div className="footer-container">
-                    <footer className="footer-auth">© 2022 | Konsta Löppönen</footer>
-                </div>
+                <Footer></Footer>
             </div>
         </div>
     )
