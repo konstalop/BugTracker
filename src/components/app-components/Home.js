@@ -3,9 +3,12 @@ import Project from './Project'
 
 
 function Home() {
+
+    let currentPage = "Home"
+
     return (
         <div className='home-wrapper'>
-            <h1 className='home-h1'>Home</h1>
+            <h1 className='home-h1'>{currentPage}</h1>
             <div className="projects-container">
                 <h2 className='projects-h2'>My Projects</h2>
                     <table classname="projects-table">
@@ -14,7 +17,9 @@ function Home() {
                             <th className='th2'>DESCRIPTION</th>
                             <th className='th3'>CREATED BY</th>
                         </tr>
-                         
+                        <Project></Project>
+                        <Project></Project>
+                        
                     </table>
                     
             </div>

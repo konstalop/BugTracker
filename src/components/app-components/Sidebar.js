@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 
 function Sidebar() {
@@ -13,9 +13,9 @@ function Sidebar() {
     return (
         <div className="sidebar-wrapper">
             <h1 className="sidebar-h1"><span>Bug</span><span>Tracker</span></h1>
-                    <p className="sidebar-text">Home</p>
-                    <p className="sidebar-text">Tickets</p>
-                    <p className="sidebar-text">Account</p>
+                    <p className="sidebar-text"><Link className='sidebar-link'to="/app">Home</Link></p>
+                    <p className="sidebar-text"><Link className='sidebar-link'to="/tickets">Tickets</Link></p>
+                    <p className="sidebar-text"><Link className='sidebar-link'to="/account">Account</Link></p>
                     <button className="new-button">New Project</button>
                     <button className="sidebar-logout" onClick={routeTo}>Logout</button>
         </div>

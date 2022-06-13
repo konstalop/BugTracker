@@ -3,10 +3,15 @@ import React from 'react'
 
 function Project() {
 
+    let projectName ='Build bugtracker'
+    let desc = 'Build bugtracker using MERN stack'
+    let author = 'Konsta'
     return (
-        <div className='project-container' onClick={""}>
-            <p className='project-name'>project_name</p>
-        </div>
+        <tr className='project-row'>
+            <td className='project-name'>{projectName}</td>
+            <td className='project-desc'>{desc}</td>
+            <td className='project-author'>{author}</td>
+        </tr>
     )
 }
 

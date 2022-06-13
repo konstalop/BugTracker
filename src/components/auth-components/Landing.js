@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import Footer from './Footer';
 import { useNavigate } from "react-router-dom"
 
-
 function Landing() {
 
 let navigate = useNavigate()

@@ -1,8 +1,11 @@
 html {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #4281f5
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--primary-color);
 }
 
+:root {
+  --primary-color: #4281f5;
+}
 
 /** Login and Register **/
 
@@ -13,7 +16,7 @@ fieldset {
 }
 
 .new-user-text {
-  color: #4281f5;
+  color: var(--primary-color);
   text-align: center;
   font-size: 10px;
 }
@@ -35,7 +38,7 @@ fieldset {
 
 .header-form {
   font-size: 20px;
-  color: #4281f5
+  color: var(--primary-color);
 }
 
 .container-fields-auth {
@@ -67,18 +70,12 @@ fieldset {
   border-radius: 10px;
   cursor: pointer;
 
-  background-color: #4281f5;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .input-auth-submit:hover, .new-button:hover {
   background-color: #1f56bb;
-}
-
-/** App **/
-
-.app-wrapper {
- /** hh **/
 }
 
 /** App Sidebar **/
@@ -96,7 +93,7 @@ fieldset {
 .sidebar-h1 {
   padding-top: 25px;
   padding-bottom: 35px;
-  color: #4281f5;
+  color: var(--primary-color);
   text-align: center;
   font-size: 15px;
 }
@@ -114,15 +111,19 @@ fieldset {
 }
 
 .new-button {
-  background-color: #4281f5;
+  background-color: var(--primary-color);
 }
 
 .sidebar-logout:hover {
   background-color: rgb(124, 14, 14);
 }
+.sidebar-link:visited, .sidebar-link {
+  text-decoration: none;
+  color: gray;
+}
 
-.sidebar-text:hover {
-  color: #1f56bb
+.sidebar-link:hover {
+  color: #1f56bb;
 }
 
 .sidebar-text {
@@ -146,11 +147,31 @@ span {display: block;}
   text-align: center;
 }
 
-.home-h1 {color:#4281f5; font-weight: normal;}
+.home-h1 {color:var(--primary-color);; font-weight: normal;}
 
 /** Projects **/
+
+
+
+.project-name, .project-desc, .project-author {
+  font-size: 13px;
+  text-align: left;
+  padding-bottom: 25px;
+  padding-top: 10px;
+  border-radius: 6px;
+  color: rgb(61, 60, 60);
+}
+
+.project-name {color:var(--primary-color); font-size: 13px; font-weight: bold;}
+
+.project-name:hover {
+  color: #1f56bb;
+  cursor: pointer;
+}
+
 .projects-h2 {
-  margin-left: 30px;
+  margin-left: 10px;
+  margin-bottom: 25px;
   text-align: left;
    color: black;
    padding-top: 15px;
@@ -164,6 +185,7 @@ span {display: block;}
   width: parent;
   height: 200px;
   border-radius: 6px;
+  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.12);
 }
 .project-container {
   background-color: white;
@@ -172,10 +194,7 @@ span {display: block;}
   margin-right: 25px;
   border-radius: 6px;
   cursor: pointer;
-}
 
-.project-container:hover {
-  background-color: #bac3d4
 }
 
 table {
@@ -184,14 +203,12 @@ table {
 }
 
 .th1, .th3, .th2 {
-  margin-left: 15px;
   margin-right: 15px;
   border-color: gray;
   border-radius: 5px;
   font-size: 10px;
   font-weight: bold;
   color: gray;
-  padding: 5px;
   text-align: left;
 }
 
@@ -207,3 +224,6 @@ table {
 .th3 {
   width: 400px;
 }
+
+
+/** Graphs **/

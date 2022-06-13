@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import Landing from "./components/auth-components/Landing"
 import Register from './components/auth-components/Register';
-import Dashboard from './components/app-components/Dashboard'
-
+import Application from './components/app-components/Application'
+import Tickets from './components/app-components/Tickets';
+import Account from './components/app-components/Account';
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,8 +19,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing/>}/>
           <Route path="/register" element={<Register/>} />
-          <Route path="/app" element={<Dashboard/>} />
-        </Routes>
+          <Route path="/app" element={<Application/>} />
+          <Route path="/tickets" element={<Tickets/>} />
+          <Route path="/account" element={<Account/>} />
+        </Routes> 
         </div>
       </Router>
     </>
