@@ -69,3 +69,53 @@ fieldset {
   background-color: #4281f5;
   color: white;
 }
+
+.input-auth-submit:hover {
+  background-color: #1f56bb;
+}
+
+/** App Sidebar **/
+
+.sidebar-wrapper {
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  width: 175px;
+  height: 97vh;
+}
+
+.sidebar-h1 {
+  padding-top: 25px;
+  padding-bottom: 35px;
+  color: #4281f5;
+  text-align: center;
+  font-size: 15px;
+}
+
+.sidebar-logout {
+  border: 0;
+  color: white;
+  background-color: rgb(158, 45, 45);
+  border-radius: 6px;
+  width: 125px;
+  height: 30px;
+  margin: 10px;
+}
+
+.sidebar-logout:hover {
+  background-color: rgb(124, 14, 14);
+}
+
+.sidebar-text:hover {
+  color: #4281f5
+}
+
+.sidebar-text {
+  color: gray;
+  font-size: 13px;
+
+}
+
+span {
+  display: block;
+}

@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom"  
 function Register() {
+
+    let navigate = useNavigate()
+    const routeTo = () => {
+        let path = '../app';
+        navigate(path)
+    }
+
+
     return (
         <div className="container-auth">
             <h1 className="header-auth">BugTracker</h1>
@@ -36,7 +45,8 @@ function Register() {
                         <input
                          type="submit"
                          value="Create account"
-                         className="input-auth-submit" 
+                         className="input-auth-submit"
+                         onClick={routeTo} 
                          />
                          <p className="new-user-text"><Link to="/" >Already an user? Sign in</Link></p>
                     </fieldset>
