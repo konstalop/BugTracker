@@ -65,18 +65,27 @@ fieldset {
   height: 30px;
   margin: 10px;
   border-radius: 10px;
+  cursor: pointer;
 
   background-color: #4281f5;
   color: white;
 }
 
-.input-auth-submit:hover {
+.input-auth-submit:hover, .new-button:hover {
   background-color: #1f56bb;
+}
+
+/** App **/
+
+.app-wrapper {
+ /** hh **/
 }
 
 /** App Sidebar **/
 
 .sidebar-wrapper {
+  position: absolute;
+  float: left;
   border-radius: 5px;
   text-align: center;
   background-color: white;
@@ -92,7 +101,8 @@ fieldset {
   font-size: 15px;
 }
 
-.sidebar-logout {
+
+.sidebar-logout, .new-button {
   border: 0;
   color: white;
   background-color: rgb(158, 45, 45);
@@ -100,6 +110,11 @@ fieldset {
   width: 125px;
   height: 30px;
   margin: 10px;
+  cursor: pointer;
+}
+
+.new-button {
+  background-color: #4281f5;
 }
 
 .sidebar-logout:hover {
@@ -107,15 +122,88 @@ fieldset {
 }
 
 .sidebar-text:hover {
-  color: #4281f5
+  color: #1f56bb
 }
 
 .sidebar-text {
+  text-align: center;
   color: gray;
   font-size: 13px;
-
+  cursor: pointer;
 }
 
-span {
-  display: block;
+span {display: block;}
+
+/** home page **/
+.home-wrapper {
+  left: 0px;
+  bottom: 0px;
+  background-color: white;
+  border-radius: 6px;
+  min-width: 90%;
+  height: 97vh;
+  float: right;
+  text-align: center;
+}
+
+.home-h1 {color:#4281f5; font-weight: normal;}
+
+/** Projects **/
+.projects-h2 {
+  margin-left: 30px;
+  text-align: left;
+   color: black;
+   padding-top: 15px;
+   font-size: 15px;
+  }
+
+.projects-container {
+  background-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: parent;
+  height: 200px;
+  border-radius: 6px;
+}
+.project-container {
+  background-color: white;
+  width: 50% parent;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.project-container:hover {
+  background-color: #bac3d4
+}
+
+table {
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+.th1, .th3, .th2 {
+  margin-left: 15px;
+  margin-right: 15px;
+  border-color: gray;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  color: gray;
+  padding: 5px;
+  text-align: left;
+}
+
+.th1 {
+  width: 250px;
+  float: left;
+}
+
+.th2 {
+  width: 600px;
+}
+
+.th3 {
+  width: 400px;
 }
