@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 
 function Project() {
 
@@ -8,7 +8,7 @@ function Project() {
     let author = 'Konsta'
     return (
         <tr className='project-row'>
-            <td className='project-name'>{projectName}</td>
+            <td className='project-name'><Link className='project-name' to="/project">{projectName}</Link></td>
             <td className='project-desc'>{desc}</td>
             <td className='project-author'>{author}</td>
         </tr>

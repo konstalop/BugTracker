@@ -5,6 +5,7 @@ import Register from './components/auth-components/Register';
 import Application from './components/app-components/Application'
 import Tickets from './components/app-components/Tickets';
 import Account from './components/app-components/Account';
+import Project from "./components/project-view-components/ProjectView"
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,6 +23,7 @@ function App() {
           <Route path="/app" element={<Application/>} />
           <Route path="/tickets" element={<Tickets/>} />
           <Route path="/account" element={<Account/>} />
+          <Route path="/project" element={<Project/>} />
         </Routes> 
         </div>
       </Router>

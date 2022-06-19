@@ -74,7 +74,7 @@ fieldset {
   color: white;
 }
 
-.input-auth-submit:hover, .new-button:hover {
+.input-auth-submit:hover, .new-button:hover, .new-button-member:hover {
   background-color: #1f56bb;
 }
 
@@ -99,7 +99,7 @@ fieldset {
 }
 
 
-.sidebar-logout, .new-button {
+.sidebar-logout, .new-button, .new-button-member {
   border: 0;
   color: white;
   background-color: rgb(158, 45, 45);
@@ -110,7 +110,7 @@ fieldset {
   cursor: pointer;
 }
 
-.new-button {
+.new-button, .new-button-member {
   background-color: var(--primary-color);
 }
 
@@ -135,8 +135,8 @@ fieldset {
 
 span {display: block;}
 
-/** home page **/
-.home-wrapper {
+/** background div in every page **/
+.home-wrapper, .project-view-container {
   left: 0px;
   bottom: 0px;
   background-color: white;
@@ -147,13 +147,15 @@ span {display: block;}
   text-align: center;
 }
 
-.home-h1 {color:var(--primary-color);; font-weight: normal;}
+/** home header **/ 
+.home-h1, .project-view-name {color:var(--primary-color); font-weight: 500; font-size: 25px;}
 
 /** Projects **/
 
 
 
-.project-name, .project-desc, .project-author {
+.project-name, .project-desc, .project-author, .td-team {
+  margin-left: 25px;
   font-size: 13px;
   text-align: left;
   padding-bottom: 25px;
@@ -162,17 +164,22 @@ span {display: block;}
   color: rgb(61, 60, 60);
 }
 
-.project-name {color:var(--primary-color); font-size: 13px; font-weight: bold;}
+.project-name, .project-name:visited{
+   color:var(--primary-color);
+   font-size: 13px;
+   font-weight: bold;
+   text-decoration: none;
+  }
 
 .project-name:hover {
   color: #1f56bb;
   cursor: pointer;
 }
 
-.projects-h2 {
-  margin-left: 10px;
-  margin-bottom: 25px;
-  text-align: left;
+.projects-h2, .project-team-header {
+   margin-left: 25px;
+   margin-bottom: 25px;
+   text-align: left;
    color: black;
    padding-top: 15px;
    font-size: 15px;
@@ -185,7 +192,7 @@ span {display: block;}
   width: parent;
   height: 200px;
   border-radius: 6px;
-  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.12);
+  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
 }
 .project-container {
   background-color: white;
@@ -197,13 +204,15 @@ span {display: block;}
 
 }
 
-table {
+.projects-table, .team-table {
+  max-height: calc(50vh - 25%);
   margin-left: 10px;
   margin-right: 15px;
 }
 
-.th1, .th3, .th2 {
+.th1, .th3, .th2, .th-project {
   margin-right: 15px;
+  margin-left: 25px;
   border-color: gray;
   border-radius: 5px;
   font-size: 10px;
@@ -225,5 +234,27 @@ table {
   width: 400px;
 }
 
+/** Project page **/
 
-/** Graphs **/
+.project-team-container { 
+  margin-left: 50px;
+  width: 30%;
+  border-radius: 6px;
+  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
+}
+
+.td-team {
+  padding-right: 35px;
+  padding-left: 15px;
+}
+
+.th-project {
+  padding-left: 15px;
+}
+
+.new-button-member {
+  float: left;
+  width: 100px;
+  height: 25px;
+}
+
