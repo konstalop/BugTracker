@@ -136,7 +136,7 @@ fieldset {
 span {display: block;}
 
 /** background div in every page **/
-.home-wrapper, .project-view-container {
+.home-wrapper, .project-view-container, .tickets-wrapper, .account-wrapper {
   left: 0px;
   bottom: 0px;
   background-color: white;
@@ -148,7 +148,7 @@ span {display: block;}
 }
 
 /** home header **/ 
-.home-h1, .project-view-name {color:var(--primary-color); font-weight: 500; font-size: 25px;}
+.home-h1, .project-view-name, .tickets-h1 {color:var(--primary-color); font-weight: 500; font-size: 25px;}
 
 /** Projects **/
 
@@ -176,7 +176,7 @@ span {display: block;}
   cursor: pointer;
 }
 
-.projects-h2, .project-team-header {
+.projects-h2, .project-team-header, .tickets-h2 {
    margin-left: 25px;
    margin-bottom: 25px;
    text-align: left;
@@ -185,7 +185,7 @@ span {display: block;}
    font-size: 15px;
   }
 
-.projects-container {
+.projects-container, .tickets-container {
   background-color: white;
   margin-left: 50px;
   margin-right: 50px;
@@ -204,13 +204,13 @@ span {display: block;}
 
 }
 
-.projects-table, .team-table {
+.projects-table, .team-table, .tickets-table {
   max-height: calc(50vh - 25%);
   margin-left: 10px;
   margin-right: 15px;
 }
 
-.th1, .th3, .th2, .th-project {
+.th1, .th3, .th2, .th-project, .th-tickets {
   margin-right: 15px;
   margin-left: 25px;
   border-color: gray;
@@ -221,7 +221,7 @@ span {display: block;}
   text-align: left;
 }
 
-.th1 {
+.th1, .th-tickets {
   width: 250px;
   float: left;
 }

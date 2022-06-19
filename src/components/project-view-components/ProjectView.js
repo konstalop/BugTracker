@@ -22,9 +22,9 @@ function ProjectView() {
                         <button className='new-button-member'>New member</button>
                 </table>
             </div>
-            <div className='tickets-container'>
+                <div className='tickets-project-container'>
                 
-            </div>
+                </div>
             </div>
         </div>
     )

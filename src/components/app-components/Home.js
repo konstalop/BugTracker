@@ -4,11 +4,10 @@ import Project from './Project'
 
 function Home() {
 
-    let currentPage = "Home"
 
     return (
         <div className='home-wrapper'>
-            <h1 className='home-h1'>{currentPage}</h1>
+            <h1 className='home-h1'>Home</h1>
             <div className="projects-container">
                 <h2 className='projects-h2'>My Projects</h2>
                     <table classname="projects-table">
