@@ -10,7 +10,7 @@ function Ticket() {
 
         return (
             <tr className='ticket-row'>
-                <td className='ticket-name'><Link className='ticket-name' to="/ticket">{ticketName}</Link></td>
+                <td className='ticket-name'><Link className='ticket-name' to="/project">{ticketName}</Link></td>
                 <td className='ticket-type'>{type}</td>
                 <td className='ticket-date'>{date}</td>
             </tr>

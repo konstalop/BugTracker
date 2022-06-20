@@ -135,16 +135,20 @@ fieldset {
 
 span {display: block;}
 
+
+
 /** background div in every page **/
 .home-wrapper, .project-view-container, .tickets-wrapper, .account-wrapper {
   left: 0px;
   bottom: 0px;
   background-color: white;
   border-radius: 6px;
-  min-width: 90%;
+  width: 90%;
+  min-width: 600px;
   height: 97vh;
   float: right;
   text-align: center;
+  position: sticky;
 }
 
 /** home header **/ 
@@ -177,7 +181,7 @@ span {display: block;}
   cursor: pointer;
 }
 
-.projects-h2, .project-team-header, .tickets-h2 {
+.projects-h2, .project-team-header, .tickets-h2, .project-tickets-h4 {
    margin-left: 25px;
    margin-bottom: 25px;
    text-align: left;
@@ -237,11 +241,13 @@ span {display: block;}
 
 /** Project page **/
 
-.project-team-container { 
+.project-team-container{ 
   margin-left: 50px;
-  width: 30%;
+  width: 35%;
   border-radius: 6px;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
+  margin-right: 10px;
+  overflow: hidden;
 }
 
 .td-team {
@@ -259,4 +265,18 @@ span {display: block;}
   height: 25px;
 }
 
-/** Tickets page **/
+.tickets-project-container {
+  overflow: hidden;
+  margin-right: 15px;
+  margin-left: 15px;
+  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
+  width: 59%;
+  float: right;
+}
+
+.project-team-container {
+  float: left;
+}
+
+
+

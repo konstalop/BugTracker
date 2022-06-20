@@ -23,7 +23,7 @@ function ProjectView() {
                 </table>
             </div>
                 <div className='tickets-project-container'>
-                
+                    <h4 className='project-tickets-h4'>Tickets</h4>
                 </div>
             </div>
         </div>
