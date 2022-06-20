@@ -5,9 +5,8 @@ function Account() {
 
     return (
         <div> 
-        <Sidebar></Sidebar>
+        <Sidebar/>
             <div className='account-wrapper'>
-
             </div>
         </div>
     )

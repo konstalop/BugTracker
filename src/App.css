@@ -154,7 +154,8 @@ span {display: block;}
 
 
 
-.project-name, .project-desc, .project-author, .td-team {
+.project-name, .project-desc, .project-author, .td-team, .ticket-name, .ticket-type, .ticket-date
+{
   margin-left: 25px;
   font-size: 13px;
   text-align: left;
@@ -164,14 +165,14 @@ span {display: block;}
   color: rgb(61, 60, 60);
 }
 
-.project-name, .project-name:visited{
+.project-name, .project-name:visited, .ticket-name{
    color:var(--primary-color);
    font-size: 13px;
    font-weight: bold;
    text-decoration: none;
   }
 
-.project-name:hover {
+.project-name:hover, .ticket-name:hover {
   color: #1f56bb;
   cursor: pointer;
 }
@@ -210,7 +211,7 @@ span {display: block;}
   margin-right: 15px;
 }
 
-.th1, .th3, .th2, .th-project, .th-tickets {
+.th1, .th3, .th2, .th-project{
   margin-right: 15px;
   margin-left: 25px;
   border-color: gray;
@@ -221,7 +222,7 @@ span {display: block;}
   text-align: left;
 }
 
-.th1, .th-tickets {
+.th1 {
   width: 250px;
   float: left;
 }
@@ -258,3 +259,4 @@ span {display: block;}
   height: 25px;
 }
 
+/** Tickets page **/
