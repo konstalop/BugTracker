@@ -74,7 +74,7 @@ fieldset {
   color: white;
 }
 
-.input-auth-submit:hover, .new-button:hover, .new-button-member:hover {
+.input-auth-submit:hover, .new-button:hover, .new-button-member:hover, .new-ticket:hover {
   background-color: #1f56bb;
 }
 
@@ -99,7 +99,7 @@ fieldset {
 }
 
 
-.sidebar-logout, .new-button, .new-button-member {
+.sidebar-logout, .new-button, .new-button-member, .new-ticket {
   border: 0;
   color: white;
   background-color: rgb(158, 45, 45);
@@ -110,7 +110,7 @@ fieldset {
   cursor: pointer;
 }
 
-.new-button, .new-button-member {
+.new-button, .new-button-member, .new-ticket {
   background-color: var(--primary-color);
 }
 
@@ -259,7 +259,7 @@ span {display: block;}
   padding-left: 15px;
 }
 
-.new-button-member {
+.new-button-member, .new-ticket {
   float: left;
   width: 100px;
   height: 25px;
@@ -272,6 +272,7 @@ span {display: block;}
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
   width: 59%;
   float: right;
+  max-height:  45%;
 }
 
 .project-team-container {
