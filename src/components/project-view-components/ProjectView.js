@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from '../app-components/Sidebar'
 import TeamMember from './TeamMember'
 import Ticket from '../app-components/Ticket'
+import Selected from './Selected'
 
 function ProjectView() {
 
@@ -21,7 +22,11 @@ function ProjectView() {
                         <th className='th-project'>EMAIL</th>
                         <th className='th-project'>PHONE</th>
                     </tr>
-                        <TeamMember></TeamMember>
+                        <TeamMember/>
+                        <TeamMember/>
+                        <TeamMember/>
+                        <TeamMember/>
+                        <TeamMember/>
                         <button className='new-button-member'>New member</button>
                 </table>
             </div>
@@ -30,8 +35,8 @@ function ProjectView() {
                     <table className='project-tickets-table'>
                         <tr>
                             <th className='th1'>NAME</th>
-                            <th className='th2'>TYPE</th>
-                            <th className='th3'>DATE</th>
+                            <th className='th2'>DESCRIPTION</th>
+                            <th className='th3'>AUTHOR</th>
                         </tr>
                         <Ticket/>
                         <Ticket/>
@@ -41,9 +46,7 @@ function ProjectView() {
                     </table>
                     <button className='new-ticket'>New</button>
                 </div>
-                <div className='ticket-view-container'>
-
-                </div>
+                <Selected/>
             </div>
         </div>
     )

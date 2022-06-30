@@ -141,7 +141,7 @@ span {display: block;}
 .home-wrapper, .project-view-container, .tickets-wrapper, .account-wrapper {
   left: 0px;
   bottom: 0px;
-  background-color: white;
+  background-color: rgb(245, 245, 245);
   border-radius: 6px;
   width: 90%;
   min-width: 600px;
@@ -158,7 +158,7 @@ span {display: block;}
 
 
 
-.project-name, .project-desc, .project-author, .td-team, .ticket-name, .ticket-type, .ticket-date
+.project-name, .project-desc, .project-author, .td-team, .ticket-name, .ticket-type, .ticket-date, .ticket-info-td
 {
   margin-left: 25px;
   font-size: 13px;
@@ -197,7 +197,7 @@ span {display: block;}
   width: parent;
   height: 200px;
   border-radius: 6px;
-  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
+  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
 }
 .project-container {
   background-color: white;
@@ -215,7 +215,7 @@ span {display: block;}
   margin-right: 15px;
 }
 
-.th1, .th3, .th2, .th-project{
+.th1, .th3, .th2, .th-project, .ticket-info-th{
   margin-right: 15px;
   margin-left: 25px;
   border-color: gray;
@@ -245,9 +245,9 @@ span {display: block;}
   margin-left: 50px;
   width: 35%;
   border-radius: 6px;
-  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
+  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
   margin-right: 10px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .td-team {
@@ -266,18 +266,38 @@ span {display: block;}
 }
 
 .tickets-project-container {
-  overflow: hidden;
   margin-right: 15px;
   margin-left: 15px;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
   width: 59%;
   float: right;
   max-height:  45%;
+  overflow: auto;
 }
 
 .project-team-container {
   float: left;
 }
 
+.ticket-view-container {
+  overflow: auto;
+  float: left;
+  top: 60%;
+  width: 50%;
+  max-height: 38%;
+  margin-left: 50px;
+  position: absolute;
+  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
+}
 
+
+.project-tickets-view-h4 {
+  text-align: left;
+  margin-left: 25px;
+}
+
+.ticket-info-td, .ticket-info-th {
+  padding-left: 25px;
+  max-width: 250px;
+}
 
