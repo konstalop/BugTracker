@@ -3,10 +3,14 @@ import Sidebar from '../app-components/Sidebar'
 import TeamMember from './TeamMember'
 import Ticket from '../app-components/Ticket'
 import Selected from './Selected'
+import ManageTicket from '../app-components/ManageTicket'
+import { useState } from 'react'
 
 function ProjectView() {
 
-    const projectName = "Build bugtracker"
+    const [buttonPopup, setButtonPopup] = useState(false);
+
+    const projectName = "Build bugtracker";
 
     return (
         
@@ -44,9 +48,12 @@ function ProjectView() {
                         <Ticket/>
                         <Ticket/>
                     </table>
-                    <button className='new-ticket'>New</button>
+                    <button onClick={() => setButtonPopup(true)}
+                     className='new-ticket'>New</button>
                 </div>
                 <Selected/>
+                <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup}>
+                </ManageTicket>
             </div>
         </div>
     )

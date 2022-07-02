@@ -33,6 +33,7 @@ function Selected() {
                         <td className='ticket-info-td'>Open</td>
                         <td className='ticket-info-td'>Immediate</td>
                     </tr>
+                    <button className='new-ticket'>Edit ticket</button>
                     </table>
         </div>
     )
