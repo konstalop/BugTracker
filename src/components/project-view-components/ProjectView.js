@@ -4,6 +4,7 @@ import TeamMember from './TeamMember'
 import Ticket from '../app-components/Ticket'
 import Selected from './Selected'
 import ManageTicket from '../app-components/ManageTicket'
+import Modal from '../app-components/Modal'
 import { useState } from 'react'
 
 function ProjectView() {
@@ -21,6 +22,7 @@ function ProjectView() {
             <div className='project-team-container'>
                 <h4 className='project-team-header'>Team</h4>
                 <table className='team-table'>
+                        <tbody>
                     <tr>
                         <th className='th-project'>MEMBER</th>
                         <th className='th-project'>EMAIL</th>
@@ -31,12 +33,15 @@ function ProjectView() {
                         <TeamMember/>
                         <TeamMember/>
                         <TeamMember/>
-                        <button className='new-button-member'>New member</button>
+                        
+                        </tbody>
                 </table>
+                <button className='new-button-member'>New member</button>
             </div>
                 <div className='tickets-project-container'>
                     <h4 className='project-tickets-h4'>Tickets</h4>
                     <table className='project-tickets-table'>
+                        <tbody>
                         <tr>
                             <th className='th1'>NAME</th>
                             <th className='th2'>DESCRIPTION</th>
@@ -47,13 +52,15 @@ function ProjectView() {
                         <Ticket/>
                         <Ticket/>
                         <Ticket/>
+                        </tbody>
                     </table>
                     <button onClick={() => setButtonPopup(true)}
                      className='new-ticket'>New</button>
                 </div>
                 <Selected/>
-                <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup}>
-                </ManageTicket>
+                <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
+                    <ManageTicket></ManageTicket>
+                </Modal>
             </div>
         </div>
     )

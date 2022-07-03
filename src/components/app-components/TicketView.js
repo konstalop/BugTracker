@@ -9,12 +9,14 @@ function TicketView() {
         <div className='tickets-container'>
             <h2 className='tickets-h2'>Tickets</h2>
             <table className='tickets-table'></table>
+            <tbody>
             <tr>
                 <th className='th1'>NAME</th>
                 <th className='th2'>TYPE</th>
                 <th className='th3'>DATE</th>
             </tr>
             <Ticket/>
+            </tbody>
         </div>
     </div>
     )

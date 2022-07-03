@@ -16,7 +16,11 @@ function Sidebar() {
                     <p className="sidebar-text"><Link className='sidebar-link'to="/app">Home</Link></p>
                     <p className="sidebar-text"><Link className='sidebar-link'to="/tickets">Tickets</Link></p>
                     <p className="sidebar-text"><Link className='sidebar-link'to="/account">Account</Link></p>
-                    <button className="new-button">New Project</button>
+                    <button 
+                        className="new-button"
+                    
+                        >New Project
+                    </button>
                     <button className="sidebar-logout" onClick={routeTo}>Logout</button>
         </div>
     )

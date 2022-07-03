@@ -1,7 +1,7 @@
 import React from 'react'
 import ManageTicket from '../app-components/ManageTicket'
 import { useState } from 'react'
-
+import Modal from '../app-components/Modal';
 function Selected() {
 
     const [buttonPopup, setButtonPopup] = useState(false);
@@ -13,6 +13,7 @@ function Selected() {
         <div className='ticket-view-container'>
                     <h4 className='project-tickets-view-h4'>Selected Ticket</h4>
                     <table className='ticket-info-table'>
+                        <tbody>
                     <tr>
                         <th className='ticket-info-th'>TITLE</th>
                         <th className='ticket-info-th'>DESCRIPTION</th>
@@ -39,16 +40,20 @@ function Selected() {
                     <tr>
                         <td className='ticket-info-td'>Open</td>
                     </tr>
+                   
+                     </tbody>
+                    </table>
                     <button
                      className='new-ticket'
                      onClick={() => setButtonPopup(true)}
                      >Edit ticket
                      </button>
-                    </table>
-                    <ManageTicket
+                    <Modal
                         trigger={buttonPopup} 
                         setTrigger={setButtonPopup}
-                    />
+                    >
+                        <ManageTicket></ManageTicket>
+                    </Modal>
                    
         </div>
     )

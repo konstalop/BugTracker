@@ -3,7 +3,7 @@ import React from 'react'
 function ManageTicket(props) {
   
 
-    return (props.trigger) ? (
+    return (
         <div className='manage-ticket'> 
                 <div className='manage-ticket-inner'>
                     <h4 className='manage-ticket-h4'>Manage Ticket</h4>
@@ -49,11 +49,12 @@ function ManageTicket(props) {
                             className='save-button'
                             onClick={() => props.setTrigger(false)}
                             value="Submit"
+
                         />
                     </form>
                 </div>
         </div>
-    ) : "";
+    )
 }
 
 export default ManageTicket
