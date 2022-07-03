@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ManageTicket(props) {
-
+  
 
     return (props.trigger) ? (
         <div className='manage-ticket'> 
@@ -33,18 +33,22 @@ function ManageTicket(props) {
                             </select>
                         </label>
                         <label className='manage-label-options'>Status
-                        <select id="status" name="status" className='input-ticket-option'>
+                            <select id="status" name="status" className='input-ticket-option'>
                                 <option value="open">Open</option>
                                 <option value="working">Working</option>
                                 <option value="closed">Closed</option>
                             </select>
                         </label>
-                        <button className='decline-button' onClick={() => props.setTrigger(false)}>Cancel</button>
+                        <button
+                            className='decline-button' 
+                            onClick={() => props.setTrigger(false)}
+                            >Close
+                        </button>
                         <input
-                        type="submit"
-                        className='save-button'
-                        onClick={() => props.setTrigger(false)}
-                        value="Submit"
+                            type="submit"
+                            className='save-button'
+                            onClick={() => props.setTrigger(false)}
+                            value="Submit"
                         />
                     </form>
                 </div>

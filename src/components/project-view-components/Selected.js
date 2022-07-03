@@ -1,12 +1,20 @@
 import React from 'react'
+import ManageTicket from '../app-components/ManageTicket'
+import { useState } from 'react'
 
 function Selected() {
+
+    const [buttonPopup, setButtonPopup] = useState(false);
+
+
+
+
     return (
         <div className='ticket-view-container'>
                     <h4 className='project-tickets-view-h4'>Selected Ticket</h4>
                     <table className='ticket-info-table'>
                     <tr>
-                        <th className='ticket-info-th'>NAME</th>
+                        <th className='ticket-info-th'>TITLE</th>
                         <th className='ticket-info-th'>DESCRIPTION</th>
                         <th className='ticket-info-th'>AUTHOR</th>
                     </tr>
@@ -31,8 +39,17 @@ function Selected() {
                     <tr>
                         <td className='ticket-info-td'>Open</td>
                     </tr>
-                    <button className='new-ticket'>Edit ticket</button>
+                    <button
+                     className='new-ticket'
+                     onClick={() => setButtonPopup(true)}
+                     >Edit ticket
+                     </button>
                     </table>
+                    <ManageTicket
+                        trigger={buttonPopup} 
+                        setTrigger={setButtonPopup}
+                    />
+                   
         </div>
     )
 }

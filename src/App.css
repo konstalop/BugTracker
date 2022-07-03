@@ -313,7 +313,7 @@ span {display: block;}
 
 /** ManageTicket **/
 
-.manage-ticket {
+.manage-ticket, .confirm {
   position: fixed;
   top: 0;
   left: 0;
@@ -325,7 +325,7 @@ span {display: block;}
   align-items: center;
 }
 
-.manage-ticket-inner {
+.manage-ticket-inner, .confirm-inner {
   position: relative;
   padding: 16px;
   width: 100%;
@@ -339,6 +339,11 @@ span {display: block;}
 .manage-ticket-inner {
   position: absolute;
   top: 50px;
+}
+
+.confirm-inner {
+  width: 250px;
+  bottom: 150px;
 }
 
 .manage-ticket-h4 {
@@ -382,7 +387,7 @@ textarea {
   padding: 5px;
 }
 
- .decline-button, .save-button {
+ .decline-button, .save-button, .decline-button, .confirm-button {
   text-align: center;
   margin: 15px;
   padding: 7px 15px 7px 15px;
@@ -393,7 +398,7 @@ textarea {
   
 }
 
-.save-button {
+.save-button, .confirm-button {
   background-color: #6fc26c;
   border-bottom: rgb(87, 163, 77) 2px solid;
   border-left: rgb(87, 163, 77) 1px solid;
@@ -409,6 +414,6 @@ textarea {
   border-right: rgb(102, 23, 23)1px solid;
 }
 
-.save-button:hover {
+.save-button:hover, .confirm-button:hover {
   opacity: 0.8;
 }
