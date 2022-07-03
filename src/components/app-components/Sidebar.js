@@ -1,8 +1,11 @@
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-
-
+import { useState } from 'react'
+import Modal from './Modal';
+import CreateProject from './CreateProject';
 function Sidebar() {
+
+    const [buttonPopup, setButtonPopup] = useState(false);
 
     let navigate = useNavigate()
     const routeTo = () => {
@@ -18,10 +21,10 @@ function Sidebar() {
                     <p className="sidebar-text"><Link className='sidebar-link'to="/account">Account</Link></p>
                     <button 
                         className="new-button"
-                    
+                        onClick={() => setButtonPopup(true)}
                         >New Project
-                    </button>
-                    <button className="sidebar-logout" onClick={routeTo}>Logout</button>
+                    </button>   
+                    <button className="sidebar-logout" onClick={routeTo}>Logout</button>                
         </div>
     )
 }

@@ -1,9 +1,8 @@
 import React from 'react'
 import Project from './Project'
-
+import { useState } from 'react'
 
 function Home() {
-
 
     return (
         <div className='home-wrapper'>
@@ -17,6 +16,8 @@ function Home() {
                             <th className='th2'>DESCRIPTION</th>
                             <th className='th3'>CREATED BY</th>
                         </tr>
+                        <Project></Project>
+                        <Project></Project>
                         <Project></Project>
                         <Project></Project>
                         </tbody>

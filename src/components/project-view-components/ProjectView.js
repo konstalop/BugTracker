@@ -3,7 +3,7 @@ import Sidebar from '../app-components/Sidebar'
 import TeamMember from './TeamMember'
 import Ticket from '../app-components/Ticket'
 import Selected from './Selected'
-import ManageTicket from '../app-components/ManageTicket'
+import ManageTicket from './ManageTicket'
 import Modal from '../app-components/Modal'
 import { useState } from 'react'
 

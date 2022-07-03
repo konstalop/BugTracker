@@ -1,5 +1,5 @@
 import React from 'react'
-import ManageTicket from '../app-components/ManageTicket'
+import ManageTicket from './ManageTicket';
 import { useState } from 'react'
 import Modal from '../app-components/Modal';
 function Selected() {

@@ -7,6 +7,7 @@ function Account() {
         <div> 
         <Sidebar/>
             <div className='account-wrapper'>
+                
             </div>
         </div>
     )

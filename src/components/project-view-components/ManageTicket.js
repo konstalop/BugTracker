@@ -9,7 +9,7 @@ function ManageTicket(props) {
                     <h4 className='manage-ticket-h4'>Manage Ticket</h4>
                     <form className='manage-ticket-form'>
                         <label className='manage-label'>Title
-                        <input className='input-ticket-title' placeholder='Title' type="text"></input>
+                            <input className='input-ticket-title' placeholder='Title' type="text"></input>
                         </label>
                         <label className='manage-label'>Description
                             <textarea className='input-ticket-desc' rows={4} placeholder="Describe the ticket"type="text"></textarea>
