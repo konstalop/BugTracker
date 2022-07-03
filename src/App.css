@@ -3,6 +3,8 @@ html {
   background-color: var(--primary-color);
 }
 
+
+
 :root {
   --primary-color: #4281f5;
 }
@@ -78,6 +80,10 @@ fieldset {
   background-color: #1f56bb;
 }
 
+.new-button:active {
+  background-color: #4281f5;
+}
+
 /** App Sidebar **/
 
 .sidebar-wrapper {
@@ -114,8 +120,9 @@ fieldset {
   background-color: var(--primary-color);
 }
 
-.sidebar-logout:hover {
-  background-color: rgb(124, 14, 14);
+.sidebar-logout:hover, .decline-button:hover {
+  opacity: 0.8;
+  background-color: rgb(187, 81, 81);
 }
 .sidebar-link:visited, .sidebar-link {
   text-decoration: none;
@@ -320,12 +327,12 @@ span {display: block;}
 
 .manage-ticket-inner {
   position: relative;
-  padding: 32px;
+  padding: 16px;
   width: 100%;
-  max-width: 640px;
+  max-width: 400px;
   background-color: white;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   border-radius: 6px;
 }
 
@@ -335,10 +342,73 @@ span {display: block;}
 }
 
 .manage-ticket-h4 {
-  text-align: center;
-
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 15px;
 }
 
-.save-button, .decline-button {
-  margin: 10px;
+.input-ticket-title, .input-ticket-desc, .input-ticket-time {
+  width: 350px;
+  margin: 5px;
+  display: block;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+textarea {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  resize: none;
+}
+
+.manage-label, .manage-label-options {
+  display: block;
+  padding: 15px;
+  font-size: 13px;
+  font-weight: 500;
+  color: gray;
+}
+
+.manage-label-options {
+  display: inline-block;
+}
+
+.input-ticket-option {
+  border: 1px solid gray;
+  border-radius: 3px;
+  display: block;
+  margin: 5px;
+  padding: 5px;
+}
+
+ .decline-button, .save-button {
+  text-align: center;
+  margin: 15px;
+  padding: 7px 15px 7px 15px;
+  border-radius: 6px;
+  border: 0;
+  color: #FFF;
+  cursor: pointer;
+  
+}
+
+.save-button {
+  background-color: #6fc26c;
+  border-bottom: rgb(87, 163, 77) 2px solid;
+  border-left: rgb(87, 163, 77) 1px solid;
+  border-right: rgb(87, 163, 77)1px solid;
+  float: right;
+}
+
+.decline-button {
+  float: left;
+  background-color: rgb(158, 45, 45);
+  border-bottom: rgb(102, 23, 23) 2px solid;
+  border-left: rgb(102, 23, 23) 1px solid;
+  border-right: rgb(102, 23, 23)1px solid;
+}
+
+.save-button:hover {
+  opacity: 0.8;
 }

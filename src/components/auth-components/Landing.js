@@ -31,11 +31,11 @@ const routeTo = () => {
                placeholder="Password"
                className="input-auth" 
               />
-            <input 
-            type="submit"
-            className="input-auth-submit" 
-            value="Login"
-            onClick={routeTo}
+              <input 
+              type="submit"
+              className="input-auth-submit" 
+              value="Login"
+              onClick={routeTo}
              />
             <p className="new-user-text"><Link to="/register" >Create account</Link></p>
             <p className="new-user-text"><Link to="/">Forgot password?</Link></p>
