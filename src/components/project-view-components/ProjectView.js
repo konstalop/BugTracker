@@ -29,10 +29,6 @@ function ProjectView() {
                         <th className='th-project'>PHONE</th>
                     </tr>
                         <TeamMember/>
-                        <TeamMember/>
-                        <TeamMember/>
-                        <TeamMember/>
-                        <TeamMember/>
                         
                         </tbody>
                 </table>
@@ -48,10 +44,6 @@ function ProjectView() {
                             <th className='th3'>AUTHOR</th>
                         </tr>
                         <Ticket/>
-                        <Ticket/>
-                        <Ticket/>
-                        <Ticket/>
-                        <Ticket/>
                         </tbody>
                     </table>
                     <button onClick={() => setButtonPopup(true)}
@@ -59,7 +51,7 @@ function ProjectView() {
                 </div>
                 <Selected/>
                 <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    <ManageTicket></ManageTicket>
+                    <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup}></ManageTicket>
                 </Modal>
             </div>
         </div>

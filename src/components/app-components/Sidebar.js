@@ -26,7 +26,7 @@ function Sidebar() {
                     </button>   
                     <button className="sidebar-logout" onClick={routeTo}>Logout</button> 
                     <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
-                        <CreateProject></CreateProject>
+                        <CreateProject trigger={buttonPopup} setTrigger={setButtonPopup}></CreateProject>
                     </Modal>               
         </div>
     )

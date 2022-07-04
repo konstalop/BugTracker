@@ -332,15 +332,15 @@ span {display: block;}
   border-radius: 6px;
 }
 
+.create-project-inner {
+  position:relative;
+}
+
 .manage-ticket-inner, .create-project-inner {
   position: absolute;
   top: 50px;
 }
 
-.confirm-inner {
-  width: 250px;
-  bottom: 150px;
-}
 
 .manage-ticket-h4, .new-project-h4 {
   text-align: center;
@@ -416,4 +416,13 @@ textarea {
 
 .create-project {
   z-index: 1;
+}
+
+.modal-close-btn {
+  right: 500px;
+  position: absolute;
+  color: red;
+  z-index: 2;
+  top: 20px;
+  right: 0;
 }
