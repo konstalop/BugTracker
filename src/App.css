@@ -61,7 +61,7 @@ fieldset {
   margin: 15px 0;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .input-auth-submit {
@@ -309,7 +309,7 @@ span {display: block;}
 
 /** ManageTicket **/
 
-.manage-ticket, .confirm {
+.manage-ticket, .create-project {
   position: fixed;
   top: 0;
   left: 0;
@@ -321,7 +321,7 @@ span {display: block;}
   align-items: center;
 }
 
-.manage-ticket-inner, .confirm-inner {
+.manage-ticket-inner, .create-project-inner {
   position: relative;
   padding: 16px;
   width: 100%;
@@ -332,7 +332,7 @@ span {display: block;}
   border-radius: 6px;
 }
 
-.manage-ticket-inner {
+.manage-ticket-inner, .create-project-inner {
   position: absolute;
   top: 50px;
 }
@@ -342,29 +342,29 @@ span {display: block;}
   bottom: 150px;
 }
 
-.manage-ticket-h4 {
+.manage-ticket-h4, .new-project-h4 {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
   margin-left: 15px;
 }
 
-.input-ticket-title, .input-ticket-desc, .input-ticket-time {
+.input-ticket-title, .input-ticket-desc, .input-ticket-time, .input-project-title, .input-project-desc {
   width: 350px;
   margin: 5px;
   display: block;
-  padding: 5px;
+  padding: 10px;
   border-radius: 3px;
   border: 1px solid gray;
 }
 
-/* Used only for managing tickets*/
+/* Used only for managing tickets and projects*/
 textarea {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   resize: none;
 }
 
-.manage-label, .manage-label-options {
+.manage-label, .manage-label-options, .new-project-label {
   display: block;
   padding: 15px;
   font-size: 13px;
@@ -380,7 +380,7 @@ textarea {
   border-radius: 3px;
   display: block;
   margin: 5px;
-  padding: 5px;
+  padding: 7px;
 }
 
  .decline-button, .save-button, .decline-button, .confirm-button {
@@ -412,4 +412,8 @@ textarea {
 
 .save-button:hover, .confirm-button:hover {
   opacity: 0.8;
+}
+
+.create-project {
+  z-index: 1;
 }

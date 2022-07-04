@@ -24,7 +24,10 @@ function Sidebar() {
                         onClick={() => setButtonPopup(true)}
                         >New Project
                     </button>   
-                    <button className="sidebar-logout" onClick={routeTo}>Logout</button>                
+                    <button className="sidebar-logout" onClick={routeTo}>Logout</button> 
+                    <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
+                        <CreateProject></CreateProject>
+                    </Modal>               
         </div>
     )
 }
