@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Sidebar from '../app-components/Sidebar'
 import TeamMember from './TeamMember'
 import Ticket from '../app-components/Ticket'
@@ -6,12 +6,15 @@ import Selected from './Selected'
 import ManageTicket from './ManageTicket'
 import Modal from '../app-components/Modal'
 import { useState } from 'react'
+import { TicketContext } from '../../contexts/TicketContext'
 
 function ProjectView() {
 
+    const {tickets} = useContext(TicketContext)
+
     const [buttonPopup, setButtonPopup] = useState(false);
 
-    const projectName = "Build bugtracker";
+    const projectName = "Build tracker";
 
     return (
         
@@ -39,11 +42,15 @@ function ProjectView() {
                     <table className='project-tickets-table'>
                         <tbody>
                         <tr>
-                            <th className='th1'>NAME</th>
+                            <th className='th1'>TITLE</th>
                             <th className='th2'>DESCRIPTION</th>
                             <th className='th3'>AUTHOR</th>
                         </tr>
-                        <Ticket/>
+                        {
+                            tickets.map(ticket => (
+                                <Ticket key={ticket.id} ticket={ticket}/>
+                            ))
+                        }
                         </tbody>
                     </table>
                     <button onClick={() => setButtonPopup(true)}

@@ -12,6 +12,7 @@ function CreateProject(props) {
     const [project, setProject] = useState({
         projectName: "",
         projectDesc: "",
+        projectAuthor: "konsta"
     });
 
     const handleProjectName = (event) => {
@@ -23,11 +24,11 @@ function CreateProject(props) {
     }
 
 
-    const {projectName, projectDesc} = project
+    const {projectName, projectDesc, projectAuthor} = project
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addProject(projectName, projectDesc, "konsta")
+        addProject(projectName, projectDesc, projectAuthor)
         console.log(project)
         props.setTrigger(false)
     }
@@ -43,7 +44,8 @@ function CreateProject(props) {
                         value={project.projectName}
                         className="input-project-title"
                         placeholder="Project name"
-                        type="text"></input>
+                        type="text"
+                        ></input>
                     </label>
                     <label className="new-project-label">Description
                         <textarea

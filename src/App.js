@@ -12,11 +12,13 @@ import {
   Route,
 } from "react-router-dom";
 import ProjectContextProvider from './contexts/ProjectContext';
+import TicketContextProvider from './contexts/TicketContext';
 
 function App() {
   return (
     <>
     <ProjectContextProvider>
+      <TicketContextProvider>
       <Router>
         <div className='appContainer'>
         <Routes>
@@ -29,6 +31,7 @@ function App() {
         </Routes> 
         </div>
       </Router>
+      </TicketContextProvider>
     </ProjectContextProvider>
     </>
   );
