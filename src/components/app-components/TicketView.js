@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { TicketContext } from '../../contexts/TicketContext'
 import Ticket from './Ticket'
 
 
+
 function TicketView() {
+
+    const {tickets} = useContext(TicketContext)
+
     return (
         <div className='tickets-wrapper'>
         <h1 className='tickets-h1'>My Tickets</h1>
@@ -15,7 +20,11 @@ function TicketView() {
                 <th className='th2'>TYPE</th>
                 <th className='th3'>DATE</th>
             </tr>
-            <Ticket/>
+            {
+                            tickets.map(ticket => (
+                                <Ticket key={ticket.id} ticket={ticket}/>
+                            ))
+            }
             </tbody>
         </div>
     </div>
