@@ -1,16 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Project() {
+function Project({project}) {
 
-    let projectName ='Build bugtracker'
-    let desc = 'Build bugtracker using MERN stack'
-    let author = 'Konsta'
     return (
         <tr className='project-row'>
-            <td className='project-name'><Link className='project-name' to="/project">{projectName}</Link></td>
-            <td className='project-desc'>{desc}</td>
-            <td className='project-author'>{author}</td>
+            <td className='project-name'><Link className='project-name' to="/project">{project.name}</Link></td>
+            <td className='project-desc'>{project.desc}</td>
+            <td className='project-author'>{project.author}</td>
         </tr>
     )
 }

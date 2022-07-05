@@ -11,10 +11,12 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ProjectContextProvider from './contexts/ProjectContext';
 
 function App() {
   return (
     <>
+    <ProjectContextProvider>
       <Router>
         <div className='appContainer'>
         <Routes>
@@ -27,6 +29,7 @@ function App() {
         </Routes> 
         </div>
       </Router>
+    </ProjectContextProvider>
     </>
   );
 }

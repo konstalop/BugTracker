@@ -7,7 +7,7 @@ import {useContext} from "react"
 
 function CreateProject(props) {
 
-   //const {addProject} = useContext(ProjectContext)
+    const {addProject} = useContext(ProjectContext)
 
     const [project, setProject] = useState({
         projectName: "",
@@ -27,7 +27,7 @@ function CreateProject(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-       // addProject(projectName, projectDesc, "konsta")
+        addProject(projectName, projectDesc, "konsta")
         console.log(project)
         props.setTrigger(false)
     }
