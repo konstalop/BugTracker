@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ManageTicket from './ManageTicket';
 import { useState } from 'react'
 import Modal from '../app-components/Modal';
-function Selected() {
+function Selected({ticket}) {
 
     const [buttonPopup, setButtonPopup] = useState(false);
-
-
-
 
     return (
         <div className='ticket-view-container'>
@@ -36,9 +33,11 @@ function Selected() {
                     </tr>
                     <tr>
                         <th className='ticket-info-th'>STATUS</th>
+                        <th className='ticket-info-th'>TIME ESTIMATE (HOURS)</th>
                     </tr>
                     <tr>
                         <td className='ticket-info-td'>Open</td>
+                        <td className='ticket-info-td'>20</td>
                     </tr>
                    
                      </tbody>
@@ -52,7 +51,7 @@ function Selected() {
                         trigger={buttonPopup} 
                         setTrigger={setButtonPopup}
                     >
-                        <ManageTicket></ManageTicket>
+                        <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup}></ManageTicket>
                     </Modal>
                    
         </div>

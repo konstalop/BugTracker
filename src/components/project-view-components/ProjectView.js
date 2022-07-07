@@ -7,14 +7,24 @@ import ManageTicket from './ManageTicket'
 import Modal from '../app-components/Modal'
 import { useState } from 'react'
 import { TicketContext } from '../../contexts/TicketContext'
-
+import { ProjectContext } from '../../contexts/ProjectContext'
+import { useParams } from "react-router-dom"
 function ProjectView() {
+
+    const {projects} = useContext(ProjectContext)
 
     const {tickets} = useContext(TicketContext)
 
-    const [buttonPopup, setButtonPopup] = useState(false);
+    const [buttonPopup, setButtonPopup] = useState(false)
 
-    const projectName = "Build tracker";
+    const projectName = "Build tracker"
+
+
+    const selectedProject = useParams();
+    console.log('selected projectid:'+ selectedProject.projectId);
+    
+    const projectIndex = projects.findIndex(project => project.id === selectedProject.projectId)
+    
 
     return (
         
@@ -44,11 +54,11 @@ function ProjectView() {
                         <tr>
                             <th className='th1'>TITLE</th>
                             <th className='th2'>DESCRIPTION</th>
-                            <th className='th3'>AUTHOR</th>
+                            <th className='th3'>ESTIMATED TIME (HOURS)</th>
                         </tr>
                         {
-                            tickets.map(ticket => (
-                                <Ticket key={ticket.id} ticket={ticket}/>
+                            projects[projectIndex].tickets.map(ticket => (
+                                <Ticket key={ticket.ticketId} ticket={ticket}/>
                             ))
                         }
                         </tbody>
@@ -56,7 +66,7 @@ function ProjectView() {
                     <button onClick={() => setButtonPopup(true)}
                      className='new-ticket'>New</button>
                 </div>
-                <Selected/>
+                <Selected ticket={tickets}/>
                 <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
                     <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup}></ManageTicket>
                 </Modal>

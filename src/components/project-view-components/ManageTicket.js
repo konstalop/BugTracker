@@ -24,13 +24,26 @@ function ManageTicket(props) {
 
     const {title, desc, time, type, priority, status, date, author} = ticket
 
+    /**
+     * Handle submitting form and creating a new ticket
+     * @param {*} event event 
+     */
     const handleSubmit = (event) => {
+        event.preventDefault()
         props.setTrigger(false)
         addTicket(title, desc, time, type, priority, status, date, author);
         console.log(ticket)
     }
 
 
+    /**
+     * Handle declining form and not submitting data in it
+     * @param {*} e event
+     */
+    const handleDecline = (e) => {
+        e.preventDefault()
+        props.setTrigger(false)
+    }
 
     return (
         <div className='manage-ticket'> 
@@ -72,7 +85,7 @@ function ManageTicket(props) {
                         </label>
                         <button
                             className='decline-button' 
-                            onClick={() => props.setTrigger(false)}
+                            onClick={(e) => handleDecline(e)}
                             >Close
                         </button>
                         <input

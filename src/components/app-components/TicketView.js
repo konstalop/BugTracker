@@ -13,12 +13,12 @@ function TicketView() {
         <h1 className='tickets-h1'>My Tickets</h1>
         <div className='tickets-container'>
             <h2 className='tickets-h2'>Tickets</h2>
-            <table className='tickets-table'></table>
+            <table className='tickets-table'>
             <tbody>
             <tr>
                 <th className='th1'>NAME</th>
-                <th className='th2'>TYPE</th>
-                <th className='th3'>DATE</th>
+                <th className='th2'>DESCRIPTION</th>
+                <th className='th3'>AUTHOR</th>
             </tr>
             {
                             tickets.map(ticket => (
@@ -26,6 +26,7 @@ function TicketView() {
                             ))
             }
             </tbody>
+            </table>
         </div>
     </div>
     )

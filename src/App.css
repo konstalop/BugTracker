@@ -89,7 +89,7 @@ fieldset {
 .sidebar-wrapper {
   position: absolute;
   float: left;
-  border-radius: 5px;
+  border-radius: 3px;
   text-align: center;
   background-color: white;
   width: 175px;
@@ -149,7 +149,7 @@ span {display: block;}
   left: 0px;
   bottom: 0px;
   background-color: rgb(245, 245, 245);
-  border-radius: 6px;
+  border-radius: 3px;
   width: 90%;
   min-width: 600px;
   height: 97vh;
@@ -159,12 +159,13 @@ span {display: block;}
 }
 
 /** home header **/ 
-.home-h1, .project-view-name, .tickets-h1 {color:var(--primary-color); font-weight: 500; font-size: 25px;}
+.home-h1, .project-view-name, .tickets-h1 {color:var(--primary-color); font-weight: 600; font-size: 27px;}
 
 /** Projects **/
 
 .project-name, .project-desc, .project-author, .td-team, .ticket-name, .ticket-type, .ticket-date, .ticket-info-td
 {
+  text-align: left;
   margin-left: 25px;
   font-size: 13px;
   text-align: left;
@@ -172,6 +173,10 @@ span {display: block;}
   padding-top: 10px;
   border-radius: 6px;
   color: rgb(61, 60, 60);
+}
+
+.ticket-name {
+  padding-left: 25px;
 }
 
 .project-name, .project-name:visited, .ticket-name{

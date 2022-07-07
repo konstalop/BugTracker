@@ -26,12 +26,26 @@ function CreateProject(props) {
 
     const {projectName, projectDesc, projectAuthor} = project
 
+    /**
+     * handle submitting new project and handle adding it to project context
+     * @param {*} e event
+     */
     const handleSubmit = (e) => {
         e.preventDefault()
-        addProject(projectName, projectDesc, projectAuthor)
+        addProject(projectName, projectDesc, projectAuthor, [{}])
         console.log(project)
         props.setTrigger(false)
     }
+
+    /**
+     * handle closing form without submitting it
+     * @param {*} e event
+     */
+    const handleDecline = (e) => {
+        e.preventDefault()
+        props.setTrigger(false)
+    }
+
 
     return (
         <div className="create-project">
@@ -58,7 +72,7 @@ function CreateProject(props) {
                     </label>
                     <button
                             className='decline-button' 
-                            onClick={() => props.setTrigger(false)}
+                            onClick={(e) => handleDecline(e)}
                             >Close
                     </button>
                     <input
