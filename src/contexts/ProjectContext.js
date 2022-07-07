@@ -10,35 +10,20 @@ const ProjectContextProvider = (props) => {
 
     const [projects, setProjects] = useState([
         {id:uuidv4(), name: "Create bugtracker", desc: "MERN STACK", author: "konsta", tickets: [
-            {
-            ticketId: uuidv4(),
-            title: "Create front",
-            ticketDesc: "With react",
-            time:20,
-            },
-            {
-            ticketId: uuidv4(),
-            title: "figure it out",
-            ticketDesc: "Yea",
-            time:5,
-            }
+
+             
         ]},
         {id:uuidv4(), name: "Create ggggggggtracker", desc: "MERN STACK", author: "konsta", tickets: [
-            {
-            ticketId: uuidv4(),
-            title: "Creatgsdgsde front",
-            ticketDesc: "With react",
-            time:20, 
-            },
-            {
-            ticketId: uuidv4(),
-            title: "figuregsdgsd it out",
-            ticketDesc: "Yea",
-            time:5,
-            }
+          
         ]}
 
     ])
+
+
+    const addTicketToProject = (ticket, projectIndex) => {
+        projects[projectIndex].tickets.push(ticket)
+    }
+
 
     const addProject = (name, desc, author, tickets) => {
         setProjects([...projects, {id:uuidv4(), name, desc, author, tickets}])
@@ -46,7 +31,7 @@ const ProjectContextProvider = (props) => {
 
 
     return (
-        <ProjectContext.Provider value={{projects, addProject}}>
+        <ProjectContext.Provider value={{projects, addProject, addTicketToProject}}>
             {props.children}
         </ProjectContext.Provider>
     )

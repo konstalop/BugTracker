@@ -21,7 +21,6 @@ function ProjectView() {
 
 
     const selectedProject = useParams();
-    console.log('selected projectid:'+ selectedProject.projectId);
     
     const projectIndex = projects.findIndex(project => project.id === selectedProject.projectId)
     
@@ -68,7 +67,7 @@ function ProjectView() {
                 </div>
                 <Selected ticket={tickets}/>
                 <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup}></ManageTicket>
+                    <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup} projectIndex={projectIndex}></ManageTicket>
                 </Modal>
             </div>
         </div>
