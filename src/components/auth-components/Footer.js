@@ -1,5 +1,9 @@
 import React from "react"
 
+/**
+ * Just a footer to be displayed on register and login page.
+ * @returns footer component
+ */
 function Footer() {
     return (
         <div className="footer-container">

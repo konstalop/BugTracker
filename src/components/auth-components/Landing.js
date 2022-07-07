@@ -3,6 +3,10 @@ import { Link } from "react-router-dom"
 import Footer from './Footer';
 import { useNavigate } from "react-router-dom"
 
+/**
+ * page when you open the application. Login is to be made.
+ * @returns login page
+ */
 function Landing() {
 
 let navigate = useNavigate()

@@ -2,6 +2,10 @@ import React, { useContext } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext';
 import Project from './Project'
 
+/**
+ * Generates home page which shows all projects
+ * @returns home page
+ */
 
 function Home() {
 

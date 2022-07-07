@@ -1,10 +1,16 @@
 import { createContext, useState } from "react";
 import React from "react"
-import {v4 as uuidv4} from "uuid"
+
+
 
 
 export const TicketContext = createContext();
 
+/**
+ * Made to handle data related to only tickets.
+ * @param {*} props children props
+ * @returns TicketContextProvider
+ */
 const TicketContextProvider = (props) => {
     const [tickets, setTickets] = useState([
     ])

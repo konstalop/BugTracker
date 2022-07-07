@@ -2,6 +2,13 @@ import React from 'react'
 import ManageTicket from './ManageTicket';
 import { useState } from 'react'
 import Modal from '../app-components/Modal';
+
+/**
+ * Page for selected ticket, under work.
+ * @param {*} param0 ticket data
+ * @returns selected ticket table
+ */
+
 function Selected({ticket}) {
 
     const [buttonPopup, setButtonPopup] = useState(false);

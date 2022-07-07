@@ -2,7 +2,10 @@ import React, { useContext } from 'react'
 import { TicketContext } from '../../contexts/TicketContext'
 import Ticket from './Ticket'
 
-
+/**
+ * Returns a full list of tickets
+ * @returns table of tickets at /tickets
+ */
 
 function TicketView() {
 
@@ -21,9 +24,9 @@ function TicketView() {
                 <th className='th3'>AUTHOR</th>
             </tr>
             {
-                            tickets.map(ticket => (
-                                <Ticket key={ticket.id} ticket={ticket}/>
-                            ))
+                    tickets.map(ticket => (
+                        <Ticket key={ticket.id} ticket={ticket}/>
+                    ))
             }
             </tbody>
             </table>

@@ -1,5 +1,9 @@
 import React from 'react'
 
+/**
+ * Row of teammember data. Under work.
+ * @returns teammember row
+ */
 function TeamMember() {
 
     let name = 'Testi Henkilö'

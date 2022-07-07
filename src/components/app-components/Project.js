@@ -1,6 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+/**
+ * Project row displayed at home page
+ * @param {*} param0 project data
+ * @returns 
+ */
 function Project({project}) {
 
     const projectLink = {

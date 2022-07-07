@@ -4,6 +4,11 @@ import { useContext, useState } from "react"
 import { ProjectContext } from '../../contexts/ProjectContext'
 import {v4 as uuidv4} from "uuid";
 
+/**
+ * Form to add and edit ticket.
+ * @param {*} props data and trigger to close form.
+ * @returns this content is displayed inside a modal.
+ */
 
 function ManageTicket(props) {
     

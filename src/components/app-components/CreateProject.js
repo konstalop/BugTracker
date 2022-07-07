@@ -4,6 +4,11 @@ import {ProjectContext} from "../../contexts/ProjectContext"
 import {useContext} from "react"
 
 
+/**
+ * Used to create and add a project
+ * @param {*} props 
+ * @returns 
+ */
 
 function CreateProject(props) {
 
@@ -45,7 +50,6 @@ function CreateProject(props) {
         e.preventDefault()
         props.setTrigger(false)
     }
-
 
     return (
         <div className="create-project">

@@ -2,6 +2,10 @@ import React from "react"
 import Sidebar from "./Sidebar"
 import Home from "./Home"
 
+/**
+ * Application wrapper
+ * @returns 
+ */
 
 function Dashboard() {
 

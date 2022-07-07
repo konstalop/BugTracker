@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * pop up modal
+ * @param {*} props trigger
+ * @returns modal
+ */
 
 function Modal(props)  {
     return (props.trigger) ? (

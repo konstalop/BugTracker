@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom"
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom"  
+
+
+/**
+ * Page to create an account on. To be made.
+ * @returns register page
+ */
 function Register() {
 
     let navigate = useNavigate()

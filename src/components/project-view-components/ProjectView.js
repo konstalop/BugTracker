@@ -9,6 +9,12 @@ import { useState } from 'react'
 import { TicketContext } from '../../contexts/TicketContext'
 import { ProjectContext } from '../../contexts/ProjectContext'
 import { useParams } from "react-router-dom"
+
+/**
+ * Page to view project contains including Tickets and teams, and view tickets.
+ * @returns Project view page at /project
+ */
+
 function ProjectView() {
 
     const {projects} = useContext(ProjectContext)

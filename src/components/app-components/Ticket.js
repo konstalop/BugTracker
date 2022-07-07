@@ -1,6 +1,11 @@
 import React from 'react'
 
 
+/**
+ * Tablerow item to display ticket data
+ * @param {*} param0 ticket data
+ * @returns ticket row
+ */
 function Ticket({ticket}) {
 
         return (
