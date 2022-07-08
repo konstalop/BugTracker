@@ -6,13 +6,18 @@ import React from 'react'
  * @param {*} param0 ticket data
  * @returns ticket row
  */
-function Ticket({ticket}) {
+function Ticket(props) {
+
+
+    const viewTicket = () => {
+        props.setSelected(props.ticket.ticketId)
+    }
 
         return (
-            <tr className='ticket-row'>
-                <td className='ticket-name'>{ticket.title}</td>
-                <td className='ticket-type'>{ticket.desc}</td>
-                <td className='ticket-date'>{ticket.time}</td>
+            <tr className='ticket-row'  onClick={viewTicket}>
+                <td className='ticket-name'>{props.ticket.title}</td>
+                <td className='ticket-type'>{props.ticket.desc}</td>
+                <td className='ticket-date'>{props.ticket.time}</td>
             </tr>
         )
 }

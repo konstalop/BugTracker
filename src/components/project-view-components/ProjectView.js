@@ -17,9 +17,10 @@ import { useParams } from "react-router-dom"
 
 function ProjectView() {
 
+    const [currentlySelected, setSelected] = useState("")
+
     const {projects} = useContext(ProjectContext)
 
-    const {tickets} = useContext(TicketContext)
 
     const [buttonPopup, setButtonPopup] = useState(false)
 
@@ -30,6 +31,7 @@ function ProjectView() {
     
     const projectIndex = projects.findIndex(project => project.id === selectedProject.projectId)
     
+    console.log(currentlySelected)
 
     return (
         
@@ -63,7 +65,7 @@ function ProjectView() {
                         </tr>
                         {
                             projects[projectIndex].tickets.map(ticket => (
-                                <Ticket key={ticket.ticketId} ticket={ticket}/>
+                                <Ticket key={ticket.ticketId} ticket={ticket} setSelected={setSelected}/>
                             ))
                         }
                         </tbody>
@@ -71,7 +73,7 @@ function ProjectView() {
                     <button onClick={() => setButtonPopup(true)}
                      className='new-ticket'>New</button>
                 </div>
-                <Selected ticket={tickets}/>
+                <Selected ticket={currentlySelected}/>
                 <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
                     <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup} projectIndex={projectIndex}></ManageTicket>
                 </Modal>
