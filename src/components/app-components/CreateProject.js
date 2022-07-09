@@ -17,7 +17,7 @@ function CreateProject(props) {
     const [project, setProject] = useState({
         projectName: "",
         projectDesc: "",
-        projectAuthor: "konsta"
+        projectDate: new Date().toLocaleDateString()
     });
 
     const handleProjectName = (event) => {
@@ -29,7 +29,7 @@ function CreateProject(props) {
     }
 
 
-    const {projectName, projectDesc, projectAuthor} = project
+    const {projectName, projectDesc, projectDate} = project
 
     /**
      * handle submitting new project and handle adding it to project context
@@ -37,8 +37,7 @@ function CreateProject(props) {
      */
     const handleSubmit = (e) => {
         e.preventDefault()
-        addProject(projectName, projectDesc, projectAuthor, [])
-        console.log(project)
+        addProject(projectName, projectDesc, projectDate, [])
         props.setTrigger(false)
     }
 

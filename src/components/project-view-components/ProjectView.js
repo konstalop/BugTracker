@@ -7,7 +7,7 @@ import ManageTicket from './ManageTicket'
 import Modal from '../app-components/Modal'
 import { useState } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext'
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 /**
  * Page to view project contains including Tickets and teams, and view tickets.
@@ -15,29 +15,33 @@ import { useParams } from "react-router-dom"
  */
 
 function ProjectView() {
-
     const [currentlySelected, setSelected] = useState("")
-
     const {projects} = useContext(ProjectContext)
-
-
     const [buttonPopup, setButtonPopup] = useState(false)
-
-    const projectName = "Build tracker"
-
-
     const selectedProject = useParams();
-    
+
     const projectIndex = projects.findIndex(project => project.id === selectedProject.projectId)
+
+    /**
+     * TEMPORARY SOLUTION, JUST TO MAKE DEVELOPMENT EASIER.
+     * App crashing here is caused by uuidv4() generating new ids on reload.
+     * database maybe should fix this problem?
+     */
     
-    console.log(currentlySelected)
+    if (projectIndex === -1) {
+        return(
+            <div>
+                <Link to="/app">Return to home</Link>
+            </div>
+        )
+    } 
 
     return (
         
         <div>
             <Sidebar></Sidebar>
             <div className='project-view-container'>
-                <h1 className='project-view-name'>{projectName}</h1>
+                <h1 className='project-view-name'>{projects[projectIndex].name}</h1>
             <div className='project-team-container'>
                 <h4 className='project-team-header'>Team</h4>
                 <table className='team-table'>

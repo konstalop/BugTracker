@@ -21,7 +21,7 @@ function Home() {
                         <tr>
                             <th className='th1'>PROJECT</th>
                             <th className='th2'>DESCRIPTION</th>
-                            <th className='th3'>CREATED BY</th>
+                            <th className='th3'>DATE CREATED</th>
                         </tr>
                         {
                             projects.map(project => (

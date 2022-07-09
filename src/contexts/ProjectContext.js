@@ -13,11 +13,11 @@ export const ProjectContext = createContext();
 const ProjectContextProvider = (props) => {
     
     const [projects, setProjects] = useState([
-        {id:uuidv4(), name: "Create bugtracker", desc: "MERN STACK", author: "konsta", tickets: [
+        {id:uuidv4(), name: "Create bugtracker", desc: "MERN STACK", date: "07/09/22", tickets: [
 
              
         ]},
-        {id:uuidv4(), name: "Create ggggggggtracker", desc: "MERN STACK", author: "konsta", tickets: [
+        {id:uuidv4(), name: "Create ggggggggtracker", desc: "MERN STACK", date: "07/09/22", tickets: [
           
         ]}
 
@@ -29,8 +29,8 @@ const ProjectContextProvider = (props) => {
     }
 
 
-    const addProject = (name, desc, author, tickets) => {
-        setProjects([...projects, {id:uuidv4(), name, desc, author, tickets}])
+    const addProject = (name, desc, date, tickets) => {
+        setProjects([...projects, {id:uuidv4(), name, desc, date, tickets}])
     }
 
 

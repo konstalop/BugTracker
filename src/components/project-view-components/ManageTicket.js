@@ -25,7 +25,7 @@ function ManageTicket(props) {
         type: "",
         priority: "",
         status: "",
-        date: "05.07.22",
+        date: new Date().toLocaleDateString(),
         author: "konsta"
     })
 
@@ -75,26 +75,26 @@ function ManageTicket(props) {
                         </label>
                         <label className='manage-label-options' htmlFor="types">Type
                             <select id="types" name="type" className='input-ticket-option' onChange={handlechange}>
-                                <option value="issue">Issue</option>
-                                <option value="feature">Feature</option>
-                                <option value="suggestion">Suggestion</option>
+                                <option value="Issue">Issue</option>
+                                <option value="Feature">Feature</option>
+                                <option value="Suggestion">Suggestion</option>
                             </select>
                         </label>
                         <label className='manage-label-options'>Priority
                             <select id="priority" name="priority" className='input-ticket-option'
                                 onChange={handlechange}
                                 >
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                                <option value="critical">Critical</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Critical">Critical</option>
                             </select>
                         </label>
                         <label className='manage-label-options'>Status
                             <select id="status" name="status" className='input-ticket-option' onChange={handlechange}>
-                                <option value="open">Open</option>
-                                <option value="working">Working</option>
-                                <option value="closed">Closed</option>
+                                <option value="Open">Open</option>
+                                <option value="Working">Working</option>
+                                <option value="Closed">Closed</option>
                             </select>
                         </label>
                         <button
