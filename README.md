@@ -15,11 +15,11 @@ What can you do with this program?
  - Assign a team for your project.
  - Create tickets for the projects:
    - describe the ticket
-   - type of ticket (feature, issue, suggestion)
+   - type of ticket (Feature, Issue, Suggestion)
    - Priority (Low, Medium, High, Critical)
    - Status (Closed, Working, Open)
    
-## Link to the project in production.
+## Link to the project in production
 
 Program is still under development.
 
