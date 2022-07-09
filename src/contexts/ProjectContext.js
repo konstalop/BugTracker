@@ -28,6 +28,10 @@ const ProjectContextProvider = (props) => {
         projects[projectIndex].tickets.push(ticket)
     }
 
+    const deleteTicketFromProject = (projectIndex, ticketIndex) => {
+        projects[projectIndex].tickets.splice(ticketIndex, 1)
+    }
+
 
     const addProject = (name, desc, date, tickets) => {
         setProjects([...projects, {id:uuidv4(), name, desc, date, tickets}])
@@ -35,7 +39,7 @@ const ProjectContextProvider = (props) => {
 
 
     return (
-        <ProjectContext.Provider value={{projects, addProject, addTicketToProject}}>
+        <ProjectContext.Provider value={{projects, addProject, addTicketToProject, deleteTicketFromProject}}>
             {props.children}
         </ProjectContext.Provider>
     )

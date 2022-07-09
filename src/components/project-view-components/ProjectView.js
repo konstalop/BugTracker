@@ -76,7 +76,7 @@ function ProjectView() {
                     <button onClick={() => setButtonPopup(true)}
                      className='new-ticket'>New</button>
                 </div>
-                <Selected ticket={currentlySelected}/>
+                <Selected ticket={currentlySelected} projectIndex={projectIndex}/>
                 <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
                     <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup} projectIndex={projectIndex}></ManageTicket>
                 </Modal>

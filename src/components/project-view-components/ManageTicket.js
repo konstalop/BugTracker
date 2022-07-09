@@ -42,10 +42,8 @@ function ManageTicket(props) {
      */
     const handleSubmit = (event) => {
         event.preventDefault() 
-        console.log(ticketId)
         addTicketToProject(ticket, props.projectIndex)
         addTicket(ticketId, title, desc, time, type, priority, status, date, author);
-        console.log(ticket)
         props.setTrigger(false)
     }
 
@@ -58,6 +56,8 @@ function ManageTicket(props) {
         e.preventDefault()
         props.setTrigger(false)
     }
+
+    
 
     return (
         <div className='manage-ticket'> 

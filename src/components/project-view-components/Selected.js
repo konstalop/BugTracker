@@ -4,27 +4,41 @@ import { useState } from 'react'
 import Modal from '../app-components/Modal';
 import { useContext } from "react"
 import { TicketContext } from '../../contexts/TicketContext';
+import { ProjectContext } from '../../contexts/ProjectContext';
 
 /**
  * Page for selected ticket, under work.
  * @param {*} param0 ticket data
+ * @param {*} param1 projectid
  * @returns selected ticket table
  */
 
-function Selected(selectedId) {
+function Selected(props) {
 
     const [buttonPopup, setButtonPopup] = useState(false);
-    const {tickets} = useContext(TicketContext)
+    const {tickets, deleteTicket} = useContext(TicketContext)
+    const {projects, deleteTicketFromProject} = useContext(ProjectContext)
+    
+    const ticketIndex = tickets.findIndex(ticket => ticket.id === props.ticket)
+    const ticketIndexInProject = projects[props.projectIndex].tickets.findIndex(ticket => ticket.id === props.ticket)
 
-    const ticketIndex = tickets.findIndex(ticket => ticket.id === selectedId.ticket)
-
-    if (ticketIndex === -1) {
+    if (ticketIndex < 0) {
         return (
             <div className='ticket-view-container'>
                 <h4 className='no-selected-h4'>No ticket selected</h4>
             </div>
         )
     }
+
+     /**
+     * handle deleting
+     */
+    const handleDelete = () => {
+        console.log('123')
+        deleteTicket(props.ticket)
+        deleteTicketFromProject(props.projectIndex, ticketIndexInProject)
+    }
+   
 
     return (
         <div className='ticket-view-container'>
@@ -67,11 +81,18 @@ function Selected(selectedId) {
                      onClick={() => setButtonPopup(true)}
                      >Edit ticket
                      </button>
+                    <button 
+                        className='delete-ticket'
+                        onClick={() => handleDelete()}
+
+                    
+                    >Delete ticket    
+                    </button>
                     <Modal
                         trigger={buttonPopup} 
                         setTrigger={setButtonPopup}
                     >
-                        <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup}></ManageTicket>
+                        <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup} currentTicket={props.ticket}></ManageTicket>
                     </Modal>
                    
         </div>

@@ -19,9 +19,13 @@ const TicketContextProvider = (props) => {
         setTickets([...tickets, {id, title, desc,time, type, priority, status, author, date}])
     }
 
+    const deleteTicket = (id) => {
+        setTickets(tickets.filter(ticket => ticket.id !== id))
+    }
+
 
     return (
-        <TicketContext.Provider value={{tickets, addTicket}}>
+        <TicketContext.Provider value={{tickets, addTicket, deleteTicket}}>
             {props.children} 
         </TicketContext.Provider>
     )
