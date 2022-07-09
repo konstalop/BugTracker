@@ -26,10 +26,17 @@ function Register() {
                         <h4 className="header-form">Sign up</h4> 
                             <input
                              type="text" 
-                             name="Name"
+                             name="firstName"
                              className="input-auth"
-                             placeholder="Username"
-                            />              
+                             placeholder="First Name"
+
+                            />   
+                            <input
+                             type="text" 
+                             name="lastName"
+                             className="input-auth"
+                             placeholder="Last Name"
+                            />            
                             <input
                              type="email" 
                              name="email"

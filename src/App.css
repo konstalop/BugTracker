@@ -14,7 +14,7 @@ html {
 fieldset {
   background-color: white;
   border: 0;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .new-user-text {
@@ -57,7 +57,7 @@ fieldset {
   width: 300px;
   padding: 5px;
   border: 1px solid gray;
-  box-shadow:  0 0 15px 4px rgba(0, 0, 255, 0.1);
+  box-shadow:  0 0 15px 3px rgba(0, 0, 255, 0.1);
   margin: 15px 0;
   padding-left: 15px;
   padding-right: 15px;
@@ -66,13 +66,13 @@ fieldset {
 
 .input-auth-submit {
   border: 0;
-  width: 125px;
+  width: 300px;
   height: 30px;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 4px;
   cursor: pointer;
 
-  background-color: var(--primary-color);
+  background-color:#6fc26c;
   color: white;
 }
 
@@ -93,7 +93,7 @@ fieldset {
   text-align: center;
   background-color: white;
   width: 175px;
-  height: 97vh;
+  height: 98vh;
 }
 
 .sidebar-h1 {
@@ -136,7 +136,8 @@ fieldset {
 .sidebar-text {
   text-align: center;
   color: gray;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -152,7 +153,7 @@ span {display: block;}
   border-radius: 3px;
   width: 90%;
   min-width: 600px;
-  height: 97vh;
+  height: 98vh;
   float: right;
   text-align: center;
   position: sticky;
@@ -191,7 +192,7 @@ span {display: block;}
   cursor: pointer;
 }
 
-.projects-h2, .project-team-header, .tickets-h2, .project-tickets-h4 {
+.projects-h2, .project-team-header, .tickets-h2, .project-tickets-h4, .project-tickets-view-h4, .no-selected-h4 {
    margin-left: 25px;
    margin-bottom: 25px;
    text-align: left;
@@ -293,7 +294,7 @@ span {display: block;}
 .ticket-view-container {
   overflow: auto;
   float: left;
-  top: 60%;
+  bottom: 2%;
   width: 50%;
   max-height: 38%;
   margin-left: 50px;
@@ -305,6 +306,12 @@ span {display: block;}
 .project-tickets-view-h4 {
   text-align: left;
   margin-left: 25px;
+}
+
+.no-selected-h4 {
+  text-align: left;
+  margin-left: 25px;
+  color: gray;
 }
 
 .ticket-info-td, .ticket-info-th {

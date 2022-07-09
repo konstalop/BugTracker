@@ -16,14 +16,12 @@ function Selected(selectedId) {
     const [buttonPopup, setButtonPopup] = useState(false);
     const {tickets} = useContext(TicketContext)
 
-    console.log(selectedId)
     const ticketIndex = tickets.findIndex(ticket => ticket.id === selectedId.ticket)
-    console.log(tickets, ticketIndex)
 
-    if (ticketIndex == -1) {
+    if (ticketIndex === -1) {
         return (
             <div className='ticket-view-container'>
-                <h4 className='project-tickets-view-h4'>No ticket selected</h4>
+                <h4 className='no-selected-h4'>No ticket selected</h4>
             </div>
         )
     }

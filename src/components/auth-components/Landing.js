@@ -25,8 +25,8 @@ const routeTo = () => {
             <h4 className="header-form">Sign in</h4>
               <input
                type="text"
-               name="username" 
-               placeholder="Username"
+               name="email" 
+               placeholder="Email Address"
                className="input-auth"
               />
               <input

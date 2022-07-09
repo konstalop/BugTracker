@@ -37,7 +37,7 @@ function CreateProject(props) {
      */
     const handleSubmit = (e) => {
         e.preventDefault()
-        addProject(projectName, projectDesc, projectAuthor, [{}])
+        addProject(projectName, projectDesc, projectAuthor, [])
         console.log(project)
         props.setTrigger(false)
     }

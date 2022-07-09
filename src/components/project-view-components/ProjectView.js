@@ -6,7 +6,6 @@ import Selected from './Selected'
 import ManageTicket from './ManageTicket'
 import Modal from '../app-components/Modal'
 import { useState } from 'react'
-import { TicketContext } from '../../contexts/TicketContext'
 import { ProjectContext } from '../../contexts/ProjectContext'
 import { useParams } from "react-router-dom"
 
