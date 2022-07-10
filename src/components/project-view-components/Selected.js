@@ -19,10 +19,14 @@ function Selected(props) {
     const {tickets, deleteTicket} = useContext(TicketContext)
     const {projects, deleteTicketFromProject} = useContext(ProjectContext)
     
-    const ticketIndex = tickets.findIndex(ticket => ticket.id === props.ticket)
+    const ticketIndex = tickets.findIndex(ticket => ticket.ticketId === props.ticket)
     const ticketIndexInProject = projects[props.projectIndex].tickets.findIndex(ticket => ticket.id === props.ticket)
 
+    /**
+     * Display this if no ticket currently selected.
+     */
     if (ticketIndex < 0) {
+        console.log(props)
         return (
             <div className='ticket-view-container'>
                 <h4 className='no-selected-h4'>No ticket selected</h4>
@@ -31,7 +35,7 @@ function Selected(props) {
     }
 
      /**
-     * handle deleting
+     * handle deleting from tickets and projects[i].tickets
      */
     const handleDelete = () => {
         deleteTicket(props.ticket)

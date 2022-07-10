@@ -8,8 +8,8 @@ import React from 'react'
  */
 function Ticket(props) {
 
-
     const viewTicket = () => {
+        console.log(props)
         props.setSelected(props.ticket.ticketId)
     }
 

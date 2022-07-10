@@ -31,6 +31,10 @@ function AddTicket(props) {
 
 
 
+    /**
+     * Function to handle events and get values from form.
+     * @param {*} event listening to this event
+     */
     const handlechange = (event) => {
         setTicket({...ticket, [event.target.name]: event.target.value})
     }
@@ -38,7 +42,7 @@ function AddTicket(props) {
     const {ticketId, title, desc, time, type, priority, status, date, author} = ticket
 
     /**
-     * Handle submitting form and creating a new ticket
+     * Handle submitting form and creating a new ticket to tickets and projects[i].tickets
      * @param {*} event event 
      */
     const handleSubmit = (event) => {

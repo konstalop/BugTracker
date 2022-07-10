@@ -25,7 +25,7 @@ function TicketView() {
             </tr>
             {
                     tickets.map(ticket => (
-                        <Ticket key={ticket.id} ticket={ticket}/>
+                        <Ticket key={ticket.ticketId} ticket={ticket}/>
                     ))
             }
             </tbody>

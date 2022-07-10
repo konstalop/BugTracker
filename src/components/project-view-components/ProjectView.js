@@ -20,6 +20,7 @@ function ProjectView() {
     const [buttonPopup, setButtonPopup] = useState(false)
     const selectedProject = useParams();
 
+    //Index for selected project in projects
     const projectIndex = projects.findIndex(project => project.id === selectedProject.projectId)
 
     /**
@@ -27,7 +28,6 @@ function ProjectView() {
      * App crashing here is caused by uuidv4() generating new ids on reload.
      * database maybe should fix this problem?
      */
-    
     if (projectIndex === -1) {
         return(
             <div>
@@ -76,9 +76,20 @@ function ProjectView() {
                     <button onClick={() => setButtonPopup(true)}
                      className='new-ticket'>New</button>
                 </div>
-                <Selected ticket={currentlySelected} projectIndex={projectIndex}/>
-                <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    <AddTicket trigger={buttonPopup} setTrigger={setButtonPopup} projectIndex={projectIndex}></AddTicket>
+                <Selected 
+                    ticket={currentlySelected} 
+                    projectIndex={projectIndex}
+                />
+                <Modal 
+                    trigger={buttonPopup} 
+                    setTrigger={setButtonPopup}
+                >
+                    <AddTicket 
+                        trigger={buttonPopup} 
+                        setTrigger={setButtonPopup} 
+                        projectIndex={projectIndex}
+                >
+                    </AddTicket>
                 </Modal>
             </div>
         </div>
