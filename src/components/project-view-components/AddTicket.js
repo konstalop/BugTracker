@@ -12,9 +12,7 @@ import {v4 as uuidv4} from "uuid";
 
 function AddTicket(props) {
     
-
     const {addTicketToProject} = useContext(ProjectContext)
-
     const {addTicket} = useContext(TicketContext)
 
     const [ticket, setTicket] = useState({
@@ -28,8 +26,6 @@ function AddTicket(props) {
         date: new Date().toLocaleDateString(),
         author: "konsta"
     })
-
-
 
     /**
      * Function to handle events and get values from form.
@@ -52,7 +48,6 @@ function AddTicket(props) {
         props.setTrigger(false)
     }
 
-
     /**
      * Handle declining form and not submitting data in it
      * @param {*} e event
@@ -61,8 +56,6 @@ function AddTicket(props) {
         e.preventDefault()
         props.setTrigger(false)
     }
-
-    
 
     return (
         <div className='manage-ticket'> 

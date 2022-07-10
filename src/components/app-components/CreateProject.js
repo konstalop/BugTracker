@@ -74,15 +74,15 @@ function CreateProject(props) {
                         </textarea>
                     </label>
                     <button
-                            className='decline-button' 
-                            onClick={(e) => handleDecline(e)}
-                            >Cancel
+                        className='decline-button' 
+                        onClick={(e) => handleDecline(e)}
+                        >Cancel
                     </button>
                     <input
-                            type="submit"
-                            className='save-button'
-                            onClick={(e) => handleSubmit(e)}
-                            value="Create"
+                        type="submit"
+                        className='save-button'
+                        onClick={(e) => handleSubmit(e)}
+                        value="Create"
                     />
                 </form>
             </div>

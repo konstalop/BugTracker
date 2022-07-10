@@ -30,8 +30,15 @@ function Sidebar() {
                         >New Project
                     </button>   
                     <button className="sidebar-logout" onClick={routeTo}>Logout</button> 
-                    <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
-                        <CreateProject trigger={buttonPopup} setTrigger={setButtonPopup}></CreateProject>
+                    <Modal 
+                        trigger={buttonPopup} 
+                        setTrigger={setButtonPopup}
+                    >
+                        <CreateProject 
+                            trigger={buttonPopup} 
+                            setTrigger={setButtonPopup}
+                        >
+                        </CreateProject>
                     </Modal>               
         </div>
     )

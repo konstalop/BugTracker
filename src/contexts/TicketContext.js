@@ -49,7 +49,6 @@ const TicketContextProvider = (props) => {
         setTickets(tickets.map((ticket) => ticket.ticketId === id ? editedTicket : ticket))
     }
 
-
     return (
         <TicketContext.Provider value={{tickets, addTicket, deleteTicket, editTicket}}>
             {props.children} 

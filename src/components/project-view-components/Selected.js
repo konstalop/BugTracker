@@ -19,7 +19,9 @@ function Selected(props) {
     const {tickets, deleteTicket} = useContext(TicketContext)
     const {projects, deleteTicketFromProject} = useContext(ProjectContext)
     
+    //Index for ticket in tickets
     const ticketIndex = tickets.findIndex(ticket => ticket.ticketId === props.ticket)
+    //Index for ticket in projects[i].tickets
     const ticketIndexInProject = projects[props.projectIndex].tickets.findIndex(ticket => ticket.id === props.ticket)
 
     /**

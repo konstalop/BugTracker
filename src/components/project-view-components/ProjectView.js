@@ -37,7 +37,6 @@ function ProjectView() {
     } 
 
     return (
-        
         <div>
             <Sidebar></Sidebar>
             <div className='project-view-container'>

@@ -43,7 +43,6 @@ const ProjectContextProvider = (props) => {
         projects[projectIndex].tickets[ticketIndex] = editedTicket
     }
 
-
     /**
      * Add a new project to projects
      * @param {*} name name of the project
@@ -54,8 +53,6 @@ const ProjectContextProvider = (props) => {
     const addProject = (name, desc, date, tickets) => {
         setProjects([...projects, {id:uuidv4(), name, desc, date, tickets}])
     }
-
-    
 
     return (
         <ProjectContext.Provider value={{projects, addProject, addTicketToProject, deleteTicketFromProject, editTicketInProject}}>

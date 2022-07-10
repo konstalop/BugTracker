@@ -17,6 +17,7 @@ function ManageTicket(props) {
 
     //Find index for ticket in tickets
     const ticketIndex = tickets.findIndex(ticket => ticket.ticketId === props.currentTicket)
+    
     //Find index for ticket in project.tickets
     const ticketIndexInProject = projects[props.projectIndex].tickets.findIndex(ticket => ticket.ticketId === props.currentTicket)
 
@@ -25,7 +26,6 @@ function ManageTicket(props) {
     const date = tickets[ticketIndex].date
     const author =  tickets[ticketIndex].author
 
-
     //Items that can be edited and usually need to be edited.
     const [title, setTitle] = useState(tickets[ticketIndex].title)
     const [desc, setDesc] = useState(tickets[ticketIndex].desc)
@@ -33,7 +33,6 @@ function ManageTicket(props) {
     const [type, setType] = useState(tickets[ticketIndex].type)
     const [priority, setPriority] = useState(tickets[ticketIndex].priority)
     const [status, setStatus] = useState(tickets[ticketIndex].status)
-
 
     const editedTicket = {ticketId, title, desc, time, type, priority, status, date, author}
 
