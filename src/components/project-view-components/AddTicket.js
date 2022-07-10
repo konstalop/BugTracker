@@ -67,7 +67,7 @@ function AddTicket(props) {
     return (
         <div className='manage-ticket'> 
                 <div className='manage-ticket-inner'>
-                    <h4 className='manage-ticket-h4'>Add a new ticket</h4>
+                    <h4 className='manage-ticket-h4'>Create a new ticket</h4>
                     <form className='manage-ticket-form'>
                         <label className='manage-label'>Title
                             <input 
@@ -135,14 +135,13 @@ function AddTicket(props) {
                         <button
                             className='decline-button' 
                             onClick={(e) => handleDecline(e)}
-                            >Close
+                            >Cancel
                         </button>
                         <input
                             type="submit"
                             className='save-button'
                             onClick={(event) => handleSubmit(event)}
-                            value="Submit"
-
+                            value="Create"
                         />
                     </form>
                 </div>

@@ -135,14 +135,13 @@ function ManageTicket(props) {
                         <button
                             className='decline-button' 
                             onClick={(e) => handleDecline(e)}
-                            >Close
+                            >Cancel
                         </button>
                         <input
                             type="submit"
                             className='save-button'
                             onClick={(event) => handleSubmit(event)}
-                            value="Submit"
-
+                            value="Update"
                         />
                     </form>
                 </div>

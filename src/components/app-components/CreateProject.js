@@ -76,13 +76,13 @@ function CreateProject(props) {
                     <button
                             className='decline-button' 
                             onClick={(e) => handleDecline(e)}
-                            >Close
+                            >Cancel
                     </button>
                     <input
                             type="submit"
                             className='save-button'
-                            onClick={(event) => handleSubmit(event)}
-                            value="Submit"
+                            onClick={(e) => handleSubmit(e)}
+                            value="Create"
                     />
                 </form>
             </div>
