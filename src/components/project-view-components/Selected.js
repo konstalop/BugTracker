@@ -34,7 +34,6 @@ function Selected(props) {
      * handle deleting
      */
     const handleDelete = () => {
-        console.log('123')
         deleteTicket(props.ticket)
         deleteTicketFromProject(props.projectIndex, ticketIndexInProject)
     }
@@ -84,15 +83,13 @@ function Selected(props) {
                     <button 
                         className='delete-ticket'
                         onClick={() => handleDelete()}
-
-                    
                     >Delete ticket    
                     </button>
                     <Modal
                         trigger={buttonPopup} 
                         setTrigger={setButtonPopup}
                     >
-                        <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup} currentTicket={props.ticket}></ManageTicket>
+                        <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup} currentTicket={props.ticket} projectIndex={props.projectIndex}></ManageTicket>
                     </Modal>
                    
         </div>

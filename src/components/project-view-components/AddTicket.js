@@ -10,11 +10,12 @@ import {v4 as uuidv4} from "uuid";
  * @returns this content is displayed inside a modal.
  */
 
-function ManageTicket(props) {
+function AddTicket(props) {
     
 
-    const {tickets} = useContext(TicketContext)
-    const {projects} = useContext(ProjectContext)
+    const {addTicketToProject} = useContext(ProjectContext)
+
+    const {addTicket} = useContext(TicketContext)
 
     const [ticket, setTicket] = useState({
         ticketId: uuidv4(),
@@ -28,17 +29,13 @@ function ManageTicket(props) {
         author: "konsta"
     })
 
-    const ticketIndex = tickets.findIndex(ticket => ticket.id === props.currentTicket)
-    const ticketIndexInProject = projects[props.projectIndex].tickets.findIndex(ticket => ticket.id === props.ticket)
 
-    console.log(props)
-    console.log(ticketIndex, ticketIndexInProject)
 
     const handlechange = (event) => {
         setTicket({...ticket, [event.target.name]: event.target.value})
     }
 
-   // const {ticketId, title, desc, time, type, priority, status, date, author} = ticket
+    const {ticketId, title, desc, time, type, priority, status, date, author} = ticket
 
     /**
      * Handle submitting form and creating a new ticket
@@ -46,6 +43,8 @@ function ManageTicket(props) {
      */
     const handleSubmit = (event) => {
         event.preventDefault() 
+        addTicketToProject(ticket, props.projectIndex)
+        addTicket(ticketId, title, desc, time, type, priority, status, date, author);
         props.setTrigger(false)
     }
 
@@ -64,7 +63,7 @@ function ManageTicket(props) {
     return (
         <div className='manage-ticket'> 
                 <div className='manage-ticket-inner'>
-                    <h4 className='manage-ticket-h4'>Edit Ticket</h4>
+                    <h4 className='manage-ticket-h4'>Add a new ticket</h4>
                     <form className='manage-ticket-form'>
                         <label className='manage-label'>Title
                             <input 
@@ -73,7 +72,6 @@ function ManageTicket(props) {
                                 placeholder='Title' 
                                 type="text" 
                                 onChange={handlechange}
-                                value={tickets[ticketIndex].title}
                             ></input>
                         </label>
                         <label className='manage-label'>Description
@@ -83,18 +81,15 @@ function ManageTicket(props) {
                                 placeholder="Describe the ticket"
                                 type="text" 
                                 onChange={handlechange}
-                                value={tickets[ticketIndex].desc}
                             ></textarea>
                         </label>
                         <label className='manage-label'>Time estimate (Hours)
                             <input 
                                 className='input-ticket-time' 
-                                type="number" 
-                                name="time" 
+                                type="number" name="time" 
                                 placeholder="Estimated time in hours"
-                                onChange={handlechange}
-                                value={tickets[ticketIndex].time}
-                                ></input>
+                                onChange={handlechange} 
+                            ></input>
                         </label>
                         <label className='manage-label-options' htmlFor="types">Type
                             <select 
@@ -102,8 +97,7 @@ function ManageTicket(props) {
                                 name="type" 
                                 className='input-ticket-option' 
                                 onChange={handlechange}
-                                value={tickets[ticketIndex].type}
-                                >
+                            >
                                 <option value="Issue">Issue</option>
                                 <option value="Feature">Feature</option>
                                 <option value="Suggestion">Suggestion</option>
@@ -115,7 +109,6 @@ function ManageTicket(props) {
                                 name="priority" 
                                 className='input-ticket-option'
                                 onChange={handlechange}
-                                value={tickets[ticketIndex].priority}
                                 >
                                 <option value="Low">Low</option>
                                 <option value="Medium">Medium</option>
@@ -126,11 +119,10 @@ function ManageTicket(props) {
                         <label className='manage-label-options'>Status
                             <select 
                                 id="status" 
-                                name="status"  
+                                name="status" 
                                 className='input-ticket-option' 
                                 onChange={handlechange}
-                                value={tickets[ticketIndex].status}
-                                >
+                            >
                                 <option value="Open">Open</option>
                                 <option value="Working">Working</option>
                                 <option value="Closed">Closed</option>
@@ -154,4 +146,4 @@ function ManageTicket(props) {
     )
 }
 
-export default ManageTicket
+export default AddTicket

@@ -3,7 +3,7 @@ import Sidebar from '../app-components/Sidebar'
 import TeamMember from './TeamMember'
 import Ticket from '../app-components/Ticket'
 import Selected from './Selected'
-import ManageTicket from './ManageTicket'
+import AddTicket from './AddTicket'
 import Modal from '../app-components/Modal'
 import { useState } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext'
@@ -78,7 +78,7 @@ function ProjectView() {
                 </div>
                 <Selected ticket={currentlySelected} projectIndex={projectIndex}/>
                 <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    <ManageTicket trigger={buttonPopup} setTrigger={setButtonPopup} projectIndex={projectIndex}></ManageTicket>
+                    <AddTicket trigger={buttonPopup} setTrigger={setButtonPopup} projectIndex={projectIndex}></AddTicket>
                 </Modal>
             </div>
         </div>
