@@ -21,7 +21,7 @@ function TicketView() {
             <tr>
                 <th className='th1'>NAME</th>
                 <th className='th2'>DESCRIPTION</th>
-                <th className='th3'>AUTHOR</th>
+                <th className='th3'>DATE</th>
             </tr>
             {
                     tickets.map(ticket => (

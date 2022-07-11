@@ -28,7 +28,6 @@ function Selected(props) {
      * Display this if no ticket currently selected.
      */
     if (ticketIndex < 0) {
-        console.log(props)
         return (
             <div className='ticket-view-container'>
                 <h4 className='no-selected-h4'>No ticket selected</h4>
