@@ -1,7 +1,6 @@
 # BugTracker
 
-Project management program / bugtracker made with React frontend and Node/Express and MongoDB backend.
-Some other NPM packages are used for things like ID generation for users/projects/tickets.
+Project management program / bugtracker made with React frontend and Node/Express and MongoDB backend. Backend routes are tested with VSCode's .REST client.
 
 ## How to install
 
