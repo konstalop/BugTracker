@@ -17,8 +17,10 @@ mongoose.connect(process.env.DB_URL).then(() => {
 })
 
 const projectsRouter = require('./routes/projects')
+const ticketsRouter = require('./routes/tickets')
 
 app.use('/projects', projectsRouter)
+app.use('/tickets', ticketsRouter)
 
 
 

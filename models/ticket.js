@@ -1,15 +1,6 @@
 const mongoose = require('mongoose')
 
 const TicketSchema = mongoose.Schema({
-    project: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'projects'
-    },
-    ticketId: {
-        type: String,
-        required: true,
-        unique: true
-    },
     title: {
         type: String,
         required: true
@@ -40,7 +31,7 @@ const TicketSchema = mongoose.Schema({
     },
     author: {
         type: String,
-        default: "konsta"
+        required: true
     }
 })
 
