@@ -1,21 +1,17 @@
 const mongoose = require('mongoose')
 
 const ProjectSchema = mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'users'
-    },
-    id: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true
     },
     desc: {
         type: String,
-        requried: true
+        required: true
+    },
+    author: {
+        type: String,
+        required: true
     },
     date: {
         type: Date,
@@ -26,9 +22,6 @@ const ProjectSchema = mongoose.Schema({
         default: []
     }
 })
-
-console.log(ProjectSchema)
-
 
 
 module.exports = mongoose.model('project', ProjectSchema)
