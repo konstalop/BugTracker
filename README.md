@@ -1,6 +1,6 @@
 # BugTracker
 
-Project management program / bugtracker made with React frontend and Node/Express and MongoDB backend. Backend routes are tested with VSCode's .REST client.
+Project management program / bugtracker made with React frontend and Node/Express and MongoDB backend. Backend routes are tested with VSCode's .REST client. Sensitive user data in the database is hashed with salting. JWT is used authenticate users.
 
 ## How to install
 
