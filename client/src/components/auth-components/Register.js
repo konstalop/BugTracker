@@ -2,16 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom"
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom"  
-
-
+import { useState } from 'react'
+ 
 /**
  * Page to create an account on. To be made.
  * @returns register page
  */
 function Register() {
 
+    const [user, setUser] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+    })
+
+    const handlechange = (event) => {
+        setUser({...user, [event.target.name]: event.target.value})
+    }
+
     let navigate = useNavigate()
-    const routeTo = () => {
+    const handleRegistering = (e) => {
+        console.log(user)
+        e.preventDefault()
         let path = '../app';
         navigate(path)
     }
@@ -29,37 +42,41 @@ function Register() {
                              name="firstName"
                              className="input-auth"
                              placeholder="First Name"
-
+                             onChange={handlechange}
                             />   
                             <input
                              type="text" 
                              name="lastName"
                              className="input-auth"
                              placeholder="Last Name"
+                             onChange={handlechange}
                             />            
                             <input
                              type="email" 
                              name="email"
                              className="input-auth"
                              placeholder="Email address"
+                             onChange={handlechange}
                             />
                             <input 
                              type="password"
                              name="password"
                              className="input-auth"
                              placeholder="Password"
+                             onChange={handlechange}
                             />
                             <input
                              type="password"
                              name="password"
                              className="input-auth"
                              placeholder="Confirm your password"
+                             onChange={handlechange}
                             />
                         <input
                          type="submit"
                          value="Create account"
                          className="input-auth-submit"
-                         onClick={routeTo} 
+                         onClick={(e) => handleRegistering(e)} 
                          />
                          <p className="new-user-text"><Link to="/" >Already an user? Sign in</Link></p>
                     </fieldset>

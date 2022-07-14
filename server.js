@@ -18,10 +18,13 @@ mongoose.connect(process.env.DB_URL).then(() => {
 
 const projectsRouter = require('./routes/projects')
 const ticketsRouter = require('./routes/tickets')
+const usersRouter = require('./routes/users')
+const authRouter = require('./routes/auth')
 
 app.use('/projects', projectsRouter)
 app.use('/tickets', ticketsRouter)
-
+app.use('/users', usersRouter)
+app.use('/auth', authRouter)
 
 
 app.listen(PORT, () => console.log(`Server alive on port ${PORT}`))

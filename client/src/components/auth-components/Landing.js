@@ -8,9 +8,10 @@ import { useNavigate } from "react-router-dom"
  * @returns login page
  */
 function Landing() {
-
 let navigate = useNavigate()
-const routeTo = () => {
+
+const handleLogin = (e) => {
+  e.preventDefault()
   let path = 'app';
   navigate(path)
 }
@@ -39,7 +40,7 @@ const routeTo = () => {
               type="submit"
               className="input-auth-submit" 
               value="Login"
-              onClick={routeTo}
+              onClick={(e) => handleLogin(e)}
              />
             <p className="new-user-text"><Link to="/register" >Create account</Link></p>
             <p className="new-user-text"><Link to="/">Forgot password?</Link></p>
