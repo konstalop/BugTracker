@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const TicketSchema = mongoose.Schema({
+    projectId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'projects'
+    },
     title: {
         type: String,
         required: true

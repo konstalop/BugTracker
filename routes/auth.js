@@ -2,6 +2,7 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const router = require('./users')
 
+//Handle login
 router.post('/login', async (req, res) => {
     const user = await User.findOne({email: req.body.email})
 

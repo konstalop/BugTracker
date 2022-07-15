@@ -21,10 +21,6 @@ const UserSchema = mongoose.Schema({
     date: {
         type: Date,
         default: Date.now,
-    },
-    projects: {
-        type: Array,
-        default: []
     }
 });
 

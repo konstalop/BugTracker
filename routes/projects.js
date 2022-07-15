@@ -1,30 +1,36 @@
 const router = require('express').Router()
 
 let Project = require('../models/project')
+let User = require('../models/user')
 
 //Get all projects
-router.route('/').get((req, res) => {
-    Project.find()
+router.get('/', async (req, res) => {
+    Project.find({user: req.body.id})
         .then(projects => res.json(projects))
         .catch(err => res.status(400).json(err))
 });
 
 //Add a project
-router.route('/add').post((req, res) =>  {
+router.post('/add', async (req, res) =>  {
+    
+    const user = await User.findOne({id: req.body.id})
+
     const name = req.body.name
     const desc = req.body.desc
-    const author = req.body.author
+    const author = user.firstName
     const date = new Date()
     const tickets = []
 
-
     const newProject = new Project({
+        user: req.body.id,
         name,
         desc,
         author,
         date,
         tickets
     })
+
+    //user.projects.push(newProject.id)
     newProject.save()
     .then(() => res.send(req.body))
     .catch(err => res.status(400).json('There was an error' + err))

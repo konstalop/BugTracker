@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const ticket = require('../models/ticket')
 let Ticket = require('../models/ticket')
+let Project = require('../models/project')
 
 
 //Get all tickets
@@ -11,7 +12,10 @@ router.route('/').get((req, res) => {
 })
 
 //Add a ticket
-router.route('/add').post((req, res) => {
+router.post('/add', async (req, res) => {
+
+    const project = await Project.findOne({id: req.body.id})
+
     const title = req.body.title
     const desc = req.body.desc
     const time = req.body.time
