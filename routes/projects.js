@@ -13,13 +13,16 @@ router.get('/', async (req, res) => {
 //Add a project
 router.post('/add', async (req, res) =>  {
     
-    const user = await User.findOne({id: req.body.id})
+    const user = await User.findOne({_id: req.body.id})
+    if (user === null) {
+        res.status(404).json('User was not found!')
+        return
+    } 
 
     const name = req.body.name
     const desc = req.body.desc
     const author = user.firstName
     const date = new Date()
-    const tickets = []
 
     const newProject = new Project({
         user: req.body.id,
@@ -27,10 +30,8 @@ router.post('/add', async (req, res) =>  {
         desc,
         author,
         date,
-        tickets
     })
 
-    //user.projects.push(newProject.id)
     newProject.save()
     .then(() => res.send(req.body))
     .catch(err => res.status(400).json('There was an error' + err))

@@ -1,20 +1,18 @@
 const router = require('express').Router()
-const ticket = require('../models/ticket')
+
 let Ticket = require('../models/ticket')
 let Project = require('../models/project')
 
 
 //Get all tickets
 router.route('/').get((req, res) => {
-    Ticket.find()
+    Ticket.find({project: req.body.id})
         .then(tickets => res.json(tickets))
         .catch(err => res.status(400).json('There was an error while trying to get all tickets: '+ err))
 })
 
 //Add a ticket
 router.post('/add', async (req, res) => {
-
-    const project = await Project.findOne({id: req.body.id})
 
     const title = req.body.title
     const desc = req.body.desc
@@ -26,6 +24,7 @@ router.post('/add', async (req, res) => {
     const date = new Date()
 
     const newTicket = new Ticket({
+        project: req.body.id,
         title,
         desc,
         time,
@@ -56,6 +55,8 @@ router.route('/:id').delete((req, res) => {
 
 //Edit ticket
 router.route('/update/:id').post((req, res) =>  {
+    console.log(req.params.id)
+
     Ticket.findById(req.params.id)
     .then(ticket => {
         ticket.title = req.body.title
@@ -64,7 +65,6 @@ router.route('/update/:id').post((req, res) =>  {
         ticket.type = req.body.type
         ticket.priority = req.body.priority
         ticket.status = req.body.status
-        ticket.author = req.body.author
 
         ticket.save()
         .then(() => res.json('Ticket has been updated!'))

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const TicketSchema = mongoose.Schema({
-    projectId: {
+    project: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'projects'
     },
