@@ -2,6 +2,18 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const router = require('./users')
 const jwt = require('jsonwebtoken')
+const verify = require('../middleware/verify')
+
+//Get current user
+router.get('/', verify, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.user.id).select('-password')
+        if (user == null) return res.status(500).json('Error happened while finding user!')
+        res.json(user)
+    } catch (err) {
+        res.status(500).send('There was an error!' + err)
+    }
+})
 
 //Handle login
 router.post('/login', async (req, res) => {
