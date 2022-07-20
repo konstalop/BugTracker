@@ -13,10 +13,12 @@ import {
 } from "react-router-dom";
 import ProjectContextProvider from './contexts/ProjectContext';
 import TicketContextProvider from './contexts/TicketContext';
+import AuthState from './contexts/AuthContext';
 
 function App() {
   return (
     <>
+    <AuthState>
     <ProjectContextProvider>
       <TicketContextProvider>
       <Router>
@@ -33,6 +35,7 @@ function App() {
       </Router>
       </TicketContextProvider>
     </ProjectContextProvider>
+    </AuthState>
     </>
   );
 }

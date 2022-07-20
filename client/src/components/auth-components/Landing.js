@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useContext, useState}from 'react'
 import { Link } from "react-router-dom"
 import Footer from './Footer';
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from '../../contexts/AuthContext';
 
 /**
  * page when you open the application. Login is to be made.
@@ -10,18 +11,37 @@ import { useNavigate } from "react-router-dom"
 function Landing() {
 let navigate = useNavigate()
 
+const authContext = useContext(AuthContext)
+
+const [user, setUser] = useState({
+  email: "",
+  password: "",
+  
+})
+
+const { email, password } = user
+
+const handleChange = (event) => {
+  setUser({...user, [event.target.name]: event.target.value})
+}
+
 const handleLogin = (e) => {
+  if (email === '' || password === '') {
+    console.log('Please fill all fields!')
+  } else {
   e.preventDefault()
   let path = 'app';
   navigate(path)
+  }
 }
+
 
 
   return (
     <div className="container-auth">
       <h1 className='header-auth'>BugTracker</h1>
       <div className="container-fields-auth">
-        <form className="form-auth">
+        <form className="form-auth" onSubmit={handleLogin}>
           <fieldset>
             <h4 className="header-form">Sign in</h4>
               <input
@@ -29,12 +49,14 @@ const handleLogin = (e) => {
                name="email" 
                placeholder="Email Address"
                className="input-auth"
+               onChange={handleChange}
               />
               <input
                type="password" 
                name="password" 
                placeholder="Password"
                className="input-auth" 
+               onChange={handleChange}
               />
               <input 
               type="submit"

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom"
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom"  
-import { useState } from 'react'
+import { useState} from 'react'
+import { AuthContext } from "../../contexts/AuthContext";
+
  
 /**
  * Page to create an account on. To be made.
@@ -10,12 +12,19 @@ import { useState } from 'react'
  */
 function Register() {
 
+    const authContext = useContext(AuthContext)
+
+    const { register } = authContext
+
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
         email: "",
         password: "",
+        password2: "",
     })
+
+    const { firstName, lastName, email, password, password2} = user
 
     const handlechange = (event) => {
         setUser({...user, [event.target.name]: event.target.value})
@@ -23,10 +32,23 @@ function Register() {
 
     let navigate = useNavigate()
     const handleRegistering = (e) => {
-        console.log(user)
         e.preventDefault()
-        let path = '../app';
-        navigate(path)
+        if (firstName === '' || lastName === '' || email === '' || password === '') {
+            console.log('Fill all fields!')
+        } else if (password !== password2) {
+            console.log('passwords dont match!')
+        } else {
+            register({
+                firstName,
+                lastName,
+                email,
+                password
+            })
+            console.log(user)
+            let path = '../';
+            navigate(path)
+        }
+        
     }
 
 
@@ -67,7 +89,7 @@ function Register() {
                             />
                             <input
                              type="password"
-                             name="password"
+                             name="password2"
                              className="input-auth"
                              placeholder="Confirm your password"
                              onChange={handlechange}
