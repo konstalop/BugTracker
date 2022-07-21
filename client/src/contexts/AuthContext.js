@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 import React from "react";
 import axios from "axios"
 import authReducer from './AuthReducer'
-import setAccessToken from "../misc/setAccessToken";
+import { LOGIN_FAILURE, LOGIN_OK, REGISTER_FAILURE, REGISTER_OK } from "./ReducerActions";
 
 export const AuthContext = createContext();
 
@@ -11,7 +11,7 @@ const AuthState = (props) => {
 
     const initial = {
         token: localStorage.getItem('accessToken'),
-        isAuthenticated: false,
+        isAuthenticated: null,
         user: null,
         loading: true,
         error: null
@@ -23,8 +23,16 @@ const AuthState = (props) => {
      * Load currently authorized user
      */
     const loadUser = async () => {
-        if (localStorage.token) {
-            setAccessToken(localStorage.accessToken)
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }
+        try {
+            const res = await axios.get('/auth/', config)
+            console.log(res)
+        }catch(err) {
+            console.error(err)
         }
     }
 
@@ -41,9 +49,16 @@ const AuthState = (props) => {
         try {
             const res = await axios.post('/users/register', formData, conf)
             console.log(res)
+            dispatch({
+                type: REGISTER_OK,
+                data: res.data
+            })
             
         }catch(err) {
-            console.error(err)
+            dispatch({
+                type: REGISTER_FAILURE,
+                data: err.response.data.msg
+            })
         }
     }
 
@@ -60,16 +75,29 @@ const AuthState = (props) => {
         try {
             const res = await axios.post('/auth/login', formData, conf)
             console.log(res)
+            dispatch({
+                type: LOGIN_OK,
+                data: res.data
+            })
             loadUser()
         }catch(err) {
-            console.error(err)
+            dispatch({
+                type: LOGIN_FAILURE,
+                data: err.response.data.msg
+            })
         }
     }
 
     //const logout
 
     return (
-        <AuthContext.Provider value={{register, login}}>
+        <AuthContext.Provider 
+            value={{
+                register,
+                login,
+                loadUser,
+                isAuthenticated: state.isAuthenticated
+                }}>
             {props.children}
         </AuthContext.Provider>
     )

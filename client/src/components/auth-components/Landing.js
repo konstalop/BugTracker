@@ -1,4 +1,4 @@
-import React, {useContext, useState}from 'react'
+import React, {useContext, useState} from 'react'
 import { Link } from "react-router-dom"
 import Footer from './Footer';
 import { useNavigate } from "react-router-dom"
@@ -9,10 +9,10 @@ import { AuthContext } from '../../contexts/AuthContext';
  * @returns login page
  */
 function Landing() {
-let navigate = useNavigate()
+
 
 const authContext = useContext(AuthContext)
-const { login } = authContext
+const { login, isAuthenticated } = authContext
 
 const [user, setUser] = useState({
   email: "",
@@ -27,6 +27,7 @@ const handleChange = (event) => {
 }
 
 const handleLogin = (e) => {
+  e.preventDefault()
   if (email === '' || password === '') {
     console.log('Please fill all fields!')
   } else {
@@ -34,10 +35,6 @@ const handleLogin = (e) => {
       email,
       password
     })
-
-  e.preventDefault()
-  let path = 'app';
-  navigate(path)
   }
 }
 

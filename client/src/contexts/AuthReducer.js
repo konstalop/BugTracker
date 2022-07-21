@@ -25,7 +25,7 @@ export default (state, action) => {
             }
         case AUTH_FAILURE:
         case LOGIN_OK:
-            localStorage.setItem('accessToken', action.data.token)
+            localStorage.setItem('accessToken', action.data.accessToken)
             return {
                 ...state,
                 ...action.data,

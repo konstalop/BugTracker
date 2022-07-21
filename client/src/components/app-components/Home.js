@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext';
 import Project from './Project'
-
+import { AuthContext } from '../../contexts/AuthContext';
 /**
  * Generates home page which shows all projects
  * @returns home page
@@ -10,7 +10,12 @@ import Project from './Project'
 function Home() {
 
     const {projects} = useContext(ProjectContext)
+    const authContext = useContext(AuthContext)
 
+    useEffect(() => {
+        authContext.loadUser()
+    }, [])
+    
     return (
         <div className='home-wrapper'>
             <h1 className='home-h1'>Home</h1>
