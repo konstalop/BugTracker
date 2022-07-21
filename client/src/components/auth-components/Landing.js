@@ -12,6 +12,7 @@ function Landing() {
 let navigate = useNavigate()
 
 const authContext = useContext(AuthContext)
+const { login } = authContext
 
 const [user, setUser] = useState({
   email: "",
@@ -29,13 +30,16 @@ const handleLogin = (e) => {
   if (email === '' || password === '') {
     console.log('Please fill all fields!')
   } else {
+    login({
+      email,
+      password
+    })
+
   e.preventDefault()
   let path = 'app';
   navigate(path)
   }
 }
-
-
 
   return (
     <div className="container-auth">
@@ -62,7 +66,6 @@ const handleLogin = (e) => {
               type="submit"
               className="input-auth-submit" 
               value="Login"
-              onClick={(e) => handleLogin(e)}
              />
             <p className="new-user-text"><Link to="/register" >Create account</Link></p>
             <p className="new-user-text"><Link to="/">Forgot password?</Link></p>
