@@ -2,16 +2,20 @@ import { createContext, useReducer } from "react";
 import React from "react";
 import axios from "axios"
 import authReducer from './AuthReducer'
-import { LOGIN_FAILURE, LOGIN_OK, REGISTER_FAILURE, REGISTER_OK } from "./ReducerActions";
+import { LOGIN_FAILURE,
+         LOGIN_OK, 
+         REGISTER_FAILURE, 
+         REGISTER_OK,
+         LOGOUT, 
+         USER_LOADED
+} from "./ReducerActions";
 
 export const AuthContext = createContext();
 
 const AuthState = (props) => {
-    
-
     const initial = {
         token: localStorage.getItem('accessToken'),
-        isAuthenticated: null,
+        isAuthenticated: false,
         user: null,
         loading: true,
         error: null
@@ -22,15 +26,23 @@ const AuthState = (props) => {
     /**
      * Load currently authorized user
      */
-    const loadUser = async () => {
+    const loadUser = async (res1) => {
+        console.log('loading user: ' + localStorage.accessToken)
         const config = {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                Authorization: `Bearer ${localStorage.accessToken}`
             }
         }
+        
         try {
             const res = await axios.get('/auth/', config)
             console.log(res)
+
+            dispatch({
+                type: USER_LOADED,
+                data: res.data
+            })
+
         }catch(err) {
             console.error(err)
         }
@@ -74,11 +86,13 @@ const AuthState = (props) => {
         }
         try {
             const res = await axios.post('/auth/login', formData, conf)
-            console.log(res)
+            localStorage.setItem('accessToken', res.data.accessToken)
+    
             dispatch({
                 type: LOGIN_OK,
                 data: res.data
             })
+
             loadUser()
         }catch(err) {
             dispatch({
@@ -88,15 +102,22 @@ const AuthState = (props) => {
         }
     }
 
-    //const logout
+    const logout = () => {
+        dispatch({
+            type: LOGOUT
 
+        })
+    }
     return (
         <AuthContext.Provider 
             value={{
                 register,
                 login,
                 loadUser,
-                isAuthenticated: state.isAuthenticated
+                logout,
+                isAuthenticated: state.isAuthenticated,
+                user: state.user,
+                accessToken: state.accessToken,
                 }}>
             {props.children}
         </AuthContext.Provider>

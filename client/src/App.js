@@ -14,8 +14,10 @@ import {
 import ProjectContextProvider from './contexts/ProjectContext';
 import TicketContextProvider from './contexts/TicketContext';
 import AuthState from './contexts/AuthContext';
+import ProtectedRoute from './components/routing-components/ProtectedRoute';
 
 function App() {
+
   return (
     <>
     <AuthState>
@@ -26,10 +28,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing/>}/>
           <Route path="/register" element={<Register/>} />
-          <Route path="/app" element={<Application/>} />
-          <Route path="/tickets" element={<Tickets/>} />
-          <Route path="/account" element={<Account/>} />
-          <Route path="/project/:projectId" element={<Project/>} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/app" element={<Application/>} />
+            <Route path="/tickets" element={<Tickets/>} />
+            <Route path="/account" element={<Account/>} />
+            <Route path="/project/:projectId" element={<Project/>} />
+          </Route>
         </Routes> 
         </div>
       </Router>

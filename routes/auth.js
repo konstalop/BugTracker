@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
         }
     }
 
-    const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '20m'})
+    const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '30m'})
 
     if (validPw) {
         return res.json({accessToken: accessToken})

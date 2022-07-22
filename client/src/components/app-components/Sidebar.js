@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useState } from 'react'
 import Modal from './Modal';
 import CreateProject from './CreateProject';
+import { AuthContext } from '../../contexts/AuthContext';
 
 /**
  * Side bar which appears at all pages, contains logout and new project. Also links for navigation.
@@ -11,9 +12,14 @@ import CreateProject from './CreateProject';
 function Sidebar() {
 
     const [buttonPopup, setButtonPopup] = useState(false);
+    const authContext = useContext(AuthContext)
+
+    const {logout, user} = authContext
 
     let navigate = useNavigate()
-    const routeTo = () => {
+
+    const handleLogout = () => {
+        logout()
         let path = '../';
         navigate(path)
         
@@ -29,7 +35,7 @@ function Sidebar() {
                         onClick={() => setButtonPopup(true)}
                         >New Project
                     </button>   
-                    <button className="sidebar-logout" onClick={routeTo}>Logout</button> 
+                    <button className="sidebar-logout" onClick={handleLogout}>Logout</button> 
                     <Modal 
                         trigger={buttonPopup} 
                         setTrigger={setButtonPopup}

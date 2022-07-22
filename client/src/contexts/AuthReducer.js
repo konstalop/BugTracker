@@ -25,7 +25,6 @@ export default (state, action) => {
             }
         case AUTH_FAILURE:
         case LOGIN_OK:
-            localStorage.setItem('accessToken', action.data.accessToken)
             return {
                 ...state,
                 ...action.data,
@@ -34,6 +33,7 @@ export default (state, action) => {
             }
         case LOGIN_FAILURE:
         case LOGOUT:
+            console.log('logging out')
             localStorage.removeItem('accessToken')
             return {
                 ...state,
