@@ -6,8 +6,7 @@ let User = require('../models/user')
 
 //Get all projects
 router.get('/', verify, async (req, res) => {
-    console.log(req.headers)
-    Project.find({user: req.body.id})
+    Project.find({user: req.user.user.id})
         .then(projects => res.json(projects))
         .catch(err => res.status(400).json(err))
 });

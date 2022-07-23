@@ -9,11 +9,13 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 function Home() {
 
-    const {projects, fetchProjects} = useContext(ProjectContext)
-    const {loadUser, user} = useContext(AuthContext)
+    const {projects, fetchProjects, loading} = useContext(ProjectContext)
+    
     useEffect(() => {
         fetchProjects()
     }, [])
+
+    console.log(projects)
 
     return (
         <div className='home-wrapper'>
@@ -28,11 +30,12 @@ function Home() {
                             <th className='th3'>DATE CREATED</th>
                         </tr>
                         {
-                            projects.map(project => (
-                                <Project key={project.id} project={project}/>
-                            ))
-                        }
-
+                            projects !== null && !loading ? (
+                                projects.map(project => (
+                                    <Project key={project._id} project={project}/>
+                                ))
+                            ) : (<tr></tr>)
+                        }  
                         </tbody>
                     </table>
                     
