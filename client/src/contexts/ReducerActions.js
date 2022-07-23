@@ -9,7 +9,7 @@ export const LOGOUT = 'LOGOUT'
 export const CLEAR_FAILURES = 'CLEAR_FAILURES'
 
 //PROJECT ACTIONS
-export const ADD_PROJECT = 'ADD_PROJECT'
+export const NEW_PROJECT = 'NEW_PROJECT'
 export const FETCH_PROJECTS = 'FETCH_PROJECTS'
 export const DELETE_PROJECT = 'DELETE_PROJECT'
 

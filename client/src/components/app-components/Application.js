@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import Sidebar from "./Sidebar"
 import Home from "./Home"
+import { AuthContext } from "../../contexts/AuthContext"
 
 /**
  * Application wrapper
@@ -8,6 +9,12 @@ import Home from "./Home"
  */
 
 function Dashboard() {
+
+    const authContext = useContext(AuthContext)
+
+    useEffect(() => {
+        authContext.loadUser()
+    }, [])
 
     return (
         <div className="app-wrapper">

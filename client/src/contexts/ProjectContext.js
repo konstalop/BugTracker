@@ -1,9 +1,10 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useReducer } from "react";
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import axios from "axios";
 import ProjectsReducer from "./ProjectsReducer";
-import { FETCH_PROJECTS } from "./ReducerActions";
+import { FETCH_PROJECTS,
+         NEW_PROJECT
+} from "./ReducerActions";
 
 
 export const ProjectContext = createContext();
@@ -26,15 +27,8 @@ const ProjectContextProvider = (props) => {
      * Fetch all projets from currently logged in user
      */
     const fetchProjects = async () =>  {
-
-        const config = {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        }
         try {
-            const res = await axios.get('/projects/', config)
-            
+            const res = await axios.get('/projects/')
             dispatch({
                 type: FETCH_PROJECTS,
                 data: res.data
@@ -44,12 +38,33 @@ const ProjectContextProvider = (props) => {
         }
     }
 
+    const newProject = async (project) => {
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+        
+        try {
+            const res = await axios.post('/projects/add', project, config)
+
+            dispatch({
+                type: NEW_PROJECT,
+                data: res.data
+            })
+            
+        }catch(err) {
+            console.error('There was an error while adding a project ' + err)
+        }
+    }
+
     
     return (
         <ProjectContext.Provider 
             value={{
                 projects: state.projects, 
                 fetchProjects,
+                newProject,
                 }}>
             {props.children}
         </ProjectContext.Provider>

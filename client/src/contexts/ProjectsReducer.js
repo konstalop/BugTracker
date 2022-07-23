@@ -1,5 +1,5 @@
 import {
-    FETCH_PROJECTS,
+    FETCH_PROJECTS, NEW_PROJECT,
 
 } from './ReducerActions'
 
@@ -9,6 +9,11 @@ export default (state, action) =>  {
             return {
                 ...state,
                 projects: action.data,
+                loading: false
+            }
+        case NEW_PROJECT:
+            return {
+                ...state,
                 loading: false
             }
         default: 

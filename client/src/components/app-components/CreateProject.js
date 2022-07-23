@@ -12,24 +12,22 @@ import {useContext} from "react"
 
 function CreateProject(props) {
 
-    const {addProject} = useContext(ProjectContext)
+    const projectContext = useContext(ProjectContext)
+
+    const { newProject } = projectContext
 
     const [project, setProject] = useState({
-        projectName: "",
-        projectDesc: "",
-        projectDate: new Date().toLocaleDateString()
+        name: "",
+        desc: "",
     });
 
-    const handleProjectName = (event) => {
-        setProject({...project, projectName: event.target.value})
-    }
-
-    const handleProjectDesc = (event) => {
-        setProject({...project, projectDesc: event.target.value})
-    }
+    const handleChange = (event) => {
+        setProject({...project, [event.target.name]: event.target.value})
+      }
 
 
-    const {projectName, projectDesc, projectDate} = project
+
+    const {name, desc} = project
 
     /**
      * handle submitting new project and handle adding it to project context
@@ -37,7 +35,7 @@ function CreateProject(props) {
      */
     const handleSubmit = (e) => {
         e.preventDefault()
-        addProject(projectName, projectDesc, projectDate, [])
+        newProject(project)
         props.setTrigger(false)
     }
 
@@ -57,20 +55,23 @@ function CreateProject(props) {
                <form className="create-project-form">
                     <label className='new-project-label'>Project name
                         <input
-                        onChange={handleProjectName}
-                        value={project.projectName}
+                        onChange={handleChange}
+                        value={name}
                         className="input-project-title"
                         placeholder="Project name"
                         type="text"
+                        name="name"
                         ></input>
                     </label>
                     <label className="new-project-label">Description
                         <textarea
-                        onChange={handleProjectDesc} 
+                        onChange={handleChange} 
                         className="input-project-desc" 
                         rows={4} placeholder="Describe the project" 
                         type="text"
-                        value={project.projectDesc}>
+                        value={desc}
+                        name="desc"
+                        >
                         </textarea>
                     </label>
                     <button

@@ -12,26 +12,26 @@ router.get('/', verify, async (req, res) => {
 });
 
 //Add a project
-router.post('/add', async (req, res) =>  {
+router.post('/add', verify, async (req, res) =>  {
     
-    const user = await User.findOne({_id: req.body.id})
-    if (user === null) {
-        res.status(404).json('User was not found!')
-        return
-    } 
+    const user = await User.findById(req.user.user.id)
 
+    console.log(user)
+    
     const name = req.body.name
     const desc = req.body.desc
     const author = user.firstName
     const date = new Date()
 
     const newProject = new Project({
-        user: req.body.id,
+        user: user._id,
         name,
         desc,
         author,
         date,
     })
+
+
 
     newProject.save()
     .then(() => res.send(req.body))

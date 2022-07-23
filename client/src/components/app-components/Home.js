@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext';
 import Project from './Project'
-import { AuthContext } from '../../contexts/AuthContext';
 /**
  * Generates home page which shows all projects
  * @returns home page
@@ -13,9 +12,7 @@ function Home() {
     
     useEffect(() => {
         fetchProjects()
-    }, [])
-
-    console.log(projects)
+    }, [fetchProjects])
 
     return (
         <div className='home-wrapper'>
@@ -34,7 +31,9 @@ function Home() {
                                 projects.map(project => (
                                     <Project key={project._id} project={project}/>
                                 ))
-                            ) : (<tr></tr>)
+                            ) : (<tr>
+                                
+                            </tr>)
                         }  
                         </tbody>
                     </table>
