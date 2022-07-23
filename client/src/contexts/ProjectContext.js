@@ -13,10 +13,7 @@ export const ProjectContext = createContext();
  */
 const ProjectContextProvider = (props) => {
     
-    const authContext = useContext(AuthContext)
     const [projects, setProjects] = useState([])
-
-    const { user } = authContext
 
     /**
      * Fetch all projets from currently logged in user
@@ -28,9 +25,8 @@ const ProjectContextProvider = (props) => {
                 'Content-type': 'application/json'
             }
         }
-
         try {
-            const res = await axios.get('/projects/', user._id, config)
+            const res = await axios.get('/projects/', config)
             console.log(res.data)
         }catch(err) {
             console.error(err)
