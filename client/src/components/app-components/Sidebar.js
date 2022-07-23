@@ -18,6 +18,14 @@ function Sidebar() {
 
     let navigate = useNavigate()
 
+    let userName = ''
+
+    if (user == null) {
+        userName = ''
+    } else {
+        userName = user.firstName
+    }
+
     const handleLogout = () => {
         logout()
         let path = '../';
@@ -27,6 +35,7 @@ function Sidebar() {
     return (
         <div className="sidebar-wrapper">
             <h1 className="sidebar-h1"><span>Bug</span><span>Tracker</span></h1>
+                    <p className="gp">Welcome {userName}</p>
                     <p className="sidebar-text"><Link className='sidebar-link'to="/app">Home</Link></p>
                     <p className="sidebar-text"><Link className='sidebar-link'to="/tickets">Tickets</Link></p>
                     <p className="sidebar-text"><Link className='sidebar-link'to="/account">Account</Link></p>

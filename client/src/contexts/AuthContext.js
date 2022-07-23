@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 import React from "react";
 import axios from "axios"
+import setToken from "../misc/setToken";
 import authReducer from './AuthReducer'
 import { LOGIN_FAILURE,
          LOGIN_OK, 
@@ -26,17 +27,14 @@ const AuthState = (props) => {
     /**
      * Load currently authorized user
      */
-    const loadUser = async (res1) => {
-        console.log('loading user: ' + localStorage.accessToken)
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.accessToken}`
-            }
+    const loadUser = async () => {
+
+        if (localStorage.accessToken) {
+            setToken(localStorage.accessToken)
         }
-        
+
         try {
-            const res = await axios.get('/auth/', config)
-            console.log(res)
+            const res = await axios.get('/auth/')
 
             dispatch({
                 type: USER_LOADED,
@@ -60,7 +58,6 @@ const AuthState = (props) => {
         }
         try {
             const res = await axios.post('/users/register', formData, conf)
-            console.log(res)
             dispatch({
                 type: REGISTER_OK,
                 data: res.data

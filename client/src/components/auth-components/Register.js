@@ -34,9 +34,9 @@ function Register() {
     const handleRegistering = (e) => {
         e.preventDefault()
         if (firstName === '' || lastName === '' || email === '' || password === '') {
-            console.log('Fill all fields!')
+            alert('Please fill all of the fields!')
         } else if (password !== password2) {
-            console.log('passwords dont match!')
+            alert('Passwords do not match!')
         } else {
             register({
                 firstName,

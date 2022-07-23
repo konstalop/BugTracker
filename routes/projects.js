@@ -1,10 +1,12 @@
 const router = require('express').Router()
+const verify = require('../middleware/verify')
 
 let Project = require('../models/project')
 let User = require('../models/user')
 
 //Get all projects
-router.get('/', async (req, res) => {
+router.get('/', verify, async (req, res) => {
+    console.log(req.headers)
     Project.find({user: req.body.id})
         .then(projects => res.json(projects))
         .catch(err => res.status(400).json(err))

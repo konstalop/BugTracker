@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext';
 import Project from './Project'
 import { AuthContext } from '../../contexts/AuthContext';
@@ -9,10 +9,11 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 function Home() {
 
-    const {projects} = useContext(ProjectContext)
-    const authContext = useContext(AuthContext)
-    const { isAuthenticated } = authContext
-    console.log(isAuthenticated)
+    const {projects, fetchProjects} = useContext(ProjectContext)
+    const {loadUser, user} = useContext(AuthContext)
+    useEffect(() => {
+        fetchProjects()
+    }, [])
 
     return (
         <div className='home-wrapper'>

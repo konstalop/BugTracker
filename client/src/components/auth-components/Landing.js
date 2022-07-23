@@ -8,21 +8,19 @@ import { AuthContext } from '../../contexts/AuthContext';
  * page when you open the application. Login is to be made.
  * @returns login page
  */
-function Landing(props) {
+function Landing() {
 let navigate = useNavigate()
 
 const authContext = useContext(AuthContext)
 const { login, isAuthenticated } = authContext
 
-console.log(isAuthenticated)
 
 
 useEffect(() => {
-  if (isAuthenticated) {
-    console.log(isAuthenticated)
+  if (isAuthenticated && authContext.user !== null) {
     navigate('app')
   }
-}, [isAuthenticated]) 
+}, [isAuthenticated, authContext.user]) 
 
 const [user, setUser] = useState({
   email: "",
@@ -39,7 +37,7 @@ const handleChange = (event) => {
 const handleLogin = (e) => {
   e.preventDefault()
   if (email === '' || password === '') {
-    console.log('Please fill all fields!')
+    alert('Please fill all fields!')
   } else {
     login({
       email,

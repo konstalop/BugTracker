@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import React from "react";
 import {v4 as uuidv4} from "uuid";
- 
+import axios from "axios";
+import { AuthContext } from "./AuthContext";
 
 export const ProjectContext = createContext();
 
@@ -12,7 +13,32 @@ export const ProjectContext = createContext();
  */
 const ProjectContextProvider = (props) => {
     
+    const authContext = useContext(AuthContext)
     const [projects, setProjects] = useState([])
+
+    const { user } = authContext
+
+    /**
+     * Fetch all projets from currently logged in user
+     */
+    const fetchProjects = async () =>  {
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        try {
+            const res = await axios.get('/projects/', user._id, config)
+            console.log(res.data)
+        }catch(err) {
+            console.error(err)
+        }
+    }
+
+
+
 
     /**
      * Add wanted ticket to project
@@ -55,7 +81,15 @@ const ProjectContextProvider = (props) => {
     }
 
     return (
-        <ProjectContext.Provider value={{projects, addProject, addTicketToProject, deleteTicketFromProject, editTicketInProject}}>
+        <ProjectContext.Provider 
+            value={{
+                projects, 
+                fetchProjects,
+                addProject, 
+                addTicketToProject, 
+                deleteTicketFromProject, 
+                editTicketInProject
+                }}>
             {props.children}
         </ProjectContext.Provider>
     )
