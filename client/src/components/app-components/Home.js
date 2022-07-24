@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext';
 import Project from './Project'
+import Spinner from './Spinner';
+
 /**
  * Generates home page which shows all projects
  * @returns home page
@@ -12,7 +14,16 @@ function Home() {
     
     useEffect(() => {
         fetchProjects()
-    }, [fetchProjects])
+    }, [])
+
+    if (projects == null) {
+        return (
+            <div className='home-wrapper'>
+                <h1 className='home-h1'>Loading projects...</h1>
+                <Spinner></Spinner>
+            </div>
+        )
+    }
 
     return (
         <div className='home-wrapper'>
@@ -31,9 +42,7 @@ function Home() {
                                 projects.map(project => (
                                     <Project key={project._id} project={project}/>
                                 ))
-                            ) : (<tr>
-                                
-                            </tr>)
+                            ) : (<tr></tr>)
                         }  
                         </tbody>
                     </table>

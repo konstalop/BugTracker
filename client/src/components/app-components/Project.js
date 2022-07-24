@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import { ProjectContext } from '../../contexts/ProjectContext'
 
 /**
  * Project row displayed at home page
@@ -8,16 +9,23 @@ import { NavLink } from 'react-router-dom'
  */
 function Project({project}) {
 
-    const projectLink = {
-        pathname: "/project/" + project.id,
-        state: {stateParam: project.id}  
-    }
+  
 
+    const projectContext = useContext(ProjectContext)
+    const { setSelected, clearSelection } = projectContext
+
+    useEffect(() => {
+        clearSelection()
+    }, [])
+
+    const projectLink = {
+        pathname: "/project/" + project._id,
+    }
 
     return (
         <tr className='project-row'>
             <td className='project-name' 
-                onClick={() => console.log(project.id)}
+                onClick={() => setSelected(project._id)}
                 >
                 <NavLink 
                     className='project-name' 

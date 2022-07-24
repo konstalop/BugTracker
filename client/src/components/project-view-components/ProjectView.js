@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Sidebar from '../app-components/Sidebar'
 import TeamMember from './TeamMember'
 import Ticket from '../app-components/Ticket'
@@ -8,6 +8,8 @@ import Modal from '../app-components/Modal'
 import { useState } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext'
 import { Link, useParams } from "react-router-dom"
+import Spinner from '../app-components/Spinner'
+import { AuthContext } from '../../contexts/AuthContext'
 
 /**
  * Page to view project contains including Tickets and teams, and view tickets.
@@ -15,44 +17,40 @@ import { Link, useParams } from "react-router-dom"
  */
 
 function ProjectView() {
-    const [currentlySelected, setSelected] = useState("")
-    const {projects} = useContext(ProjectContext)
+    
+    const {selected} = useContext(ProjectContext)
+    const {user} = useContext(AuthContext)
     const [buttonPopup, setButtonPopup] = useState(false)
-    const selectedProject = useParams();
 
-    //Index for selected project in projects
-    const projectIndex = projects.findIndex(project => project.id === selectedProject.projectId)
+    console.log(user)
 
-    /**
-     * TEMPORARY SOLUTION, JUST TO MAKE DEVELOPMENT EASIER.
-     * App crashing here is caused by uuidv4() generating new ids on reload.
-     * database maybe should fix this problem?
-     */
-    if (projectIndex === -1) {
-        return(
+    if (selected == null) {
+        return (
             <div>
-                <Link to="/app">Return to home</Link>
+                <Sidebar/>
+                <div className='project-view-container'>
+                        <h1 className='project-view-name'>Attemping to load project...</h1>
+                        <Spinner></Spinner>
+                 </div>
             </div>
         )
-    } 
+    }
 
     return (
         <div>
             <Sidebar></Sidebar>
             <div className='project-view-container'>
-                <h1 className='project-view-name'>{projects[projectIndex].name}</h1>
+                <h1 className='project-view-name'>{selected.name}</h1>
             <div className='project-team-container'>
-                <h4 className='project-team-header'>Team</h4>
+                <h4 className='project-team-header'>Team (NOT FUNCTIONAL YET)</h4>
                 <table className='team-table'>
-                        <tbody>
+                    <tbody>
                     <tr>
                         <th className='th-project'>MEMBER</th>
                         <th className='th-project'>EMAIL</th>
-                        <th className='th-project'>PHONE</th>
                     </tr>
-                        <TeamMember/>
-                        
-                        </tbody>
+                        <TeamMember user={user}/>
+                    </tbody>
                 </table>
                 <button className='new-button-member'>New member</button>
             </div>
@@ -65,20 +63,13 @@ function ProjectView() {
                             <th className='th2'>DESCRIPTION</th>
                             <th className='th3'>ESTIMATED TIME (HOURS)</th>
                         </tr>
-                        {
-                            projects[projectIndex].tickets.map(ticket => (
-                                <Ticket key={ticket.ticketId} ticket={ticket} setSelected={setSelected}/>
-                            ))
-                        }
+                    
                         </tbody>
                     </table>
                     <button onClick={() => setButtonPopup(true)}
                      className='new-ticket'>New</button>
                 </div>
-                <Selected 
-                    ticket={currentlySelected} 
-                    projectIndex={projectIndex}
-                />
+               
                 <Modal 
                     trigger={buttonPopup} 
                     setTrigger={setButtonPopup}
@@ -86,7 +77,7 @@ function ProjectView() {
                     <AddTicket 
                         trigger={buttonPopup} 
                         setTrigger={setButtonPopup} 
-                        projectIndex={projectIndex}
+   
                 >
                     </AddTicket>
                 </Modal>

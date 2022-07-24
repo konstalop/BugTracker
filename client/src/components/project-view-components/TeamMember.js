@@ -4,16 +4,11 @@ import React from 'react'
  * Row of teammember data. Under work.
  * @returns teammember row
  */
-function TeamMember() {
-
-    let name = 'Testi Henkilö'
-    let email = "testiemaili@email.com"
-    let phone = "0123456789"
+function TeamMember({user}) {
     return (
         <tr className='project-row'>
-            <td className='td-team'>{name}</td>
-            <td className='td-team'>{email}</td>
-            <td className='td-team'>{phone}</td>
+            <td className='td-team'>{user.firstName+ " " + user.lastName}</td>
+            <td className='td-team'>{user.email}</td>
         </tr>
     )
 }

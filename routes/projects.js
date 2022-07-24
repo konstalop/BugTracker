@@ -31,16 +31,14 @@ router.post('/add', verify, async (req, res) =>  {
         date,
     })
 
-
-
     newProject.save()
-    .then(() => res.send(req.body))
+    .then(() => res.send(newProject))
     .catch(err => res.status(400).json('There was an error' + err))
     
 });
 
 //Get project by an id
-router.route('/:id').get((req, res) => {
+router.get('/:id', verify, async (req, res) => {
     Project.findById(req.params.id)
     .then(project => res.json(project))
     .catch(err => res.status(400).json('There was an error' + err))

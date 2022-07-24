@@ -1,5 +1,8 @@
 import {
-    FETCH_PROJECTS, NEW_PROJECT,
+    SELECTED_PROJECT,
+    FETCH_PROJECTS,
+    NEW_PROJECT,
+    CLEAR_SELECTION,
 
 } from './ReducerActions'
 
@@ -14,8 +17,20 @@ export default (state, action) =>  {
         case NEW_PROJECT:
             return {
                 ...state,
+                projects: [...state.projects, action.data],
                 loading: false
             }
+        case SELECTED_PROJECT:
+            return {
+                ...state,
+                selected: action.data
+            }
+        case CLEAR_SELECTION:{
+            return {
+                ...state,
+                selected: null
+            }
+        }
         default: 
             return state
     }   
