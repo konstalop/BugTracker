@@ -15,7 +15,18 @@ import {
 export default (state, action) => {
     switch(action.type) {
         case REGISTER_OK:
+            return {
+                ...state,
+                isAuthenticated: false,
+                loading: false,
+            }
         case REGISTER_FAILURE:
+            return {
+                ...state,
+                isAuthenticated: false,
+                loading: false,
+                error: action.data
+            }
         case USER_LOADED:
             return {
                 ...state,

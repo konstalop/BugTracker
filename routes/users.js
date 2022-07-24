@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
 
     newUser.save()
     .then(() => res.send('User has been created!'))
-    .catch(err => res.status(400).json('There was an error while creating an user: '+err))
+    .catch(err => res.status(400).json('There was an error'))
 })
 
 module.exports = router

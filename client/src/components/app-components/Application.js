@@ -13,6 +13,7 @@ function Dashboard() {
     const authContext = useContext(AuthContext)
     
     useEffect(() => {
+        console.log('loading user in app')
         authContext.loadUser()
     }, [])
 

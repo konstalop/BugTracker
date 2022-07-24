@@ -39,6 +39,8 @@ const AuthState = (props) => {
         }
 
         try {
+
+            console.log('loading user')
             const res = await axios.get('/auth/')
 
             dispatch({
@@ -63,6 +65,7 @@ const AuthState = (props) => {
         }
         try {
             const res = await axios.post('/users/register', formData, conf)
+            console.log(res)
             dispatch({
                 type: REGISTER_OK,
                 data: res.data
@@ -124,6 +127,7 @@ const AuthState = (props) => {
                 isAuthenticated: state.isAuthenticated,
                 user: state.user,
                 accessToken: state.accessToken,
+                error: state.error
                 }}>
             {props.children}
         </AuthContext.Provider>
