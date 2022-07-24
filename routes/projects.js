@@ -7,7 +7,7 @@ let User = require('../models/user')
 /**
  * Fetch all projects from user and verify accessToken before doing anything.
  */
-router.get('/', verify, async (req, res) => {
+router.get('/', verify, (req, res) => {
     Project.find({user: req.user.user.id})
         .then(projects => res.json(projects))
         .catch(err => res.status(400).json(err))

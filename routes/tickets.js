@@ -1,18 +1,34 @@
 const router = require('express').Router()
 
 let Ticket = require('../models/ticket')
-let Project = require('../models/project')
+let verify = require('../middleware/verify')
+let User = require('../models/user')
+//let Project = require('../models/project')
 
-
-//Get all tickets
-router.route('/').get((req, res) => {
-    Ticket.find({project: req.body.id})
+/**
+ * Get all tickets from user and check authorization.
+ */
+router.get('/', verify, (req, res) => {
+    Ticket.find({user: req.user.user.id})
         .then(tickets => res.json(tickets))
         .catch(err => res.status(400).json('There was an error while trying to get all tickets: '+ err))
 })
 
-//Add a ticket
-router.post('/add', async (req, res) => {
+/**
+ * Get all tickets from wanted project.
+ */
+router.get('/project', verify, (req, res) => {
+    Ticket.find({project: req.body.id})
+        .then(tickets => res.json(tickets))
+        .catch(err => res.status(400).json('There was an error: ' + err))
+})
+
+/**
+ * Create a new ticket and add it to the database. Also check authorization.
+ */
+router.post('/add', verify, async (req, res) => {
+
+    const user = await User.findById(req.user.user.id)
 
     const title = req.body.title
     const desc = req.body.desc
@@ -20,11 +36,12 @@ router.post('/add', async (req, res) => {
     const type = req.body.type
     const priority = req.body.priority
     const status = req.body.status
-    const author = req.body.author
+    const author = user.firstName
     const date = new Date()
 
     const newTicket = new Ticket({
         project: req.body.id,
+        user: user._id,
         title,
         desc,
         time,
@@ -35,12 +52,14 @@ router.post('/add', async (req, res) => {
         date
     })
     newTicket.save()
-    .then(() => res.send(req.body))
+    .then(() => res.send(newTicket))
     .catch(err => res.status(400).json('There was an error while adding a new ticket: '+ err))
 })
 
-//Get ticket by an id
-router.route('/:id').get((req, res) => {
+/**
+ * Find wanted ticket by id, check authorization.
+ */
+router.get('/:id', verify, (req, res) => {
     Ticket.findById(req.params.id)
     .then(ticket => res.json(ticket))
     .catch(err => res.status(400).json('There was an error while getting ticket '+ err))

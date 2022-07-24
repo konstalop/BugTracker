@@ -2,8 +2,6 @@ import { createContext, useState } from "react";
 import React from "react"
 
 
-
-
 export const TicketContext = createContext();
 
 /**
@@ -12,6 +10,12 @@ export const TicketContext = createContext();
  * @returns TicketContextProvider
  */
 const TicketContextProvider = (props) => {
+
+    const initial = {
+        tickets: null,
+        selected: null,
+    }
+
     const [tickets, setTickets] = useState([
     ])
 
@@ -50,7 +54,13 @@ const TicketContextProvider = (props) => {
     }
 
     return (
-        <TicketContext.Provider value={{tickets, addTicket, deleteTicket, editTicket}}>
+        <TicketContext.Provider 
+            value={{
+                tickets, 
+                addTicket, 
+                deleteTicket, 
+                editTicket
+                }}>
             {props.children} 
         </TicketContext.Provider>
     )
