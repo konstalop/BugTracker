@@ -11,7 +11,7 @@ export const ProjectContext = createContext();
 
 /**
  * Providing context for projects.
- * @param {*} props props
+ * @param {*} props 
  * @returns ProjectContextProvider
  */
 const ProjectContextProvider = (props) => {
@@ -65,7 +65,7 @@ const ProjectContextProvider = (props) => {
 
     /**
      * Fetch selected project and set it as a selected.
-     * @param {ObjectId} id 
+     * @param {ObjectId} id projectId
      */
     const setSelected = async (id) => {
         try {

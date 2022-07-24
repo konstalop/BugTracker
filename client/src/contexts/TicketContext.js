@@ -1,6 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
 import React from "react"
-
+import axios from "axios";
+import TicketReducer from "./TicketReducer";
+import { FETCH_TICKETS_PROJECT, 
+         FETCH_TICKETS_USER 
+} from "./ReducerActions";
 
 export const TicketContext = createContext();
 
@@ -16,50 +20,72 @@ const TicketContextProvider = (props) => {
         selected: null,
     }
 
-    const [tickets, setTickets] = useState([
-    ])
-
+    const [state, dispatch] = useReducer(TicketReducer, initial)
+ 
     /**
-     * Method to adding new tickets.
-     * 
-     * @param {*} ticketId Tickets id
-     * @param {*} title tickets title
-     * @param {*} desc tickets description
-     * @param {*} time tickets estimated time
-     * @param {*} type tickets type
-     * @param {*} priority tickets priority
-     * @param {*} status tickets status
-     * @param {*} date tickets creation date
-     * @param {*} author tickets author
+     * Fetch all tickets created by currently logged in user.
      */
-    const addTicket = (ticketId, title, desc, time, type, priority, status, date, author) => {
-        setTickets([...tickets, {ticketId, title, desc,time, type, priority, status, author, date}])
+    const fetchTicketsUser = async () => {
+        try {
+            const res = await axios.get('/tickets/')
+        
+            dispatch({
+                type: FETCH_TICKETS_USER,
+                data: res.data
+            })
+
+        }catch(err) {
+            console.error(err)
+        }
     }
 
     /**
-     * Method to delete ticket from tickets
-     * @param {*} id ticket that needs to be deleted
+     * Fetch all tickets from currently selected project.
+     * @param {ObjectId} id id of the project
      */
-    const deleteTicket = (id) => {
-        setTickets(tickets.filter(ticket => ticket.ticketId !== id))
+    const fetchTicketsProject = async (id) => {
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+        try {
+            const res = await axios.post('/tickets/projects', id, config)
+            dispatch({
+                type: FETCH_TICKETS_PROJECT,
+                data: res.data
+            })
+        }catch(err) {
+            console.error(err)
+        }
+    }
+ 
+    /**
+     * Handle creating a new ticket.
+     * @param {Object} ticket ticket data from addTicket form
+     */
+    const newTicket = async (ticket) => {
+        //
     }
 
     /**
-     * Method to edit wanted ticket
-     * @param {*} id ticket that is going to be edited
-     * @param {*} editedTicket new data for ticket
+     * Fetch selected ticket from database and set it as currently selected.
+     * @param {ObjectId} id ticketId
      */
-    const editTicket = (id, editedTicket) => {
-        setTickets(tickets.map((ticket) => ticket.ticketId === id ? editedTicket : ticket))
+    const setSelectedTicket = async (id) => {
+        //
     }
+
 
     return (
         <TicketContext.Provider 
             value={{
-                tickets, 
-                addTicket, 
-                deleteTicket, 
-                editTicket
+                tickets: state.tickets,
+                selected: state.selected,
+                newTicket,
+                fetchTicketsUser,
+                fetchTicketsProject,
+                setSelectedTicket,
                 }}>
             {props.children} 
         </TicketContext.Provider>

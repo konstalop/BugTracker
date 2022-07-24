@@ -16,7 +16,7 @@ function Ticket(props) {
             <tr className='ticket-row'  onClick={viewTicket}>
                 <td className='ticket-name'>{props.ticket.title}</td>
                 <td className='ticket-type'>{props.ticket.desc}</td>
-                <td className='ticket-date'>{props.ticket.time}</td>
+                <td className='ticket-date'>{props.ticket.date}</td>
             </tr>
         )
 }

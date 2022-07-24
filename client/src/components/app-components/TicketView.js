@@ -1,15 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { TicketContext } from '../../contexts/TicketContext'
 import Ticket from './Ticket'
+import Spinner from './Spinner'
 
 /**
- * Returns a full list of tickets
+ * Returns a full list of tickets created by current user
  * @returns table of tickets at /tickets
  */
-
 function TicketView() {
+    const {tickets, loading, fetchTicketsUser} = useContext(TicketContext)
 
-    const {tickets} = useContext(TicketContext)
+    useEffect(() => {
+        fetchTicketsUser()
+    }, [])
+
+    /**
+     * Render a loading screen if tickets are not loaded yet
+     */
+    if (tickets == null) {
+        return (
+            <div className='home-wrapper'>
+                <h1 className='home-h1'>Loading tickets...</h1>
+                <Spinner></Spinner>
+            </div>
+        )
+    }
 
     return (
         <div className='tickets-wrapper'>
@@ -24,9 +39,11 @@ function TicketView() {
                 <th className='th3'>DATE</th>
             </tr>
             {
-                    tickets.map(ticket => (
-                        <Ticket key={ticket.ticketId} ticket={ticket}/>
-                    ))
+                    tickets !== null && !loading ? (
+                        tickets.map(ticket => (
+                            <Ticket key={ticket._id} ticket={ticket}/>
+                        ))
+                    ) : (<tr></tr>)
             }
             </tbody>
             </table>
