@@ -10,17 +10,25 @@ import { ProjectContext } from '../../contexts/ProjectContext'
 import { Link, useParams } from "react-router-dom"
 import Spinner from '../app-components/Spinner'
 import { AuthContext } from '../../contexts/AuthContext'
+import { TicketContext } from '../../contexts/TicketContext'
 
 /**
  * Page to view project contains including Tickets and teams, and view tickets.
  * @returns Project view page at /project
  */
-
 function ProjectView() {
     
-    const {selected} = useContext(ProjectContext)
+    const {selected, setSelected} = useContext(ProjectContext)
+    const {fetchTicketsProject, tickets, clearTickets, loading} = useContext(TicketContext)
     const {user} = useContext(AuthContext)
     const [buttonPopup, setButtonPopup] = useState(false)
+    const {projectId} = useParams()
+
+    useEffect(() => {
+        clearTickets()
+        setSelected(projectId)
+        fetchTicketsProject(projectId)
+    }, [])
 
     /**
      * Display loading screen if project has not been loaded yet
@@ -64,7 +72,13 @@ function ProjectView() {
                             <th className='th2'>DESCRIPTION</th>
                             <th className='th3'>ESTIMATED TIME (HOURS)</th>
                         </tr>
-                    
+                        {
+                             tickets !== null && !loading ? (
+                                tickets.map(ticket => (
+                                    <Ticket key={ticket._id} ticket={ticket}/>
+                                ))
+                            ) : (<tr></tr>)
+                        }
                         </tbody>
                     </table>
                     <button onClick={() => setButtonPopup(true)}

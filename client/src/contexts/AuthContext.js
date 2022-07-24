@@ -39,8 +39,6 @@ const AuthState = (props) => {
         }
 
         try {
-
-            console.log('loading user')
             const res = await axios.get('/auth/')
 
             dispatch({

@@ -1,4 +1,5 @@
 import { 
+    CLEAR_TICKETS,
     FETCH_TICKETS_PROJECT, 
     FETCH_TICKETS_USER, 
     NEW_TICKET, 
@@ -29,6 +30,12 @@ export default (state, action) => {
                 loading: false
             }
         case SELECTED_TICKET:
+        case CLEAR_TICKETS: 
+            return {
+                ...state,
+                tickets: null,
+                selected: null,
+            }
         default:
             return state
     }

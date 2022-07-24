@@ -17,8 +17,8 @@ router.get('/', verify, (req, res) => {
 /**
  * Get all tickets from wanted project.
  */
-router.get('/project', verify, (req, res) => {
-    Ticket.find({project: req.body.id})
+router.get('/project/:id', verify, (req, res) => {
+    Ticket.find({project: req.params.id})
         .then(tickets => res.json(tickets))
         .catch(err => res.status(400).json('There was an error: ' + err))
 })

@@ -10,7 +10,7 @@ import { ProjectContext } from '../../contexts/ProjectContext'
 function Project({project}) {
     
     const projectContext = useContext(ProjectContext)
-    const { setSelected, clearSelection } = projectContext
+    const {clearSelection } = projectContext
 
     useEffect(() => {
         clearSelection()
@@ -21,12 +21,12 @@ function Project({project}) {
      */
     const projectLink = {
         pathname: "/project/" + project._id,
+        param: project._id
     }
 
     return (
         <tr className='project-row'>
             <td className='project-name' 
-                onClick={() => setSelected(project._id)}
                 >
                 <NavLink 
                     className='project-name' 

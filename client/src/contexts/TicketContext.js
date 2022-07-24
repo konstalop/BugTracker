@@ -2,8 +2,8 @@ import { createContext, useReducer } from "react";
 import React from "react"
 import axios from "axios";
 import TicketReducer from "./TicketReducer";
-import { FETCH_TICKETS_PROJECT, 
-         FETCH_TICKETS_USER 
+import { CLEAR_TICKETS, FETCH_TICKETS_PROJECT, 
+         FETCH_TICKETS_USER
 } from "./ReducerActions";
 
 export const TicketContext = createContext();
@@ -44,13 +44,8 @@ const TicketContextProvider = (props) => {
      * @param {ObjectId} id id of the project
      */
     const fetchTicketsProject = async (id) => {
-        const config = {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        }
         try {
-            const res = await axios.post('/tickets/projects', id, config)
+            const res = await axios.get(`/tickets/project/${id}`)
             dispatch({
                 type: FETCH_TICKETS_PROJECT,
                 data: res.data
@@ -76,6 +71,12 @@ const TicketContextProvider = (props) => {
         //
     }
 
+    const clearTickets = () => {
+        dispatch({
+            type: CLEAR_TICKETS
+        })
+    }
+
 
     return (
         <TicketContext.Provider 
@@ -86,6 +87,7 @@ const TicketContextProvider = (props) => {
                 fetchTicketsUser,
                 fetchTicketsProject,
                 setSelectedTicket,
+                clearTickets,
                 }}>
             {props.children} 
         </TicketContext.Provider>
