@@ -4,7 +4,9 @@ const router = require('./users')
 const jwt = require('jsonwebtoken')
 const verify = require('../middleware/verify')
 
-//Get current user
+/**
+ * Handle getting currently logged in user, verify users accessToken.
+ */
 router.get('/', verify, async (req, res) => {
     try {
         const user = await User.findById(req.user.user.id).select('-password')
@@ -15,7 +17,9 @@ router.get('/', verify, async (req, res) => {
     }
 })
 
-//Handle login
+/**
+ * Login a new user and create an accessToken.
+ */
 router.post('/login', async (req, res) => {
     const user = await User.findOne({email: req.body.email})
 

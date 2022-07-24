@@ -11,7 +11,7 @@ import { AuthContext } from "../../contexts/AuthContext"
 function Dashboard() {
 
     const authContext = useContext(AuthContext)
-
+    
     useEffect(() => {
         authContext.loadUser()
     }, [])

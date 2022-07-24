@@ -1,7 +1,7 @@
 import React from 'react'
 
 /**
- * Row of teammember data. Under work.
+ * Row of teammember data. NOT FULLY FUNCTIONAL YET
  * @returns teammember row
  */
 function TeamMember({user}) {

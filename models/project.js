@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+/**
+ * Mongoose schema for project objects.
+ */
 const ProjectSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,

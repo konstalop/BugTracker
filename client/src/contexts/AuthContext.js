@@ -13,6 +13,11 @@ import { LOGIN_FAILURE,
 
 export const AuthContext = createContext();
 
+/**
+ * Context for handling authentication, handles communication between client and server
+ * @param {*} props props
+ * @returns AuthContextProvider
+ */
 const AuthState = (props) => {
     const initial = {
         token: localStorage.getItem('accessToken'),
@@ -99,12 +104,16 @@ const AuthState = (props) => {
         }
     }
 
+    /**
+     * Logout user
+     */
     const logout = () => {
         dispatch({
             type: LOGOUT
 
         })
     }
+
     return (
         <AuthContext.Provider 
             value={{

@@ -4,20 +4,22 @@ const verify = require('../middleware/verify')
 let Project = require('../models/project')
 let User = require('../models/user')
 
-//Get all projects
+/**
+ * Fetch all projects from user and verify accessToken before doing anything.
+ */
 router.get('/', verify, async (req, res) => {
     Project.find({user: req.user.user.id})
         .then(projects => res.json(projects))
         .catch(err => res.status(400).json(err))
 });
 
-//Add a project
+/**
+ * Create a new project, also verify accessToken before doing anything.
+ */
 router.post('/add', verify, async (req, res) =>  {
     
     const user = await User.findById(req.user.user.id)
-
-    console.log(user)
-    
+  
     const name = req.body.name
     const desc = req.body.desc
     const author = user.firstName
@@ -37,14 +39,18 @@ router.post('/add', verify, async (req, res) =>  {
     
 });
 
-//Get project by an id
+/**
+ * Find project by id and verify accessToken before doing anything.
+ */
 router.get('/:id', verify, async (req, res) => {
     Project.findById(req.params.id)
     .then(project => res.json(project))
     .catch(err => res.status(400).json('There was an error' + err))
 })
 
-//Delete project
+/**
+ * Delete a wanted project. Currently its not used anywhere!
+ */
 router.route('/:id').delete((req, res) => {
     Project.findByIdAndDelete(req.params.id)
     .then(() => res.json('Project has been deleted'))

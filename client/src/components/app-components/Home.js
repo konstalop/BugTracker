@@ -11,11 +11,14 @@ import Spinner from './Spinner';
 function Home() {
 
     const {projects, fetchProjects, loading} = useContext(ProjectContext)
-    
+
     useEffect(() => {
         fetchProjects()
     }, [])
 
+    /**
+     * Rendering a loading screen if projects have not been loaded yet.
+     */
     if (projects == null) {
         return (
             <div className='home-wrapper'>

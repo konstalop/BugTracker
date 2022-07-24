@@ -14,8 +14,6 @@ let navigate = useNavigate()
 const authContext = useContext(AuthContext)
 const { login, isAuthenticated } = authContext
 
-
-
 useEffect(() => {
   if (isAuthenticated && authContext.user !== null) {
     navigate('app')
@@ -30,10 +28,18 @@ const [user, setUser] = useState({
 
 const { email, password } = user
 
+/**
+ * Handle changes in input
+ * @param {*} event event from input
+ */
 const handleChange = (event) => {
   setUser({...user, [event.target.name]: event.target.value})
 }
 
+/**
+ * Handle login form and communicate to authcontext
+ * @param {*} e event
+ */
 const handleLogin = (e) => {
   e.preventDefault()
   if (email === '' || password === '') {

@@ -13,9 +13,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 function Register() {
 
     const authContext = useContext(AuthContext)
-
     const { register } = authContext
-
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
@@ -31,6 +29,11 @@ function Register() {
     }
 
     let navigate = useNavigate()
+
+    /**
+     * Handle registering, check fields.
+     * @param {*} e event
+     */
     const handleRegistering = (e) => {
         e.preventDefault()
         if (firstName === '' || lastName === '' || email === '' || password === '') {
@@ -48,9 +51,7 @@ function Register() {
             let path = '../';
             navigate(path)
         }
-        
     }
-
 
     return (
         <div className="container-auth">

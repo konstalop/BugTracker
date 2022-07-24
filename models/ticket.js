@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+/**
+ * Mongoose schema for ticket objects.
+ */
 const TicketSchema = mongoose.Schema({
     project: {
         type: mongoose.Schema.Types.ObjectId,

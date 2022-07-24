@@ -22,8 +22,9 @@ function ProjectView() {
     const {user} = useContext(AuthContext)
     const [buttonPopup, setButtonPopup] = useState(false)
 
-    console.log(user)
-
+    /**
+     * Display loading screen if project has not been loaded yet
+     */
     if (selected == null) {
         return (
             <div>

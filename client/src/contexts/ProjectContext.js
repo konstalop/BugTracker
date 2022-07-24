@@ -11,7 +11,7 @@ export const ProjectContext = createContext();
 
 /**
  * Providing context for projects.
- * @param {*} props children elements 
+ * @param {*} props props
  * @returns ProjectContextProvider
  */
 const ProjectContextProvider = (props) => {

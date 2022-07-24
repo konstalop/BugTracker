@@ -8,9 +8,7 @@ import { ProjectContext } from '../../contexts/ProjectContext'
  * @returns 
  */
 function Project({project}) {
-
-  
-
+    
     const projectContext = useContext(ProjectContext)
     const { setSelected, clearSelection } = projectContext
 
@@ -18,6 +16,9 @@ function Project({project}) {
         clearSelection()
     }, [])
 
+    /**
+     * Generates link for the projectview page.
+     */
     const projectLink = {
         pathname: "/project/" + project._id,
     }

@@ -13,20 +13,23 @@ import {useContext} from "react"
 function CreateProject(props) {
 
     const projectContext = useContext(ProjectContext)
-
     const { newProject } = projectContext
-
     const [project, setProject] = useState({
         name: "",
         desc: "",
     });
 
+    /**
+     * Handle input changes from create project form
+     * @param {*} event events from input field
+     */
     const handleChange = (event) => {
         setProject({...project, [event.target.name]: event.target.value})
-      }
+    }
 
-
-
+    /**
+     * New project
+     */
     const {name, desc} = project
 
     /**

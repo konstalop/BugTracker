@@ -3,7 +3,11 @@ import { Outlet} from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import Landing from "../auth-components/Landing";
 
-function ProtectedRoute() {
+/**
+ * Handle creating private routes
+ * @returns a protected route which can be only viewed when you are authenticated.
+ */
+const ProtectedRoute = () => {
     const authContext = useContext(AuthContext)
     const {isAuthenticated} = authContext
 
@@ -12,4 +16,5 @@ function ProtectedRoute() {
     )
 
 }
+
 export default ProtectedRoute

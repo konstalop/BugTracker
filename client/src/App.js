@@ -17,7 +17,6 @@ import AuthState from './contexts/AuthContext';
 import ProtectedRoute from './components/routing-components/ProtectedRoute';
 
 function App() {
-
   return (
     <>
     <AuthState>

@@ -10,7 +10,7 @@ import {
 } from './ReducerActions'
 
 /**
- * Reducer function to handle different states
+ * Reducer function to handle different states for authentication
  */
 export default (state, action) => {
     switch(action.type) {
@@ -33,7 +33,6 @@ export default (state, action) => {
             }
         case LOGIN_FAILURE:
         case LOGOUT:
-            console.log('logging out')
             localStorage.removeItem('accessToken')
             return {
                 ...state,
