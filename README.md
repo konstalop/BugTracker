@@ -45,9 +45,9 @@ Now BugTracker should be running at http://localhost:3000
 - Create tickets in the projects
 - Tickets are able to contain the following information:
   - Title
-  - Description of the ticket
+  - Description
   - Time estimate
-  - Type of the ticket
+  - Type
     - Issue, Feature, Suggestion
   - Priority
     - Low, Medium, High, Critical
