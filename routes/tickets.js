@@ -65,16 +65,19 @@ router.get('/:id', verify, (req, res) => {
     .catch(err => res.status(400).json('There was an error while getting ticket '+ err))
 })
 
-//Delete wanted ticket
-router.route('/:id').delete((req, res) => {
+/**
+ * Delete wanted ticket, verify request
+ */
+router.delete('/:id', verify, (req, res) => {
     Ticket.findByIdAndDelete(req.params.id)
     .then(() => res.json('Ticket has been deleted!'))
     .catch(err => res.status(400).json('There was an error while trying to delete ticket: '+ err))
 })
 
-//Edit ticket
-router.route('/update/:id').post((req, res) =>  {
-    console.log(req.params.id)
+/**
+ * Edit ticket, verify request
+ */
+router.post('/update/:id', verify, (req, res) =>  {
 
     Ticket.findById(req.params.id)
     .then(ticket => {

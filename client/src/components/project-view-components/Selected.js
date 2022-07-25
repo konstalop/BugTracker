@@ -3,19 +3,19 @@ import ManageTicket from './ManageTicket';
 import { useState } from 'react'
 import Modal from '../app-components/Modal';
 import { useContext } from "react"
+import { useParams } from 'react-router-dom';
 import { TicketContext } from '../../contexts/TicketContext';
-/**
- * Page for selected ticket, under work.
- * @param {*} param0 ticket data
- * @param {*} param1 projectid
- * @returns selected ticket table
- */
 
+
+/**
+ * Used to view full data of tickets.
+ * @returns component to view full data of tickets
+ */
 function Selected() {
 
     const [buttonPopup, setButtonPopup] = useState(false);
-    const {selectedTicket} = useContext(TicketContext)
-    
+    const {selectedTicket, deleteTicket, clearTickets, fetchTicketsProject} = useContext(TicketContext)
+    const {projectId} = useParams()
 
 
     /**
@@ -30,10 +30,12 @@ function Selected() {
     }
 
      /**
-     * handle deleting from tickets and projects[i].tickets
+     * handle deleting a ticket
      */
     const handleDelete = () => {
-       //
+       deleteTicket(selectedTicket._id)
+       clearTickets()
+       fetchTicketsProject(projectId)
     }
    
 

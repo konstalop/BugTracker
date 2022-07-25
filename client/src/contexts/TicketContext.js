@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 import React from "react"
 import axios from "axios";
 import TicketReducer from "./TicketReducer";
-import { CLEAR_TICKETS, FETCH_TICKETS_PROJECT, 
+import { CLEAR_SELECT_TICKET, DELETE_TICKET, FETCH_TICKETS_PROJECT, 
          FETCH_TICKETS_USER,
          NEW_TICKET,
          SELECTED_TICKET,
@@ -81,6 +81,33 @@ const TicketContextProvider = (props) => {
     }
 
     /**
+     * Handles updating ticket
+     * @param {Object} ticket data from ManageTicket form made for updating. 
+     */
+    const updateTicket = async (ticket) => {
+        //
+    }
+
+    /**
+     * Handle deleting a ticket
+     * @param {ObjectId} id id of ticket that is going to be deleted.
+     */
+    const deleteTicket = async (id) => {
+
+        try {
+            await axios.delete(`/tickets/${id}`)
+
+            dispatch({
+                type: DELETE_TICKET,
+                data: id
+            })
+
+        }catch(err) {
+            console.error(err)
+        }
+    } 
+
+    /**
      * Fetch selected ticket from database and set it as currently selected.
      * @param {ObjectId} id ticketId
      */
@@ -97,11 +124,15 @@ const TicketContextProvider = (props) => {
         }
     }
 
+    /**
+     * Method to clear current tickets state.
+     */
     const clearTickets = () => {
         dispatch({
-            type: CLEAR_TICKETS
+            type: CLEAR_SELECT_TICKET
         })
     }
+    
 
     return (
         <TicketContext.Provider 
@@ -113,6 +144,8 @@ const TicketContextProvider = (props) => {
                 fetchTicketsProject,
                 setSelectedTicket,
                 clearTickets,
+                deleteTicket,
+                updateTicket,
                 }}>
             {props.children} 
         </TicketContext.Provider>
