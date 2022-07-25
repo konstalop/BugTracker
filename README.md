@@ -39,7 +39,8 @@ npm run dev
 Now BugTracker should be running at http://localhost:3000
 
 ## Features
-
+- Login / register users
+- User authentication / authorization
 - Create projects
 - Create tickets in the projects
 - Tickets are able to contain the following information:
@@ -47,18 +48,14 @@ Now BugTracker should be running at http://localhost:3000
   - Description of the ticket
   - Time estimate
   - Type of the ticket
-    - Issue
-    - Feature
-    - Suggestion
+    - Issue, Feature, Suggestion
   - Priority
-    - Low
-    - Medium
-    - High
-    - Critical
+    - Low, Medium, High, Critical
   - Status
-    - Open
-    - Working
-    - Closed
+    - Open, Working, Closed
+  - Author
+  - Date
+- (Teams)
   
 
 ## License
