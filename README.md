@@ -7,9 +7,10 @@ BugTracker is a project management / bugtracking tool made with React frontend a
 - Node (Made with node 16.13.2)
 - Git
 
+
 ## How to install
 
- BugTracker can be installed with git clone:
+BugTracker can be installed with git clone:
 
 ```
 git clone https://github.com/konstalop/BugTracker
@@ -22,11 +23,19 @@ After cloning this repository, you need to install all of the dependencies:
 npm install
 ```
 
- After you are done with installing the dependencies run the following command:
+After you have installed all of the dependencies create an .env file containing the following
 
+```
+PORT=5000
+DB_URL= PASTE YOUR OWN DB_URL HERE
+ACCESS_TOKEN_SECRET= PASTE YOUR OWN ACCESS_TOKEN_SECRET HERE
+```
+
+After you have an .env file, run the following command:
 ```
 npm run dev
 ```
+
 Now BugTracker should be running at http://localhost:3000
 
 ## Features
