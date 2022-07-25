@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom"
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom"  
-import { useState, useEffect} from 'react'
+import { useState } from 'react'
 import { AuthContext } from "../../contexts/AuthContext";
 
  

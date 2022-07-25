@@ -4,8 +4,6 @@ import { useState } from 'react'
 import Modal from '../app-components/Modal';
 import { useContext } from "react"
 import { TicketContext } from '../../contexts/TicketContext';
-import { ProjectContext } from '../../contexts/ProjectContext';
-
 /**
  * Page for selected ticket, under work.
  * @param {*} param0 ticket data
@@ -13,11 +11,10 @@ import { ProjectContext } from '../../contexts/ProjectContext';
  * @returns selected ticket table
  */
 
-function Selected(props) {
+function Selected() {
 
     const [buttonPopup, setButtonPopup] = useState(false);
-    const {tickets, selectedTicket} = useContext(TicketContext)
-    const {projects, deleteTicketFromProject} = useContext(ProjectContext)
+    const {selectedTicket} = useContext(TicketContext)
     
 
 

@@ -6,7 +6,6 @@ import { CLEAR_TICKETS, FETCH_TICKETS_PROJECT,
          FETCH_TICKETS_USER,
          NEW_TICKET,
          SELECTED_TICKET,
-         CLEAR_SELECTED_TICKET
 } from "./ReducerActions";
 
 export const TicketContext = createContext();
