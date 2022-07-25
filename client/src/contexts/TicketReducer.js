@@ -3,7 +3,8 @@ import {
     FETCH_TICKETS_PROJECT, 
     FETCH_TICKETS_USER, 
     NEW_TICKET, 
-    SELECTED_TICKET 
+    SELECTED_TICKET,
+    CLEAR_SELECTED_TICKET
 } from "./ReducerActions";
 
 /**
@@ -30,11 +31,15 @@ export default (state, action) => {
                 loading: false
             }
         case SELECTED_TICKET:
+            return {
+                ...state,
+                selectedTicket: action.data
+            }
         case CLEAR_TICKETS: 
             return {
                 ...state,
                 tickets: null,
-                selected: null,
+                selectedTicket: null,
             }
         default:
             return state

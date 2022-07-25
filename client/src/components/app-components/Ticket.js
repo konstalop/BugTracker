@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { TicketContext } from '../../contexts/TicketContext'
 
 
 /**
@@ -8,8 +9,9 @@ import React from 'react'
  */
 function Ticket(props) {
 
+    const {setSelectedTicket} = useContext(TicketContext)
     const viewTicket = () => {
-        props.setSelected(props.ticket.ticketId)
+        setSelectedTicket(props.ticket._id)
     }
 
         return (
