@@ -20,7 +20,7 @@ function TicketView() {
     if (tickets == null) {
         return (
             <div className='home-wrapper'>
-                <h1 className='home-h1'>Loading tickets...</h1>
+                <h1 className='tickets-h1'>Loading tickets...</h1>
                 <Spinner></Spinner>
             </div>
         )

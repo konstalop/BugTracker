@@ -10,7 +10,7 @@ import { useContext, useState } from "react"
 
 function ManageTicket(props) {
     
-    const {selectedTicket, updateTicket, setSelectedTicket} = useContext(TicketContext)
+    const {selectedTicket, updateTicket} = useContext(TicketContext)
 
     const [ticket, setTicket] = useState({
         _id: selectedTicket._id,

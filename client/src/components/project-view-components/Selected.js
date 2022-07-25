@@ -14,12 +14,11 @@ import { TicketContext } from '../../contexts/TicketContext';
 function Selected() {
 
     const [buttonPopup, setButtonPopup] = useState(false);
-    const {selectedTicket, deleteTicket, clearTickets, fetchTicketsProject} = useContext(TicketContext)
+    const {selectedTicket, deleteTicket, fetchTicketsProject} = useContext(TicketContext)
     const {projectId} = useParams()
 
-
     /**
-     * Display this if no ticket currently selected.
+     * Display No ticket selected text if no ticket is currently selected.
      */
     if (selectedTicket == null) {
         return (
@@ -37,7 +36,6 @@ function Selected() {
        fetchTicketsProject(projectId)
     }
    
-
     return (
         <div className='ticket-view-container'>
                     <h4 className='project-tickets-view-h4'>Selected Ticket</h4>
