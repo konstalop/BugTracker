@@ -70,7 +70,7 @@ function ProjectView() {
                         <tr>
                             <th className='th1'>TITLE</th>
                             <th className='th2'>DESCRIPTION</th>
-                            <th className='th3'>ESTIMATED TIME (HOURS)</th>
+                            <th className='th3'>DATE CREATED</th>
                         </tr>
                         {
                              tickets !== null && !loading ? (
