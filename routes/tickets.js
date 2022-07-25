@@ -79,8 +79,11 @@ router.delete('/:id', verify, (req, res) => {
  */
 router.post('/update/:id', verify, (req, res) =>  {
 
+    console.log(req.params.id, req.body)
     Ticket.findById(req.params.id)
     .then(ticket => {
+        ticket.project = req.body.project
+        ticket.user = req.body.user
         ticket.title = req.body.title
         ticket.desc = req.body.desc
         ticket.time = req.body.time
@@ -89,7 +92,7 @@ router.post('/update/:id', verify, (req, res) =>  {
         ticket.status = req.body.status
 
         ticket.save()
-        .then(() => res.json('Ticket has been updated!'))
+        .then(() => res.json(ticket))
         .catch(err => res.status(400).json('There was an error while updating: ' + err))
     })
     .catch(err => res.status(400).json('There was an error: ' + err))

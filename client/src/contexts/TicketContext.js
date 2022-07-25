@@ -6,6 +6,7 @@ import { CLEAR_SELECT_TICKET, DELETE_TICKET, FETCH_TICKETS_PROJECT,
          FETCH_TICKETS_USER,
          NEW_TICKET,
          SELECTED_TICKET,
+         UPDATE_TICKET,
 } from "./ReducerActions";
 
 export const TicketContext = createContext();
@@ -70,7 +71,6 @@ const TicketContextProvider = (props) => {
 
         try {
             const res = await axios.post('/tickets/add', ticket, config)
-
             dispatch({
                 type: NEW_TICKET,
                 data: res.data
@@ -85,7 +85,23 @@ const TicketContextProvider = (props) => {
      * @param {Object} ticket data from ManageTicket form made for updating. 
      */
     const updateTicket = async (ticket) => {
-        //
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+        console.log(ticket)
+        try {
+            const res = await axios.post(`/tickets/update/${ticket._id}`, ticket, config)
+
+            dispatch({
+                type: UPDATE_TICKET,
+                data: res.data
+            })
+
+        }catch(err) {
+            console.error(err)
+        }
     }
 
     /**

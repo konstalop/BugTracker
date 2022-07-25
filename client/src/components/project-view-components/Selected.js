@@ -34,7 +34,6 @@ function Selected() {
      */
     const handleDelete = () => {
        deleteTicket(selectedTicket._id)
-       clearTickets()
        fetchTicketsProject(projectId)
     }
    

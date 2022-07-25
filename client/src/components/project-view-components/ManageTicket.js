@@ -1,7 +1,6 @@
 import React from 'react'
 import { TicketContext } from '../../contexts/TicketContext'
 import { useContext, useState } from "react"
-import { ProjectContext } from '../../contexts/ProjectContext'
 
 /**
  * Form to add and edit ticket.
@@ -11,38 +10,35 @@ import { ProjectContext } from '../../contexts/ProjectContext'
 
 function ManageTicket(props) {
     
-    const {tickets, editTicket} = useContext(TicketContext)
-    const {projects, editTicketInProject} = useContext(ProjectContext)
+    const {selectedTicket, updateTicket, setSelectedTicket} = useContext(TicketContext)
 
+    const [ticket, setTicket] = useState({
+        _id: selectedTicket._id,
+        project: selectedTicket.project,
+        user: selectedTicket.user,
+        title: selectedTicket.title,
+        desc: selectedTicket.desc,
+        time: selectedTicket.time,
+        type: selectedTicket.type,
+        priority: selectedTicket.priority,
+        status: selectedTicket.status,
+        date: selectedTicket.date,
+        author: selectedTicket.author
+    })
 
-    //Find index for ticket in tickets
-    const ticketIndex = tickets.findIndex(ticket => ticket.ticketId === props.currentTicket)
-    
-    //Find index for ticket in project.tickets
-    const ticketIndexInProject = projects[props.projectIndex].tickets.findIndex(ticket => ticket.ticketId === props.currentTicket)
+    const handleChange = (event) => {
+        setTicket({...ticket, [event.target.name]: event.target.value})
+    }
 
-    //Items in ticket that cant be edited / no need to be edited
-    const ticketId = props.currentTicket
-    const date = tickets[ticketIndex].date
-    const author =  tickets[ticketIndex].author
-
-    //Items that can be edited and usually need to be edited.
-    const [title, setTitle] = useState(tickets[ticketIndex].title)
-    const [desc, setDesc] = useState(tickets[ticketIndex].desc)
-    const [time, setTime] = useState(tickets[ticketIndex].time)
-    const [type, setType] = useState(tickets[ticketIndex].type)
-    const [priority, setPriority] = useState(tickets[ticketIndex].priority)
-    const [status, setStatus] = useState(tickets[ticketIndex].status)
-
-    const editedTicket = {ticketId, title, desc, time, type, priority, status, date, author}
+    //eslint-disable-next-line
+    const {_id, project, user, title, desc, time, type, priority, status, author} = ticket
 
     /**
      * Handle submitting form and creating a new ticket
      * @param {*} event event 
      */
     const handleSubmit = (event) => {
-        editTicket(ticketId, editedTicket)
-        editTicketInProject(props.projectIndex, ticketIndexInProject, editedTicket)
+        updateTicket(ticket)
         event.preventDefault() 
         props.setTrigger(false)
     }
@@ -67,7 +63,7 @@ function ManageTicket(props) {
                                 name="title" 
                                 placeholder='Title' 
                                 type="text" 
-                                onChange={(e) => setTitle(e.target.value)}
+                                onChange={handleChange}
                                 value={title}
                             ></input>
                         </label>
@@ -77,7 +73,7 @@ function ManageTicket(props) {
                                 rows={4} name="desc" 
                                 placeholder="Describe the ticket"
                                 type="text" 
-                                onChange={(e) => setDesc(e.target.value)}
+                                onChange={handleChange}
                                 value={desc}
                             ></textarea>
                         </label>
@@ -87,7 +83,7 @@ function ManageTicket(props) {
                                 type="number" 
                                 name="time" 
                                 placeholder="Estimated time in hours"
-                                onChange={(e) => setTime(e.target.value)}
+                                onChange={handleChange}
                                 value={time}
                                 ></input>
                         </label>
@@ -96,7 +92,7 @@ function ManageTicket(props) {
                                 id="types" 
                                 name="type" 
                                 className='input-ticket-option' 
-                                onChange={(e) => setType(e.target.value)}
+                                onChange={handleChange}
                                 value={type}
                                 >
                                 <option value="Issue">Issue</option>
@@ -109,7 +105,7 @@ function ManageTicket(props) {
                                 id="priority" 
                                 name="priority" 
                                 className='input-ticket-option'
-                                onChange={(e) => setPriority(e.target.value)}
+                                onChange={handleChange}
                                 value={priority}
                                 >
                                 <option value="Low">Low</option>
@@ -123,7 +119,7 @@ function ManageTicket(props) {
                                 id="status" 
                                 name="status"  
                                 className='input-ticket-option' 
-                                onChange={(e) => setStatus(e.target.value)}
+                                onChange={handleChange}
                                 value={status}
                                 >
                                 <option value="Open">Open</option>

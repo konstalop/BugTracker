@@ -5,6 +5,7 @@ import {
     FETCH_TICKETS_USER, 
     NEW_TICKET, 
     SELECTED_TICKET,
+    UPDATE_TICKET
 } from "./ReducerActions";
 
 /**
@@ -46,8 +47,16 @@ export default (state, action) => {
                 tickets: state.tickets.map((ticket) =>
                     ticket._id === action.data._id ? action.data : ticket 
                     ),
-                loading: false
+                loading: false,
+                selectedTicket: null,
             }
+        case UPDATE_TICKET: {
+            return {
+                ...state,
+                tickets: state.tickets.map((ticket) => ticket._id === action.data._id ? action.data : ticket),
+                selectedTicket: action.data,
+            }
+        }
         default:
             return state
     }
