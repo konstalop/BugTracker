@@ -2,7 +2,6 @@ import React from 'react'
 import { TicketContext } from '../../contexts/TicketContext'
 import { useContext, useState } from "react"
 import { ProjectContext } from '../../contexts/ProjectContext'
-import {v4 as uuidv4} from "uuid";
 
 /**
  * Form to add and edit ticket.
@@ -12,19 +11,17 @@ import {v4 as uuidv4} from "uuid";
 
 function AddTicket(props) {
     
-    const {addTicketToProject} = useContext(ProjectContext)
-    const {addTicket} = useContext(TicketContext)
+    const {newTicket} = useContext(TicketContext)
+    const {selected} = useContext(ProjectContext)
 
     const [ticket, setTicket] = useState({
-        ticketId: uuidv4(),
+        id: selected._id,
         title: "",
         desc: "",
         time: "",
         type: "Issue",
         priority: "Low",
         status: "Open",
-        date: new Date().toLocaleDateString(),
-        author: "konsta"
     })
 
     /**
@@ -35,16 +32,13 @@ function AddTicket(props) {
         setTicket({...ticket, [event.target.name]: event.target.value})
     }
 
-    const {ticketId, title, desc, time, type, priority, status, date, author} = ticket
-
     /**
      * Handle submitting form and creating a new ticket to tickets and projects[i].tickets
      * @param {*} event event 
      */
     const handleSubmit = (event) => {
         event.preventDefault() 
-        addTicketToProject(ticket, props.projectIndex)
-        addTicket(ticketId, title, desc, time, type, priority, status, date, author);
+        newTicket(ticket)
         props.setTrigger(false)
     }
 
