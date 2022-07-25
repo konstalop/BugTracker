@@ -1,6 +1,10 @@
 import React, { useContext } from "react"
 import { AuthContext } from "../../contexts/AuthContext"
 
+/**
+ * Component to display general user info at /account page.
+ * @returns user info component
+ */
 const UserInfo = () => {
 
     const {user} = useContext(AuthContext)

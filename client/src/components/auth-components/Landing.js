@@ -8,7 +8,8 @@ import { AuthContext } from '../../contexts/AuthContext';
  * page when you open the application. Login is to be made.
  * @returns login page
  */
-function Landing() {
+const Landing = () => {
+
 let navigate = useNavigate()
 
 const authContext = useContext(AuthContext)

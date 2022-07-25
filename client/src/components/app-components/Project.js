@@ -7,7 +7,7 @@ import { ProjectContext } from '../../contexts/ProjectContext'
  * @param {*} param0 project data
  * @returns 
  */
-function Project({project}) {
+const Project = ({project}) => {
     
     const projectContext = useContext(ProjectContext)
     const {clearSelection } = projectContext

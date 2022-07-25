@@ -4,7 +4,7 @@ import React from 'react'
  * Row of teammember data. NOT FULLY FUNCTIONAL YET
  * @returns teammember row
  */
-function TeamMember({user}) {
+const TeamMember = ({user}) => {
     return (
         <tr className='project-row'>
             <td className='td-team'>{user.firstName+ " " + user.lastName}</td>

@@ -9,7 +9,7 @@ import { AuthContext } from '../../contexts/AuthContext';
  * Side bar which appears at all pages, contains logout and new project. Also links for navigation.
  * @returns Sidebar with navigation menu and logout/create a new project 
  */
-function Sidebar() {
+const Sidebar = () => {
 
     const [buttonPopup, setButtonPopup] = useState(false);
     const authContext = useContext(AuthContext)

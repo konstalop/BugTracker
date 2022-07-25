@@ -7,7 +7,7 @@ import {
 } from './ReducerActions'
 
 /**
- * Project reducer, handle different states with
+ * Project reducer to handle different states with projects
  */
 export default (state, action) =>  {
     switch (action.type) {

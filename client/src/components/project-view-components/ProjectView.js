@@ -16,7 +16,7 @@ import { TicketContext } from '../../contexts/TicketContext'
  * Page to view project contains including Tickets and teams, and view tickets.
  * @returns Project view page at /project
  */
-function ProjectView() {
+const ProjectView = () => {
     
     const {selected, setSelected} = useContext(ProjectContext)
     const {fetchTicketsProject, tickets, clearTickets, loading} = useContext(TicketContext)

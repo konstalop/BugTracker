@@ -7,7 +7,7 @@ import { TicketContext } from '../../contexts/TicketContext'
  * @param {*} param0 ticket data
  * @returns ticket row
  */
-function Ticket(props) {
+const Ticket = (props) => {
 
     const {setSelectedTicket} = useContext(TicketContext)
     const viewTicket = () => {

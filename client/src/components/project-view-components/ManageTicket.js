@@ -8,7 +8,7 @@ import { useContext, useState } from "react"
  * @returns this content is displayed inside a modal.
  */
 
-function ManageTicket(props) {
+const ManageTicket = (props) => {
     
     const {selectedTicket, updateTicket} = useContext(TicketContext)
 

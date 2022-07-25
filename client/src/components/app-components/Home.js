@@ -7,8 +7,7 @@ import Spinner from './Spinner';
  * Generates home page which shows all projects
  * @returns home page
  */
-
-function Home() {
+const Home = () => {
 
     const {projects, fetchProjects, loading} = useContext(ProjectContext)
 

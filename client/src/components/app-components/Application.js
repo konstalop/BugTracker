@@ -5,10 +5,10 @@ import { AuthContext } from "../../contexts/AuthContext"
 
 /**
  * Application wrapper
- * @returns 
+ * @returns application
  */
 
-function Dashboard() {
+const Dashboard = ()=> {
 
     const authContext = useContext(AuthContext)
     

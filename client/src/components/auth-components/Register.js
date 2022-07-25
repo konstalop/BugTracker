@@ -10,7 +10,7 @@ import { AuthContext } from "../../contexts/AuthContext";
  * Page to create an account on. To be made.
  * @returns register page
  */
-function Register() {
+const Register = () => {
 
     const authContext = useContext(AuthContext)
     const { register } = authContext

@@ -11,7 +11,7 @@ import { TicketContext } from '../../contexts/TicketContext';
  * Used to view full data of tickets.
  * @returns component to view full data of tickets
  */
-function Selected() {
+const Selected = () => {
 
     const [buttonPopup, setButtonPopup] = useState(false);
     const {selectedTicket, deleteTicket, fetchTicketsProject} = useContext(TicketContext)

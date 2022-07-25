@@ -9,7 +9,7 @@ import { ProjectContext } from '../../contexts/ProjectContext'
  * @returns this content is displayed inside a modal.
  */
 
-function AddTicket(props) {
+const AddTicket = (props) => {
     
     const {newTicket} = useContext(TicketContext)
     const {selected} = useContext(ProjectContext)

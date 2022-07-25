@@ -5,10 +5,10 @@ import Spinner from './Spinner'
 import UserInfo from './UserInfo'
 
 /**
- * Page to display account information, currently under work.
- * @returns Page for account
+ * Page to display account information.
+ * @returns Page for account information
  */
-function Account() {
+const Account = () =>  {
 
     const {user, loading} = useContext(AuthContext)
 

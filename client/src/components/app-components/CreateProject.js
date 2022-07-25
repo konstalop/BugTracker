@@ -6,11 +6,11 @@ import {useContext} from "react"
 
 /**
  * Used to create and add a project
- * @param {*} props 
- * @returns 
+ * @param {*} props props, like modal trigger.
+ * @returns modal to create project.
  */
 
-function CreateProject(props) {
+const CreateProject = (props) => {
 
     const projectContext = useContext(ProjectContext)
     const { newProject } = projectContext

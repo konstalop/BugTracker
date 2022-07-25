@@ -6,7 +6,7 @@ import React from "react";
  * @returns modal
  */
 
-function Modal(props)  {
+const Modal = (props) =>  {
     return (props.trigger) ? (
         <div className="modal">
             <div className="modal-inner">           

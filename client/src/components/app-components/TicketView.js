@@ -7,7 +7,7 @@ import Spinner from './Spinner'
  * Returns a full list of tickets created by current user
  * @returns table of tickets at /tickets
  */
-function TicketView() {
+const TicketView = () => {
     const {tickets, loading, fetchTicketsUser} = useContext(TicketContext)
 
     useEffect(() => {
