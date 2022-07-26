@@ -46,8 +46,6 @@ router.post('/add', verify, async (req, res) =>  {
 router.get('/:id', verify, async (req, res) => {    
     Project.findById(req.params.id)
     .then((project) => {
-            console.log(req.user.user.id)
-            console.log(project.user)
         if (req.user.user.id == project.user){
             res.json(project)
         } else {
