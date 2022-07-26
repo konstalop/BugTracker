@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const verify = require('../middleware/verify')
 
-let Project = require('../models/project')
+let Project = require('../models/project');
+const user = require('../models/user');
 let User = require('../models/user')
 
 /**
@@ -42,9 +43,17 @@ router.post('/add', verify, async (req, res) =>  {
 /**
  * Find project by id and verify accessToken before doing anything.
  */
-router.get('/:id', verify, async (req, res) => {
+router.get('/:id', verify, async (req, res) => {    
     Project.findById(req.params.id)
-    .then(project => res.json(project))
+    .then((project) => {
+            console.log(req.user.user.id)
+            console.log(project.user)
+        if (req.user.user.id == project.user){
+            res.json(project)
+        } else {
+            res.sendStatus(403)
+        }
+    })
     .catch(err => res.status(400).json('There was an error' + err))
 })
 
