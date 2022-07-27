@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Modal from './Modal';
 import CreateProject from './CreateProject';
 import { AuthContext } from '../../contexts/AuthContext';
+import { ProjectContext } from '../../contexts/ProjectContext';
 
 /**
  * Side bar which appears at all pages, contains logout and new project. Also links for navigation.
@@ -13,6 +14,7 @@ const Sidebar = () => {
 
     const [buttonPopup, setButtonPopup] = useState(false);
     const authContext = useContext(AuthContext)
+    const {clearProjects} = useContext(ProjectContext)
     const {logout, user} = authContext
 
     let navigate = useNavigate()
@@ -33,6 +35,7 @@ const Sidebar = () => {
      */
     const handleLogout = () => {
         logout()
+        clearProjects()
         let path = '../';
         navigate(path)
         

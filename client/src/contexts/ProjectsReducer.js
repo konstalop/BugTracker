@@ -3,7 +3,7 @@ import {
     FETCH_PROJECTS,
     NEW_PROJECT,
     CLEAR_SELECTION,
-
+    CLEAR_PROJECTS
 } from './ReducerActions'
 
 /**
@@ -32,6 +32,12 @@ export default (state, action) =>  {
             return {
                 ...state,
                 selected: null
+            }
+        }
+        case CLEAR_PROJECTS: {
+            return {
+                ...state,
+                projects: null
             }
         }
         default: 

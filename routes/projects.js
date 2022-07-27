@@ -3,7 +3,6 @@ const verify = require('../middleware/verify')
 const { check, validationResult } = require('express-validator')
 
 let Project = require('../models/project');
-const user = require('../models/user');
 let User = require('../models/user')
 
 /**

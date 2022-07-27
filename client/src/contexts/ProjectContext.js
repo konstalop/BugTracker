@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import ProjectsReducer from "./ProjectsReducer";
 import { SELECTED_PROJECT, FETCH_PROJECTS,
-         NEW_PROJECT, CLEAR_SELECTION
+         NEW_PROJECT, CLEAR_SELECTION, CLEAR_PROJECTS
 } from "./ReducerActions";
 
 
@@ -89,6 +89,15 @@ const ProjectContextProvider = (props) => {
         })
     }
 
+    /**
+     * Clear projects state
+     */
+    const clearProjects = () => {
+        dispatch({
+            type: CLEAR_PROJECTS
+        })
+    }
+
     return (
         <ProjectContext.Provider 
             value={{
@@ -98,6 +107,7 @@ const ProjectContextProvider = (props) => {
                 fetchProjects,
                 newProject,
                 clearSelection,
+                clearProjects
                 }}>
             {props.children}
         </ProjectContext.Provider>
