@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const verify = require('../middleware/verify')
+const { check, validationResult } = require('express-validator')
 
 let Project = require('../models/project');
 const user = require('../models/user');
@@ -17,10 +18,18 @@ router.get('/', verify, (req, res) => {
 /**
  * Create a new project, also verify accessToken before doing anything.
  */
-router.post('/add', verify, async (req, res) =>  {
+router.post('/add', verify, [
+    check('name', 'Name of the project is required!').not().isEmpty(),
+    check('desc', 'Description of the project is required!').not().isEmpty()
+], async (req, res) =>  {
     
+    const error = validationResult(req)
+
+    if (!error.isEmpty()) {
+        return res.status(400).json({error: error.array()})
+    }
+
     const user = await User.findById(req.user.user.id)
-  
     const name = req.body.name
     const desc = req.body.desc
     const author = user.firstName
@@ -43,7 +52,7 @@ router.post('/add', verify, async (req, res) =>  {
 /**
  * Find project by id and verify accessToken before doing anything.
  */
-router.get('/:id', verify, async (req, res) => {    
+router.get('/:id', verify, (req, res) => {    
     Project.findById(req.params.id)
     .then((project) => {
         if (req.user.user.id == project.user){

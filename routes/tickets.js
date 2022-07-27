@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { check, validationResult } = require('express-validator')
 
 let Ticket = require('../models/ticket')
 let verify = require('../middleware/verify')
@@ -26,7 +27,17 @@ router.get('/project/:id', verify, (req, res) => {
 /**
  * Create a new ticket and add it to the database. Also check authorization.
  */
-router.post('/add', verify, async (req, res) => {
+router.post('/add', verify, [
+    check('title', 'Title of ticket is required').not().isEmpty(),
+    check('desc', 'Description of ticket is required!').not().isEmpty(),
+    check('time', 'Time estimate of ticket is required!').not().isEmpty()
+], async (req, res) => {
+
+    const error = validationResult(req)
+
+    if (!error.isEmpty()) {
+        return res.status(400).json({error: error.array()})
+    }
 
     const user = await User.findById(req.user.user.id)
 

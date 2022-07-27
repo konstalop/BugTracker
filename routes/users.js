@@ -1,11 +1,24 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
+const { check, validationResult } = require('express-validator')
+
 let User = require('../models/user')
 
 /**
  * Handle registering a new user. Hash their password with salt.
  */
-router.post('/register', async (req, res) => {
+router.post('/register',[
+    check('firstName', 'First name can not be empty.').not().isEmpty(),
+    check('lastName', 'Last name can not be empty.').not().isEmpty(),
+    check('email', 'Please include a valid email address.').isEmail()
+    ], async (req, res) => {
+    
+    const error = validationResult(req)
+
+    if (!error.isEmpty()) {
+        return res.status(400).json({error: error.array()})
+    }
+
     const hashedPw = await bcrypt.hash(req.body.password, 10)
     console.log(req.body.firstName)
 
@@ -27,7 +40,7 @@ router.post('/register', async (req, res) => {
 
     newUser.save()
     .then(() => res.send('User has been created!'))
-    .catch(err => res.status(400).json('There was an error'))
+    .catch(err => res.status(400).json('There was an error' + err))
 })
 
 module.exports = router
