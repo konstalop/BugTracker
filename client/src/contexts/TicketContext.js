@@ -129,11 +129,10 @@ const TicketContextProvider = (props) => {
      */
     const setSelectedTicket = async (id) => {
         try {
-            const res = await axios.get(`/tickets/${id}`)
-
+            //const res = await axios.get(`/tickets/${id}`)
             dispatch({
                 type: SELECTED_TICKET,
-                data: res.data
+                data: id
             })
         }catch(err) {
             console.error(err)

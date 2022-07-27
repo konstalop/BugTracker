@@ -34,7 +34,7 @@ export default (state, action) => {
         case SELECTED_TICKET:
             return {
                 ...state,
-                selectedTicket: action.data
+                selectedTicket: state.tickets.find(ticket => ticket._id === action.data)
             }
         case CLEAR_SELECT_TICKET: 
             return {
