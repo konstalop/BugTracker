@@ -323,7 +323,7 @@ span {display: block;}
 
 /** ManageTicket **/
 
-.manage-ticket, .create-project {
+.manage-ticket, .create-project, .confirm-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -335,7 +335,7 @@ span {display: block;}
   align-items: center;
 }
 
-.manage-ticket-inner, .create-project-inner {
+.manage-ticket-inner, .create-project-inner, .confirm-inner-container {
   position: relative;
   padding: 16px;
   width: 100%;
@@ -346,11 +346,11 @@ span {display: block;}
   border-radius: 6px;
 }
 
-.create-project-inner {
+.create-project-inner, .confirm-inner-container {
   position:relative;
 }
 
-.manage-ticket-inner, .create-project-inner {
+.manage-ticket-inner, .create-project-inner, .confirm-inner-container{
   position: absolute;
   top: 50px;
 }
@@ -428,7 +428,7 @@ textarea {
   opacity: 0.8;
 }
 
-.create-project {
+.create-project, .confirm-container {
   z-index: 1;
 }
 
@@ -443,4 +443,18 @@ textarea {
 
 .asd {
   background-color: red;
+}
+
+/* Confirm and alerts */
+
+.confirm-inner-container {
+  width: 250px;
+}
+
+.confirmation-h2 {
+  color: var(--primary-color)
+}
+.confirmation-h4 {
+  color: gray;
+  font-weight: 500;
 }

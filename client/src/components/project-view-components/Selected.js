@@ -5,6 +5,7 @@ import Modal from '../app-components/Modal';
 import { useContext } from "react"
 import { useParams } from 'react-router-dom';
 import { TicketContext } from '../../contexts/TicketContext';
+import Confirmation from '../confirmation-components/Confirmation';
 
 
 /**
@@ -16,6 +17,7 @@ const Selected = () => {
     const [buttonPopup, setButtonPopup] = useState(false);
     const {selectedTicket, deleteTicket, fetchTicketsProject} = useContext(TicketContext)
     const {projectId} = useParams()
+    const [confirm, setConfirm] = useState(false)
 
     /**
      * Display No ticket selected text if no ticket is currently selected.
@@ -28,12 +30,24 @@ const Selected = () => {
         )
     }
 
+    /**
+     * Pop up a confirm box to confirm delete.
+     */
+    const confirmDelete = () => {
+        setConfirm(true)
+    }
+
      /**
      * handle deleting a ticket
      */
-    const handleDelete = () => {
-       deleteTicket(selectedTicket._id)
-       fetchTicketsProject(projectId)
+    const handleDelete = (choose) => {
+        if (choose) {
+            deleteTicket(selectedTicket._id)
+            setConfirm(false)
+            fetchTicketsProject(projectId)
+        } else {
+            setConfirm(false)
+        }
     }
    
     return (
@@ -79,9 +93,13 @@ const Selected = () => {
                      </button>
                     <button 
                         className='delete-ticket'
-                        onClick={() => handleDelete()}
+                        onClick={() => confirmDelete()}
                     >Delete ticket    
                     </button>
+                    <Confirmation
+                        action={handleDelete}
+                        confirm={confirm}
+                    />
                     <Modal
                         trigger={buttonPopup} 
                         setTrigger={setButtonPopup}

@@ -5,6 +5,7 @@ import Modal from './Modal';
 import CreateProject from './CreateProject';
 import { AuthContext } from '../../contexts/AuthContext';
 import { ProjectContext } from '../../contexts/ProjectContext';
+import Confirmation from '../confirmation-components/Confirmation';
 
 /**
  * Side bar which appears at all pages, contains logout and new project. Also links for navigation.
@@ -16,6 +17,7 @@ const Sidebar = () => {
     const authContext = useContext(AuthContext)
     const {clearProjects} = useContext(ProjectContext)
     const {logout, user} = authContext
+    const [confirm, setConfirm] = useState(false)
 
     let navigate = useNavigate()
 
@@ -30,15 +32,29 @@ const Sidebar = () => {
         userName = user.firstName
     }
 
+
+    /**
+     * Pop up a confirm box
+     */
+    const confirmLogout = () => {
+        setConfirm(true)
+    }
+
     /**
      * Logout functionality from sidebar, handle logging out
      */
-    const handleLogout = () => {
-        logout()
-        clearProjects()
-        let path = '../';
-        navigate(path)
-        
+    const handleLogout = (choose) => {
+        if (choose) {
+            logout()
+            clearProjects()
+            setConfirm(false)
+            let path = '../';
+            navigate(path)
+        }
+        else {
+            setConfirm(false)
+        }
+   
     }
 
     return (
@@ -53,7 +69,11 @@ const Sidebar = () => {
                         onClick={() => setButtonPopup(true)}
                         >New Project
                     </button>   
-                    <button className="sidebar-logout" onClick={handleLogout}>Logout</button> 
+                    <button className="sidebar-logout" onClick={confirmLogout}>Logout</button> 
+                    <Confirmation
+                        action={handleLogout}
+                        confirm={confirm}
+                        />
                     <Modal 
                         trigger={buttonPopup} 
                         setTrigger={setButtonPopup}
