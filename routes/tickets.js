@@ -48,7 +48,7 @@ router.post('/add', verify, [
     const priority = req.body.priority
     const status = req.body.status
     const author = user.firstName
-    const date = new Date()
+    const date = new Date().toLocaleDateString()
 
     const newTicket = new Ticket({
         project: req.body.id,

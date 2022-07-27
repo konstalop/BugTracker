@@ -51,7 +51,6 @@ const ProjectContextProvider = (props) => {
         
         try {
             const res = await axios.post('/projects/add', project, config)
-            console.log(res.data)
 
             dispatch({
                 type: NEW_PROJECT,

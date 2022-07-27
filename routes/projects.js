@@ -32,7 +32,7 @@ router.post('/add', verify, [
     const name = req.body.name
     const desc = req.body.desc
     const author = user.firstName
-    const date = new Date()
+    const date = new Date().toLocaleDateString()
 
     const newProject = new Project({
         user: user._id,

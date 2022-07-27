@@ -133,12 +133,17 @@ fieldset {
   color: #1f56bb;
 }
 
-.sidebar-text {
+.sidebar-text, .sidebar-welcome {
   text-align: center;
   color: gray;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+}
+
+.sidebar-welcome {
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
 span {display: block;}

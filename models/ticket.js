@@ -37,8 +37,8 @@ const TicketSchema = mongoose.Schema({
         required: true
     },
     date: {
-        type: Date,
-        default: Date.now
+        type: String,
+        required: true
     },
     author: {
         type: String,
