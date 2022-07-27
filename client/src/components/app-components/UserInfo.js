@@ -10,15 +10,17 @@ const UserInfo = () => {
     const {user} = useContext(AuthContext)
 
     return (
-        <div>
-            <h1 className='home-h1'>My Account</h1>
-                <h5>Name</h5>
-                <p>{user.firstName + " " + user.lastName}</p>
-                <h5>Email</h5>
-                <p>{user.email}</p>
-                <h5>Date created</h5>
-                <p>{user.date}</p>
+        <>
+        <h1 className='home-h1'>My Account</h1>
+        <div className="user-container">
+                <h5 className="user-stat">Name</h5>
+                <p className="user-info">{user.firstName + " " + user.lastName}</p>
+                <h5 className="user-stat">Email</h5>
+                <p className="user-info">{user.email}</p>
+                <h5 className="user-stat">Date created</h5>
+                <p className="user-info">{user.date}</p>
         </div>
+        </>
     )
 }
 

@@ -23,7 +23,7 @@ function App() {
     <ProjectContextProvider>
       <TicketContextProvider>
       <Router>
-        <div className='appContainer'>
+        <div className='app-container'>
         <Routes>
           <Route path="/" element={<Landing/>}/>
           <Route path="/register" element={<Register/>} />

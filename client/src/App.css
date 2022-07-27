@@ -9,6 +9,10 @@ html {
   --primary-color: #010046d3;
 }
 
+.app-container {
+  overflow: auto;
+}
+
 /** Login and Register **/
 
 fieldset {
@@ -66,7 +70,7 @@ fieldset {
 
 .input-auth-submit {
   border: 0;
-  width: 300px;
+  width: 90%;
   height: 30px;
   margin: 10px;
   border-radius: 4px;
@@ -92,7 +96,8 @@ fieldset {
   border-radius: 3px;
   text-align: center;
   background-color: white;
-  width: 175px;
+  width: 9%;
+  min-width: 75px;
   height: 98vh;
 }
 
@@ -110,7 +115,7 @@ fieldset {
   color: white;
   background-color: rgb(158, 45, 45);
   border-radius: 6px;
-  width: 125px;
+  width: 80%;
   height: 30px;
   margin: 10px;
   cursor: pointer;
@@ -149,6 +154,22 @@ fieldset {
 span {display: block;}
 
 
+/** User info**/
+
+.user-stat {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.user-info {
+  color: gray;
+  font-weight: 500;
+}
+
+.user-container {
+  padding-bottom: 15px;
+}
+
 
 /** background div in every page **/
 .home-wrapper, .project-view-container, .tickets-wrapper, .account-wrapper {
@@ -157,11 +178,12 @@ span {display: block;}
   background-color: rgb(245, 245, 245);
   border-radius: 3px;
   width: 90%;
-  min-width: 600px;
+  min-width: 500px;
   height: 98vh;
   float: right;
   text-align: center;
   position: sticky;
+  overflow: auto;
 }
 
 /** home header **/ 
@@ -206,7 +228,7 @@ span {display: block;}
    font-size: 15px;
   }
 
-.projects-container, .tickets-container {
+.projects-container, .tickets-container, .user-container {
   background-color: white;
   margin-left: 50px;
   margin-right: 50px;
@@ -260,12 +282,15 @@ span {display: block;}
 /** Project page **/
 
 .project-team-container{ 
+  padding: 1%;
   margin-left: 50px;
-  width: 35%;
+  min-width: 55%;
   border-radius: 6px;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
   margin-right: 10px;
   overflow: auto;
+  float: left;
+  margin-bottom: 1%;
 }
 
 .td-team {
@@ -284,28 +309,28 @@ span {display: block;}
 }
 
 .tickets-project-container {
+  padding: 1%;
   margin-right: 15px;
-  margin-left: 15px;
+  margin-left: 50px;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
-  width: 59%;
-  float: right;
+  max-width: 55%;
+  min-width: none;
+  float: left;
   max-height:  45%;
   overflow: auto;
   border-radius: 6px;
 }
 
-.project-team-container {
-  float: left;
-}
 
 .ticket-view-container {
+  padding: 1%;
+  margin-top: 1%;
   overflow: auto;
   float: left;
   bottom: 2%;
-  width: 50%;
+  width: 55%;
   max-height: 38%;
   margin-left: 50px;
-  position: absolute;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
   border-radius: 6px;
 }
