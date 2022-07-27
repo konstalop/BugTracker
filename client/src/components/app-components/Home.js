@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { ProjectContext } from '../../contexts/ProjectContext';
+import { TicketContext } from '../../contexts/TicketContext';
 import Project from './Project'
 import Spinner from './Spinner';
 
@@ -10,8 +11,10 @@ import Spinner from './Spinner';
 const Home = () => {
 
     const {projects, fetchProjects, loading} = useContext(ProjectContext)
+    const {clearTickets} = useContext(TicketContext)
 
     useEffect(() => {
+        clearTickets()
         fetchProjects()
     }, [])
 

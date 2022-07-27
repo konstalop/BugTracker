@@ -15,8 +15,7 @@ import Confirmation from '../confirmation-components/Confirmation';
 const Selected = () => {
 
     const [buttonPopup, setButtonPopup] = useState(false);
-    const {selectedTicket, deleteTicket, fetchTicketsProject} = useContext(TicketContext)
-    const {projectId} = useParams()
+    const {selectedTicket, deleteTicket} = useContext(TicketContext)
     const [confirm, setConfirm] = useState(false)
 
     /**
@@ -44,7 +43,6 @@ const Selected = () => {
         if (choose) {
             deleteTicket(selectedTicket._id)
             setConfirm(false)
-            fetchTicketsProject(projectId)
         } else {
             setConfirm(false)
         }

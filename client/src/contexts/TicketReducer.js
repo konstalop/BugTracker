@@ -1,5 +1,6 @@
 import { 
     CLEAR_SELECT_TICKET,
+    CLEAR_TICKETS,
     DELETE_TICKET,
     FETCH_TICKETS_PROJECT, 
     FETCH_TICKETS_USER, 
@@ -44,9 +45,7 @@ export default (state, action) => {
         case DELETE_TICKET: 
             return {
                 ...state,
-                tickets: state.tickets.map((ticket) =>
-                    ticket._id === action.data._id ? action.data : ticket 
-                    ),
+                tickets: state.tickets.filter((bug) => bug._id !== action.data),
                 loading: false,
                 selectedTicket: null,
             }
@@ -55,6 +54,12 @@ export default (state, action) => {
                 ...state,
                 tickets: state.tickets.map((ticket) => ticket._id === action.data._id ? action.data : ticket),
                 selectedTicket: action.data,
+            }      
+        }
+        case CLEAR_TICKETS: {
+            return {
+                ...state,
+                tickets: null
             }
         }
         default:

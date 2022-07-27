@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 import React from "react"
 import axios from "axios";
 import TicketReducer from "./TicketReducer";
-import { CLEAR_SELECT_TICKET, DELETE_TICKET, FETCH_TICKETS_PROJECT, 
+import { CLEAR_SELECT_TICKET, CLEAR_TICKETS, DELETE_TICKET, FETCH_TICKETS_PROJECT, 
          FETCH_TICKETS_USER,
          NEW_TICKET,
          SELECTED_TICKET,
@@ -90,7 +90,6 @@ const TicketContextProvider = (props) => {
                 'Content-type': 'application/json'
             }
         }
-        console.log(ticket)
         try {
             const res = await axios.post(`/tickets/update/${ticket._id}`, ticket, config)
 
@@ -109,7 +108,6 @@ const TicketContextProvider = (props) => {
      * @param {ObjectId} id id of ticket that is going to be deleted.
      */
     const deleteTicket = async (id) => {
-
         try {
             await axios.delete(`/tickets/${id}`)
 
@@ -117,6 +115,7 @@ const TicketContextProvider = (props) => {
                 type: DELETE_TICKET,
                 data: id
             })
+            console.log(state.tickets)
 
         }catch(err) {
             console.error(err)
@@ -129,7 +128,6 @@ const TicketContextProvider = (props) => {
      */
     const setSelectedTicket = async (id) => {
         try {
-            //const res = await axios.get(`/tickets/${id}`)
             dispatch({
                 type: SELECTED_TICKET,
                 data: id
@@ -140,11 +138,20 @@ const TicketContextProvider = (props) => {
     }
 
     /**
-     * Method to clear current tickets state.
+     * Method to clear current ticket.
+     */
+    const clearSelectedTicket = () => {
+        dispatch({
+            type: CLEAR_SELECT_TICKET
+        })
+    }
+
+    /**
+     * Clear tickets array from state
      */
     const clearTickets = () => {
         dispatch({
-            type: CLEAR_SELECT_TICKET
+            type: CLEAR_TICKETS
         })
     }
     
@@ -161,6 +168,7 @@ const TicketContextProvider = (props) => {
                 clearTickets,
                 deleteTicket,
                 updateTicket,
+                clearSelectedTicket,
                 }}>
             {props.children} 
         </TicketContext.Provider>

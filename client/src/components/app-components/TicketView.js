@@ -8,9 +8,10 @@ import Spinner from './Spinner'
  * @returns table of tickets at /tickets
  */
 const TicketView = () => {
-    const {tickets, loading, fetchTicketsUser} = useContext(TicketContext)
+    const {tickets, loading, fetchTicketsUser, clearTickets} = useContext(TicketContext)
 
     useEffect(() => {
+        clearTickets()
         fetchTicketsUser()
     }, [])
 
