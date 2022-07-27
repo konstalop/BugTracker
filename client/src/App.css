@@ -196,7 +196,6 @@ span {display: block;}
   text-align: left;
   margin-left: 25px;
   font-size: 13px;
-  text-align: left;
   padding-bottom: 25px;
   padding-top: 10px;
   border-radius: 6px;
@@ -222,10 +221,10 @@ span {display: block;}
 .projects-h2, .project-team-header, .tickets-h2, .project-tickets-h4, .project-tickets-view-h4, .no-selected-h4 {
    margin-left: 25px;
    margin-bottom: 25px;
-   text-align: left;
    color: black;
    padding-top: 15px;
    font-size: 15px;
+   text-align: left;
   }
 
 .projects-container, .tickets-container, .user-container {
@@ -249,7 +248,7 @@ span {display: block;}
 
 }
 
-.projects-table, .team-table, .tickets-table {
+.projects-table, .team-table, .tickets-table, .ticket-info-table {
   max-height: calc(50vh - 25%);
   margin-left: 10px;
   margin-right: 15px;
@@ -283,19 +282,22 @@ span {display: block;}
 
 .project-team-container{ 
   padding: 1%;
-  margin-left: 50px;
-  min-width: 55%;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 1%;
+  max-height: 38%;
+  max-width: 950px;
+  min-width: 350px;
   border-radius: 6px;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
-  margin-right: 10px;
   overflow: auto;
-  float: left;
   margin-bottom: 1%;
 }
 
 .td-team {
   padding-right: 35px;
   padding-left: 15px;
+  text-align: center;
 }
 
 .th-project {
@@ -303,20 +305,22 @@ span {display: block;}
 }
 
 .new-button-member, .new-ticket, .delete-ticket {
-  float: left;
   width: 100px;
   height: 25px;
+  float: left;
 }
 
 .tickets-project-container {
   padding: 1%;
-  margin-right: 15px;
-  margin-left: 50px;
+  margin-bottom: 1%;
+  margin-right: 25px;
+  margin-left: 25px;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.15);
-  max-width: 55%;
+  max-width: 950px;
+  min-width: 350px;
   min-width: none;
   float: left;
-  max-height:  45%;
+  max-height: 740px;
   overflow: auto;
   border-radius: 6px;
 }
@@ -324,15 +328,14 @@ span {display: block;}
 
 .ticket-view-container {
   padding: 1%;
-  margin-top: 1%;
-  overflow: auto;
-  float: left;
   bottom: 2%;
-  width: 55%;
+  max-width: 950px;
   max-height: 38%;
-  margin-left: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
   border-radius: 6px;
+  overflow: auto;
 }
 
 .project-tickets-view-h4 {

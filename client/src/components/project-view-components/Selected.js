@@ -59,32 +59,28 @@ const Selected = () => {
                         <th className='ticket-info-th'>TITLE</th>
                         <th className='ticket-info-th'>DESCRIPTION</th>
                         <th className='ticket-info-th'>AUTHOR</th>
+                        <th className='ticket-info-th'>TIME ESTIMATE (HOURS)</th>
+                       
                     </tr>
                     <tr>
                         <td className='ticket-info-td'>{selectedTicket.title}</td>
                         <td className='ticket-info-td'>{selectedTicket.desc}</td>
                         <td className='ticket-info-td'>{selectedTicket.author}</td>
+                        <td className='ticket-info-td'>{selectedTicket.time}</td>
                     </tr>
                     <tr>
                         <th className='ticket-info-th'>DATE</th>
                         <th className='ticket-info-th'>TYPE</th>
                         <th className='ticket-info-th'>PRIORITY</th>
+                        <th className='ticket-info-th'>STATUS</th>
                     </tr>
                     <tr>
                         <td className='ticket-info-td'>{selectedTicket.date}</td>
                         <td className='ticket-info-td'>{selectedTicket.type}</td>
                         <td className='ticket-info-td'>{selectedTicket.priority}</td>
-                    </tr>
-                    <tr>
-                        <th className='ticket-info-th'>STATUS</th>
-                        <th className='ticket-info-th'>TIME ESTIMATE (HOURS)</th>
-                    </tr>
-                    <tr>
                         <td className='ticket-info-td'>{selectedTicket.status}</td>
-                        <td className='ticket-info-td'>{selectedTicket.time}</td>
                     </tr>
-                   
-                     </tbody>
+                    </tbody>
                     </table>
                     <button
                      className='new-ticket'

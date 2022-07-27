@@ -50,19 +50,7 @@ const ProjectView = () => {
             <Sidebar></Sidebar>
             <div className='project-view-container'>
                 <h1 className='project-view-name'>{selected.name}</h1>
-            <div className='project-team-container'>
-                <h4 className='project-team-header'>Team (NOT FUNCTIONAL YET)</h4>
-                <table className='team-table'>
-                    <tbody>
-                    <tr>
-                        <th className='th-project'>MEMBER</th>
-                        <th className='th-project'>EMAIL</th>
-                    </tr>
-                        <TeamMember user={user}/>
-                    </tbody>
-                </table>
-                <button className='new-button-member'>New member</button>
-            </div>
+            
                 <div className='tickets-project-container'>
                     <h4 className='project-tickets-h4'>Tickets</h4>
                     <table className='project-tickets-table'>
@@ -83,6 +71,19 @@ const ProjectView = () => {
                     </table>
                     <button onClick={() => setButtonPopup(true)}
                      className='new-ticket'>New</button>
+                </div>
+                <div className='project-team-container'>
+                <h4 className='project-team-header'>Team (NOT FUNCTIONAL YET)</h4>
+                <table className='team-table'>
+                    <tbody>
+                    <tr>
+                        <th className='th-project'>MEMBER</th>
+                        <th className='th-project'>EMAIL</th>
+                    </tr>
+                        <TeamMember user={user}/>
+                    </tbody>
+                </table>
+                <button className='new-button-member'>New member</button>
                 </div>
                <Selected></Selected>
                 <Modal 

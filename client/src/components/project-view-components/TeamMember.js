@@ -5,6 +5,13 @@ import React from 'react'
  * @returns teammember row
  */
 const TeamMember = ({user}) => {
+
+    if (user == null) {
+        return (
+            <tr></tr>
+        )
+    }
+
     return (
         <tr className='project-row'>
             <td className='td-team'>{user.firstName+ " " + user.lastName}</td>
