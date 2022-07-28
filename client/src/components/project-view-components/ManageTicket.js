@@ -1,6 +1,8 @@
 import React from 'react'
 import { TicketContext } from '../../contexts/TicketContext'
 import { useContext, useState } from "react"
+import Alert from '../confirmation-components/Alert'
+import { AlertContext } from '../../contexts/AlertContext'
 
 /**
  * Form to add and edit ticket.
@@ -11,7 +13,8 @@ import { useContext, useState } from "react"
 const ManageTicket = (props) => {
     
     const {selectedTicket, updateTicket} = useContext(TicketContext)
-
+    const {showAlert} = useContext(AlertContext)
+    
     const [ticket, setTicket] = useState({
         _id: selectedTicket._id,
         project: selectedTicket.project,
@@ -37,10 +40,15 @@ const ManageTicket = (props) => {
      * Handle submitting form and creating a new ticket
      * @param {*} event event 
      */
-    const handleSubmit = (event) => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (title === "" || desc === "" || time === "") {
+            showAlert('Please fill all of the fields!')
+        }
+        else {
         updateTicket(ticket)
-        event.preventDefault() 
         props.setTrigger(false)
+        }
     }
 
     /**
@@ -56,6 +64,7 @@ const ManageTicket = (props) => {
         <div className='manage-ticket'> 
                 <div className='manage-ticket-inner'>
                     <h4 className='manage-ticket-h4'>Edit Ticket</h4>
+                    <Alert></Alert>
                     <form className='manage-ticket-form'>
                         <label className='manage-label'>Title
                             <input 

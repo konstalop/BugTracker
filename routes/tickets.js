@@ -90,7 +90,6 @@ router.delete('/:id', verify, (req, res) => {
  */
 router.post('/update/:id', verify, (req, res) =>  {
 
-    console.log(req.params.id, req.body)
     Ticket.findById(req.params.id)
     .then(ticket => {
         ticket.project = req.body.project

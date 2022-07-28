@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react"
 import {ProjectContext} from "../../contexts/ProjectContext"
 import {useContext} from "react"
-
+import {AlertContext} from "../../contexts/AlertContext"
+import Alert from "../confirmation-components/Alert"
 
 /**
  * Used to create and add a project
@@ -14,6 +15,7 @@ const CreateProject = (props) => {
 
     const projectContext = useContext(ProjectContext)
     const { newProject } = projectContext
+    const {showAlert} = useContext(AlertContext)
     const [project, setProject] = useState({
         name: "",
         desc: "",
@@ -38,8 +40,12 @@ const CreateProject = (props) => {
      */
     const handleSubmit = (e) => {
         e.preventDefault()
-        newProject(project)
-        props.setTrigger(false)
+        if (name === "" || desc ==="") {
+            showAlert('Please fill all of the fields!')
+        } else {            
+            newProject(project)
+            props.setTrigger(false)
+        }    
     }
 
     /**
@@ -55,6 +61,7 @@ const CreateProject = (props) => {
         <div className="create-project">
             <div className="create-project-inner">
                 <h4 className="new-project-h4">Create a new project</h4>
+                <Alert></Alert>
                <form className="create-project-form">
                     <label className='new-project-label'>Project name
                         <input
