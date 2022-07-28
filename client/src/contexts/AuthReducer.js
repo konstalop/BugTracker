@@ -23,9 +23,7 @@ export default (state, action) => {
         case REGISTER_FAILURE:
             return {
                 ...state,
-                isAuthenticated: false,
-                loading: false,
-                error: action.data
+                error: action.data.response.data.msg
             }
         case USER_LOADED:
             return {
@@ -43,6 +41,10 @@ export default (state, action) => {
                 loading: false
             }
         case LOGIN_FAILURE:
+            return {
+                ...state,
+                error: action.data.response.data
+            }  
         case LOGOUT:
             localStorage.removeItem('accessToken')
             return {

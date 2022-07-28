@@ -10,32 +10,35 @@ let User = require('../models/user')
 router.post('/register',[
     check('firstName', 'First name can not be empty.').not().isEmpty(),
     check('lastName', 'Last name can not be empty.').not().isEmpty(),
-    check('email', 'Please include a valid email address.').isEmail()
+    check('email', 'Please use a valid email address.').isEmail()
     ], async (req, res) => {
     
     const error = validationResult(req)
 
     if (!error.isEmpty()) {
-        return res.status(400).json({error: error.array()})
+        console.log(error)
+        return res.status(400).json({msg: error.errors[0].msg})
+    }
+
+    const {firstName, lastName, email} = req.body
+
+    let user = await User.findOne({ email })
+
+    if (user) {
+        return res.status(400).json({msg: 'Email already exists!'})
     }
 
     const hashedPw = await bcrypt.hash(req.body.password, 10)
-    console.log(req.body.firstName)
 
-    const firstName = req.body.firstName
-    const lastName = req.body.lastName
-    const email = req.body.email
     const password = hashedPw
     const date = new Date()
-    const projects = []
-
+        
     const newUser = new User({
         firstName,
         lastName,
         email,
         password,
         date,
-        projects
     })
 
     newUser.save()

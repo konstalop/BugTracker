@@ -7,6 +7,7 @@ export const LOGIN_OK = 'LOGIN_OK'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const LOGOUT = 'LOGOUT'
 export const CLEAR_FAILURES = 'CLEAR_FAILURES'
+export const CLEAR_ERRORS = 'CLEAR_ERRORS'
 
 //PROJECT ACTIONS
 export const NEW_PROJECT = 'NEW_PROJECT'
@@ -25,3 +26,7 @@ export const CLEAR_SELECT_TICKET = 'CLEAR_SELECT_TICKET'
 export const DELETE_TICKET = 'DELETE_TICKET'
 export const UPDATE_TICKET = 'UPDATE_TICKET'
 export const CLEAR_TICKETS = 'CLEAR_TICKETS'
+
+//ALERT ACTIONS
+export const SHOW_ALERT = 'SHOW_ALERT'
+export const REMOVE_ALERT = 'REMOVE_ALERT'

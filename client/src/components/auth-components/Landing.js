@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import Footer from './Footer';
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from '../../contexts/AuthContext';
+import { AlertContext } from '../../contexts/AlertContext';
+import Alert from '../confirmation-components/Alert';
 
 /**
  * page when you open the application. Login is to be made.
@@ -13,13 +15,20 @@ const Landing = () => {
 let navigate = useNavigate()
 
 const authContext = useContext(AuthContext)
-const { login, isAuthenticated } = authContext
-
+const { login, isAuthenticated, error, clearFailures } = authContext
+const alertContext = useContext(AlertContext)
+const {showAlert} = alertContext
+ 
 useEffect(() => {
   if (isAuthenticated && authContext.user !== null) {
     navigate('app')
   }
-}, [isAuthenticated, authContext.user]) 
+
+  if (error === 'Invalid login!') {
+      showAlert(error)
+      clearFailures()
+  }
+}, [isAuthenticated, authContext.user, error]) 
 
 const [user, setUser] = useState({
   email: "",
@@ -44,7 +53,7 @@ const handleChange = (event) => {
 const handleLogin = (e) => {
   e.preventDefault()
   if (email === '' || password === '') {
-    alert('Please fill all fields!')
+     showAlert('Please fill all of the fields!')
   } else {
     login({
       email,
@@ -60,6 +69,7 @@ const handleLogin = (e) => {
         <form className="form-auth" onSubmit={handleLogin}>
           <fieldset>
             <h4 className="header-form">Sign in</h4>
+            <Alert></Alert>
               <input
                type="text"
                name="email" 

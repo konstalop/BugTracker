@@ -491,3 +491,18 @@ textarea {
   color: gray;
   font-weight: 500;
 }
+
+.alert-container {
+  margin: 1% 10% 1%;
+  border-radius: 6px;
+  background-color:rgba(158, 52, 52, 0.2);
+  text-align: center;
+  max-width: 100%;
+  border: 1px solid red;
+}
+
+.alert-text {
+  margin: 1px;
+  color: red;
+  padding: 5px;
+}

@@ -15,6 +15,7 @@ import ProjectContextProvider from './contexts/ProjectContext';
 import TicketContextProvider from './contexts/TicketContext';
 import AuthState from './contexts/AuthContext';
 import ProtectedRoute from './components/routing-components/ProtectedRoute';
+import AlertState from './contexts/AlertContext';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
     <AuthState>
     <ProjectContextProvider>
       <TicketContextProvider>
+      <AlertState>
       <Router>
         <div className='app-container'>
         <Routes>
@@ -36,6 +38,7 @@ function App() {
         </Routes> 
         </div>
       </Router>
+      </AlertState>
       </TicketContextProvider>
     </ProjectContextProvider>
     </AuthState>

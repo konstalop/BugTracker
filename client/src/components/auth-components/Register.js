@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom"
-import Footer from "./Footer";
-import { useNavigate } from "react-router-dom"  
+import React, { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import Footer from "./Footer"; 
 import { useState } from 'react'
 import { AuthContext } from "../../contexts/AuthContext";
+import Alert from "../confirmation-components/Alert";
+import { AlertContext } from "../../contexts/AlertContext";
 
  
 /**
@@ -13,7 +14,20 @@ import { AuthContext } from "../../contexts/AuthContext";
 const Register = () => {
 
     const authContext = useContext(AuthContext)
-    const { register } = authContext
+    const { register, error, clearFailures } = authContext
+    const {showAlert} = useContext(AlertContext)
+
+    useEffect(() => {
+        if (error === "Email already exists!" ) {
+            showAlert(error)
+            clearFailures()
+        }
+        if (error === "Please use a valid email address.") {
+            showAlert(error)
+            clearFailures()
+        }
+    }, [error])
+
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
@@ -28,7 +42,7 @@ const Register = () => {
         setUser({...user, [event.target.name]: event.target.value})
     }
 
-    let navigate = useNavigate()
+   // let navigate = useNavigate()
 
     /**
      * Handle registering, check fields.
@@ -37,9 +51,9 @@ const Register = () => {
     const handleRegistering = (e) => {
         e.preventDefault()
         if (firstName === '' || lastName === '' || email === '' || password === '') {
-            alert('Please fill all of the fields!')
+            showAlert('Please fill all of the fields!')
         } else if (password !== password2) {
-            alert('Passwords do not match!')
+            showAlert('Passwords do not match!')
         } else {
             register({
                 firstName,
@@ -47,9 +61,7 @@ const Register = () => {
                 email,
                 password
             })
-            let path = '/';
-            navigate(path)
-        }
+        } 
     }
 
     return (
@@ -59,6 +71,7 @@ const Register = () => {
                 <form className="form-auth">
                     <fieldset>
                         <h4 className="header-form">Sign up</h4> 
+                        <Alert></Alert>
                             <input
                              type="text" 
                              name="firstName"

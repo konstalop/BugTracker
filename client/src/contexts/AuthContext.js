@@ -8,7 +8,8 @@ import { LOGIN_FAILURE,
          REGISTER_FAILURE, 
          REGISTER_OK,
          LOGOUT, 
-         USER_LOADED
+         USER_LOADED,
+         CLEAR_FAILURES
 } from "./ReducerActions";
 
 export const AuthContext = createContext();
@@ -24,7 +25,7 @@ const AuthState = (props) => {
         isAuthenticated: false,
         user: null,
         loading: true,
-        error: null
+        error: null,
     }
 
     const [state, dispatch] = useReducer(authReducer, initial)
@@ -63,16 +64,16 @@ const AuthState = (props) => {
         }
         try {
             const res = await axios.post('/users/register', formData, conf)
-            console.log(res)
             dispatch({
                 type: REGISTER_OK,
                 data: res.data
             })
             
         }catch(err) {
+            console.log(err)
             dispatch({
                 type: REGISTER_FAILURE,
-                data: err.response.data.msg
+                data: err
             })
         }
     }
@@ -98,9 +99,10 @@ const AuthState = (props) => {
 
             loadUser()
         }catch(err) {
+            console.log('fail')
             dispatch({
                 type: LOGIN_FAILURE,
-                data: err.response.data.msg
+                data: err
             })
         }
     }
@@ -111,7 +113,12 @@ const AuthState = (props) => {
     const logout = () => {
         dispatch({
             type: LOGOUT
+        })
+    }
 
+    const clearFailures = () => {
+        dispatch({
+            type: CLEAR_FAILURES
         })
     }
 
@@ -122,10 +129,11 @@ const AuthState = (props) => {
                 login,
                 loadUser,
                 logout,
+                clearFailures,
                 isAuthenticated: state.isAuthenticated,
                 user: state.user,
                 accessToken: state.accessToken,
-                error: state.error
+                error: state.error,
                 }}>
             {props.children}
         </AuthContext.Provider>

@@ -1,5 +1,10 @@
 import React from 'react'
-
+/**
+ * show a confirmation box if action needs confirming.
+ * @param {Boolean} action confirm action
+ * @param {Boolean} confirm show confirm box if set to true
+ * @returns 
+ */
 const Confirmation = ({action, confirm}) => {
     return (confirm) ? (
         <div className='confirm-container' onClick={() => action(false)}>
