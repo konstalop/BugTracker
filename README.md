@@ -27,7 +27,7 @@ After you have installed all of the dependencies create an .env file containing 
 
 ```
 PORT=5000
-DB_URL= PASTE YOUR OWN DB_URL HERE
+MONGODB_URI= PASTE YOUR OWN DB_URL HERE
 ACCESS_TOKEN_SECRET= PASTE YOUR OWN ACCESS_TOKEN_SECRET HERE
 ```
 
@@ -64,7 +64,7 @@ This application uses [The MIT License](https://opensource.org/licenses/MIT).
 
 ## Link to the project in production
 
-Program is still under development. Link will be here soon.
+https://mern-bugtracker.herokuapp.com/
 
 
  
