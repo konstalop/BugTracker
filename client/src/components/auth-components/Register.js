@@ -14,10 +14,17 @@ import { AlertContext } from "../../contexts/AlertContext";
 const Register = () => {
 
     const authContext = useContext(AuthContext)
-    const { register, error, clearFailures } = authContext
+    const { register, error, clearFailures,isAuthenticated } = authContext
     const {showAlert} = useContext(AlertContext)
 
+    let navigate = useNavigate()
+
     useEffect(() => {
+
+        if (isAuthenticated && authContext.user !== null) {
+            navigate('../app')
+          }
+
         if (error === "Email already exists!" ) {
             showAlert(error)
             clearFailures()
@@ -26,7 +33,7 @@ const Register = () => {
             showAlert(error)
             clearFailures()
         }
-    }, [error])
+    }, [error, isAuthenticated, authContext.user])
 
     const [user, setUser] = useState({
         firstName: "",
@@ -42,7 +49,6 @@ const Register = () => {
         setUser({...user, [event.target.name]: event.target.value})
     }
 
-   // let navigate = useNavigate()
 
     /**
      * Handle registering, check fields.

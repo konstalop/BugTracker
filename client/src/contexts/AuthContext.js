@@ -64,10 +64,13 @@ const AuthState = (props) => {
         }
         try {
             const res = await axios.post('/users/register', formData, conf)
+            localStorage.setItem('accessToken', res.data.accessToken)
             dispatch({
                 type: REGISTER_OK,
                 data: res.data
             })
+
+            loadUser()
             
         }catch(err) {
             console.log(err)

@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
 const { check, validationResult } = require('express-validator')
-
+const jwt = require('jsonwebtoken')
 let User = require('../models/user')
 
 /**
@@ -42,7 +42,19 @@ router.post('/register',[
     })
 
     newUser.save()
-    .then(() => res.send('User has been created!'))
+    .then(() => {
+
+        const data = {
+            user: {
+                id: newUser._id
+            }
+        }
+  
+        const accessToken = jwt.sign(data, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '30m'})
+
+        res.json({accessToken: accessToken})
+    
+    })
     .catch(err => res.status(400).json('There was an error' + err))
 })
 

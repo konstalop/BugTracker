@@ -29,13 +29,13 @@ router.post('/login', async (req, res) => {
 
     const validPw = await bcrypt.compare(req.body.password, user.password)
 
-    const payload = {
+    const data = {
         user: {
             id: user.id
         }
     }
 
-    const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '30m'})
+    const accessToken = jwt.sign(data, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '30m'})
 
     if (validPw) {
         return res.json({accessToken: accessToken})
