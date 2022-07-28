@@ -2,8 +2,8 @@ import React, {useContext, useEffect, useState}from 'react'
 import { Link } from "react-router-dom"
 import Footer from './Footer';
 import { useNavigate } from "react-router-dom"
-import { AuthContext } from '../../contexts/AuthContext';
-import { AlertContext } from '../../contexts/AlertContext';
+import { AuthContext } from '../../contexts/auth/AuthContext';
+import { AlertContext } from '../../contexts/alerts/AlertContext';
 import Alert from '../confirmation-components/Alert';
 
 /**

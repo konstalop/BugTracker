@@ -1,8 +1,8 @@
 import React from 'react'
-import { TicketContext } from '../../contexts/TicketContext'
+import { TicketContext } from '../../contexts/tickets/TicketContext'
 import { useContext, useState } from "react"
 import Alert from '../confirmation-components/Alert'
-import { AlertContext } from '../../contexts/AlertContext'
+import { AlertContext } from '../../contexts/alerts/AlertContext'
 
 /**
  * Form to add and edit ticket.

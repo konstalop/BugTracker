@@ -1,13 +1,12 @@
 import React, { useContext, useEffect } from "react"
 import Sidebar from "./Sidebar"
 import Home from "./Home"
-import { AuthContext } from "../../contexts/AuthContext"
+import { AuthContext } from "../../contexts/auth/AuthContext"
 
 /**
  * Application wrapper
  * @returns application
  */
-
 const Dashboard = ()=> {
 
     const authContext = useContext(AuthContext)

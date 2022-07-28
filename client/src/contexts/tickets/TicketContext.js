@@ -7,7 +7,7 @@ import { CLEAR_SELECT_TICKET, CLEAR_TICKETS, DELETE_TICKET, FETCH_TICKETS_PROJEC
          NEW_TICKET,
          SELECTED_TICKET,
          UPDATE_TICKET,
-} from "./ReducerActions";
+} from "../actions/ReducerActions";
 
 export const TicketContext = createContext();
 
@@ -115,7 +115,6 @@ const TicketContextProvider = (props) => {
                 type: DELETE_TICKET,
                 data: id
             })
-            console.log(state.tickets)
 
         }catch(err) {
             console.error(err)

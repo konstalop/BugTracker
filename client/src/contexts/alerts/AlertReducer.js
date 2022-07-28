@@ -1,7 +1,7 @@
 import {
     SHOW_ALERT,
     REMOVE_ALERT
-} from './ReducerActions'
+} from '../actions/ReducerActions'
 
 /**
  * Reducer function to handle showing alerts etc.

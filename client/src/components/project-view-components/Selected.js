@@ -3,7 +3,7 @@ import ManageTicket from './ManageTicket';
 import { useState } from 'react'
 import Modal from '../app-components/Modal';
 import { useContext } from "react"
-import { TicketContext } from '../../contexts/TicketContext';
+import { TicketContext } from '../../contexts/tickets/TicketContext';
 import Confirmation from '../confirmation-components/Confirmation';
 
 

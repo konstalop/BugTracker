@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
+import { AuthContext } from '../../contexts/auth/AuthContext'
 import Sidebar from "./Sidebar"
 import Spinner from './Spinner'
 import UserInfo from './UserInfo'

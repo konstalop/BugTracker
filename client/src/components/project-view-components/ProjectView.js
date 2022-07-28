@@ -6,11 +6,11 @@ import Selected from './Selected'
 import AddTicket from './AddTicket'
 import Modal from '../app-components/Modal'
 import { useState } from 'react'
-import { ProjectContext } from '../../contexts/ProjectContext'
+import { ProjectContext } from '../../contexts/projects/ProjectContext'
 import { useParams } from "react-router-dom"
 import Spinner from '../app-components/Spinner'
-import { AuthContext } from '../../contexts/AuthContext'
-import { TicketContext } from '../../contexts/TicketContext'
+import { AuthContext } from '../../contexts/auth/AuthContext'
+import { TicketContext } from '../../contexts/tickets/TicketContext'
 
 /**
  * Page to view project contains including Tickets and teams, and view tickets.

@@ -7,7 +7,7 @@ import {
     NEW_TICKET, 
     SELECTED_TICKET,
     UPDATE_TICKET
-} from "./ReducerActions";
+} from "../actions/ReducerActions";
 
 /**
  * Reducer for handling different ticket states.

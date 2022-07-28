@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react"
-import {ProjectContext} from "../../contexts/ProjectContext"
+import {ProjectContext} from "../../contexts/projects/ProjectContext"
 import {useContext} from "react"
-import {AlertContext} from "../../contexts/AlertContext"
+import {AlertContext} from "../../contexts/alerts/AlertContext"
 import Alert from "../confirmation-components/Alert"
 
 /**
@@ -10,7 +10,6 @@ import Alert from "../confirmation-components/Alert"
  * @param {*} props props, like modal trigger.
  * @returns modal to create project.
  */
-
 const CreateProject = (props) => {
 
     const projectContext = useContext(ProjectContext)
@@ -29,9 +28,7 @@ const CreateProject = (props) => {
         setProject({...project, [event.target.name]: event.target.value})
     }
 
-    /**
-     * New project
-     */
+    
     const {name, desc} = project
 
     /**

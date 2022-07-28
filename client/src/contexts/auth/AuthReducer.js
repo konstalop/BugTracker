@@ -7,7 +7,7 @@ import {
     LOGIN_FAILURE,
     LOGOUT,
     CLEAR_FAILURES
-} from './ReducerActions'
+} from '../actions/ReducerActions'
 
 /**
  * Reducer function to handle different states for authentication

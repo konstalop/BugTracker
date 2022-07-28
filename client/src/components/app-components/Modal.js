@@ -5,7 +5,6 @@ import React from "react";
  * @param {*} props trigger
  * @returns modal
  */
-
 const Modal = (props) =>  {
     return (props.trigger) ? (
         <div className="modal">

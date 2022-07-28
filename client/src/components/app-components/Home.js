@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
-import { ProjectContext } from '../../contexts/ProjectContext';
-import { TicketContext } from '../../contexts/TicketContext';
+import { ProjectContext } from '../../contexts/projects/ProjectContext';
+import { TicketContext } from '../../contexts/tickets/TicketContext';
 import Project from './Project'
 import Spinner from './Spinner';
 

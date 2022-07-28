@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 import React from "react";
 import axios from "axios"
-import setToken from "../misc/setToken";
+import setToken from "../../misc/setToken";
 import authReducer from './AuthReducer'
 import { LOGIN_FAILURE,
          LOGIN_OK, 
@@ -10,7 +10,7 @@ import { LOGIN_FAILURE,
          LOGOUT, 
          USER_LOADED,
          CLEAR_FAILURES
-} from "./ReducerActions";
+} from "../actions/ReducerActions";
 
 export const AuthContext = createContext();
 
@@ -73,7 +73,6 @@ const AuthState = (props) => {
             loadUser()
             
         }catch(err) {
-            console.log(err)
             dispatch({
                 type: REGISTER_FAILURE,
                 data: err
@@ -102,7 +101,6 @@ const AuthState = (props) => {
 
             loadUser()
         }catch(err) {
-            console.log('fail')
             dispatch({
                 type: LOGIN_FAILURE,
                 data: err

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { TicketContext } from '../../contexts/TicketContext'
+import { TicketContext } from '../../contexts/tickets/TicketContext'
 import Ticket from './Ticket'
 import Spinner from './Spinner'
 
@@ -33,20 +33,20 @@ const TicketView = () => {
         <div className='tickets-container'>
             <h2 className='tickets-h2'>Tickets</h2>
             <table className='tickets-table'>
-            <tbody>
-            <tr>
-                <th className='th1'>NAME</th>
-                <th className='th2'>DESCRIPTION</th>
-                <th className='th3'>DATE</th>
-            </tr>
-            {
+                <tbody>
+                <tr>
+                    <th className='th1'>NAME</th>
+                    <th className='th2'>DESCRIPTION</th>
+                    <th className='th3'>DATE</th>
+                </tr>
+                {
                     tickets !== null && !loading ? (
                         tickets.map(ticket => (
                             <Ticket key={ticket._id} ticket={ticket}/>
                         ))
                     ) : (<tr></tr>)
-            }
-            </tbody>
+                }
+                </tbody>
             </table>
         </div>
     </div>

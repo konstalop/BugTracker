@@ -4,7 +4,7 @@ import axios from "axios";
 import ProjectsReducer from "./ProjectsReducer";
 import { SELECTED_PROJECT, FETCH_PROJECTS,
          NEW_PROJECT, CLEAR_SELECTION, CLEAR_PROJECTS
-} from "./ReducerActions";
+} from "../actions/ReducerActions";
 
 
 export const ProjectContext = createContext();

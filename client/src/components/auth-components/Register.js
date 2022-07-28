@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import Footer from "./Footer"; 
 import { useState } from 'react'
-import { AuthContext } from "../../contexts/AuthContext";
+import { AuthContext } from "../../contexts/auth/AuthContext";
 import Alert from "../confirmation-components/Alert";
-import { AlertContext } from "../../contexts/AlertContext";
+import { AlertContext } from "../../contexts/alerts/AlertContext";
 
  
 /**
@@ -48,7 +48,6 @@ const Register = () => {
     const handlechange = (event) => {
         setUser({...user, [event.target.name]: event.target.value})
     }
-
 
     /**
      * Handle registering, check fields.

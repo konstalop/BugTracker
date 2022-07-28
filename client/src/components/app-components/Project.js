@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { ProjectContext } from '../../contexts/ProjectContext'
+import { ProjectContext } from '../../contexts/projects/ProjectContext'
 
 /**
  * Project row displayed at home page

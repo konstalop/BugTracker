@@ -1,8 +1,8 @@
 import React from 'react'
-import { TicketContext } from '../../contexts/TicketContext'
+import { TicketContext } from '../../contexts/tickets/TicketContext'
 import { useContext, useState } from "react"
-import { ProjectContext } from '../../contexts/ProjectContext'
-import {AlertContext} from '../../contexts/AlertContext'
+import { ProjectContext } from '../../contexts/projects/ProjectContext'
+import {AlertContext} from '../../contexts/alerts/AlertContext'
 import Alert from "../confirmation-components/Alert"
 
 /**

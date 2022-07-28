@@ -1,5 +1,5 @@
 import React, { useReducer, createContext } from 'react'
-import { REMOVE_ALERT, SHOW_ALERT } from './ReducerActions'
+import { REMOVE_ALERT, SHOW_ALERT } from '../actions/ReducerActions'
 import {v4 as uuidv4} from 'uuid'
 import AlertReducer from './AlertReducer'
 

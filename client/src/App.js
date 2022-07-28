@@ -11,11 +11,11 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import ProjectContextProvider from './contexts/ProjectContext';
-import TicketContextProvider from './contexts/TicketContext';
-import AuthState from './contexts/AuthContext';
+import ProjectContextProvider from './contexts/projects/ProjectContext';
+import TicketContextProvider from './contexts/tickets/TicketContext';
+import AuthState from './contexts/auth/AuthContext';
 import ProtectedRoute from './components/routing-components/ProtectedRoute';
-import AlertState from './contexts/AlertContext';
+import AlertState from './contexts/alerts/AlertContext';
 
 function App() {
   return (

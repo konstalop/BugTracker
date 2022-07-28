@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TicketContext } from '../../contexts/TicketContext'
+import { TicketContext } from '../../contexts/tickets/TicketContext'
 
 
 /**

@@ -7,7 +7,6 @@ import TicketView from './TicketView'
  * @returns page for tickets
  */
 const Tickets = () => {
-
     return (
         <div>
             <Sidebar/>

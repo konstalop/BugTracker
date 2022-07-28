@@ -3,8 +3,8 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useState } from 'react'
 import Modal from './Modal';
 import CreateProject from './CreateProject';
-import { AuthContext } from '../../contexts/AuthContext';
-import { ProjectContext } from '../../contexts/ProjectContext';
+import { AuthContext } from '../../contexts/auth/AuthContext';
+import { ProjectContext } from '../../contexts/projects/ProjectContext';
 import Confirmation from '../confirmation-components/Confirmation';
 
 /**

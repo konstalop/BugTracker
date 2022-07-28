@@ -4,7 +4,7 @@ import {
     NEW_PROJECT,
     CLEAR_SELECTION,
     CLEAR_PROJECTS
-} from './ReducerActions'
+} from '../actions/ReducerActions'
 
 /**
  * Project reducer to handle different states with projects
