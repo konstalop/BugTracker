@@ -64,12 +64,20 @@ router.get('/:id', verify, (req, res) => {
 })
 
 /**
- * Delete a wanted project. Currently its not used anywhere!
+ * Delete a wanted project.
  */
 router.delete('/:id', verify, (req, res) => {
-    Project.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Project has been deleted'))
-    .catch(err => res.status(400).json('There was an error while deleting project' + err))
+    Project.findById(req.params.id).then((project) => {
+        if (req.user.user.id == project.user) {
+            Project.findByIdAndDelete(req.params.id)
+            .then(() => res.json('Project has been deleted'))
+            .catch(err => res.status(400).json('There was an error while deleting project' + err))
+        } else {
+            res.sendStatus(403)
+        }
+    })
+    .catch(err => res.status(400).json('Error while deleting ' + err))  
+   
 })
 
 module.exports = router;
