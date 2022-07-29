@@ -38,6 +38,10 @@ npm run dev
 
 Now BugTracker should be running at http://localhost:3000
 
+## Link to the project in production
+
+https://mern-bugtracker.herokuapp.com/
+
 ## Features
 - Login / register users
 - User authentication / authorization
@@ -58,13 +62,13 @@ Now BugTracker should be running at http://localhost:3000
 - (Teams)
   
 
+## TODO:
+
+Implement teams, commenting tickets, analytics of tickets and different roles for users (developer, admin, manager)
+
 ## License
 
 This application uses [The MIT License](https://opensource.org/licenses/MIT).
-
-## Link to the project in production
-
-https://mern-bugtracker.herokuapp.com/
 
 
  

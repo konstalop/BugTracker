@@ -62,6 +62,17 @@ const handleLogin = (e) => {
   }
 }
 
+/**
+ * login as a demo user
+ */
+const loginDemo = (e) => {
+  e.preventDefault()
+  login({
+    email: 'demo@demo.com',
+    password: "demo"
+  })
+}
+
   return (
     <div className="container-auth">
       <h1 className='header-auth'>BugTracker</h1>
@@ -89,6 +100,13 @@ const handleLogin = (e) => {
               className="input-auth-submit" 
               value="Login"
              />
+             <button
+             type="demo"
+             className='input-auth-demo'
+             onClick={loginDemo}
+             >
+              Login as a demo user!
+             </button>
             <p className="new-user-text"><Link to="/register" >Create account</Link></p>
             <p className="new-user-text"><Link to="/">Forgot password?</Link></p>
          </fieldset>

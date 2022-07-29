@@ -68,7 +68,7 @@ fieldset {
   border-radius: 4px;
 }
 
-.input-auth-submit {
+.input-auth-submit, .input-auth-demo {
   border: 0;
   width: 90%;
   height: 30px;
@@ -80,8 +80,13 @@ fieldset {
   color: white;
 }
 
-.input-auth-submit:hover, .new-button:hover, .new-button-member:hover, .new-ticket:hover, .delete-ticket:hover {
-  opacity: 0.8;
+.input-auth-demo {
+  width: 50%;
+  background-color: var(--primary-color);
+}
+
+.input-auth-submit:hover, .new-button:hover, .new-button-member:hover, .new-ticket:hover, .delete-ticket:hover, .input-auth-demo:hover {
+  opacity: 0.9;
 }
 
 .new-button:active {
@@ -126,8 +131,7 @@ fieldset {
 }
 
 .sidebar-logout:hover, .decline-button:hover {
-  opacity: 0.8;
-  background-color: rgb(187, 81, 81);
+  opacity: 0.9;
 }
 .sidebar-link:visited, .sidebar-link {
   text-decoration: none;

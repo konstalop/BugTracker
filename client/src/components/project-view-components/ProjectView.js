@@ -19,12 +19,13 @@ import { TicketContext } from '../../contexts/tickets/TicketContext'
 const ProjectView = () => {
     
     const {selected, setSelected} = useContext(ProjectContext)
-    const {fetchTicketsProject, tickets, clearTickets, loading} = useContext(TicketContext)
+    const {fetchTicketsProject, tickets, clearTickets, loading, clearSelectedTicket} = useContext(TicketContext)
     const {user} = useContext(AuthContext)
     const [buttonPopup, setButtonPopup] = useState(false)
     const {projectId} = useParams()
 
     useEffect(() => {
+        clearSelectedTicket()
         clearTickets()
         setSelected(projectId)
         fetchTicketsProject(projectId)
@@ -73,7 +74,7 @@ const ProjectView = () => {
                      className='new-ticket'>New</button>
                 </div>
                 <div className='project-team-container'>
-                <h4 className='project-team-header'>Team (NOT FUNCTIONAL YET)</h4>
+                <h4 className='project-team-header'>Team</h4>
                 <table className='team-table'>
                     <tbody>
                     <tr>
