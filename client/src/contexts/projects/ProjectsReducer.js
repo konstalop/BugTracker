@@ -3,7 +3,8 @@ import {
     FETCH_PROJECTS,
     NEW_PROJECT,
     CLEAR_SELECTION,
-    CLEAR_PROJECTS
+    CLEAR_PROJECTS,
+    DELETE_PROJECT
 } from '../actions/ReducerActions'
 
 /**
@@ -22,6 +23,13 @@ export default (state, action) =>  {
                 ...state,
                 projects: [...state.projects, action.data],
                 loading: false
+            }
+        case DELETE_PROJECT: 
+            return {
+                ...state,
+                projects: state.projects.filter((project) => project._id !== action.data),
+                loading: false,
+                selected: null,
             }
         case SELECTED_PROJECT:
             return {

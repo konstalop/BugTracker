@@ -66,7 +66,7 @@ router.get('/:id', verify, (req, res) => {
 /**
  * Delete a wanted project. Currently its not used anywhere!
  */
-router.route('/:id').delete((req, res) => {
+router.delete('/:id', verify, (req, res) => {
     Project.findByIdAndDelete(req.params.id)
     .then(() => res.json('Project has been deleted'))
     .catch(err => res.status(400).json('There was an error while deleting project' + err))

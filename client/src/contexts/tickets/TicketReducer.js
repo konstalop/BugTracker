@@ -45,7 +45,7 @@ export default (state, action) => {
         case DELETE_TICKET: 
             return {
                 ...state,
-                tickets: state.tickets.filter((bug) => bug._id !== action.data),
+                tickets: state.tickets.filter((ticket) => ticket._id !== action.data),
                 loading: false,
                 selectedTicket: null,
             }

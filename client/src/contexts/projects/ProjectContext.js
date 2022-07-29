@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import ProjectsReducer from "./ProjectsReducer";
 import { SELECTED_PROJECT, FETCH_PROJECTS,
-         NEW_PROJECT, CLEAR_SELECTION, CLEAR_PROJECTS
+         NEW_PROJECT, CLEAR_SELECTION, CLEAR_PROJECTS, DELETE_PROJECT
 } from "../actions/ReducerActions";
 
 
@@ -63,6 +63,24 @@ const ProjectContextProvider = (props) => {
     }
 
     /**
+     * Handle deleting project
+     * @param {ObjectId} id id of project
+     */
+    const deleteProject = async (id) => {
+        try {
+            await axios.delete(`/projects/${id}`)
+
+            dispatch({
+                type: DELETE_PROJECT,
+                data: id
+            })
+            
+        }catch(err) {
+            console.error(err)
+        }
+    }
+
+    /**
      * Fetch selected project and set it as a selected.
      * @param {ObjectId} id projectId
      */
@@ -106,7 +124,8 @@ const ProjectContextProvider = (props) => {
                 fetchProjects,
                 newProject,
                 clearSelection,
-                clearProjects
+                clearProjects,
+                deleteProject
                 }}>
             {props.children}
         </ProjectContext.Provider>
