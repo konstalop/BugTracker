@@ -28,6 +28,8 @@ const Selected = () => {
         )
     }
 
+    const deleteMessage = `Deleting ${selectedTicket.title}`
+
     /**
      * Pop up a confirm box to confirm delete.
      */
@@ -92,6 +94,7 @@ const Selected = () => {
                     <Confirmation
                         action={handleDelete}
                         confirm={confirm}
+                        message={deleteMessage}
                     />
                     <Modal
                         trigger={buttonPopup} 

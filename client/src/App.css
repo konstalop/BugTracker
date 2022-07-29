@@ -206,6 +206,7 @@ span {display: block;}
   color: rgb(61, 60, 60);
 }
 
+
 .ticket-name {
   padding-left: 25px;
 }
@@ -279,8 +280,9 @@ span {display: block;}
 }
 
 .th3 {
-  width: 400px;
+  width: 150px;
 }
+
 
 /** Project page **/
 
@@ -489,10 +491,16 @@ textarea {
 }
 
 .confirmation-h2 {
+  font-weight: 500;
   color: var(--primary-color)
 }
 .confirmation-h4 {
-  color: gray;
+  font-size: 17px;
+  color: black;
+  font-weight: 500;
+}
+
+.confirmation-p {
   font-weight: 500;
 }
 
@@ -509,4 +517,8 @@ textarea {
   margin: 1px;
   color: red;
   padding: 5px;
+}
+
+.confirm-inner-container {
+    text-align: center;
 }

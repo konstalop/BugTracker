@@ -73,6 +73,7 @@ const Sidebar = () => {
                     <Confirmation
                         action={handleLogout}
                         confirm={confirm}
+                        message='Logout'
                         />
                     <Modal 
                         trigger={buttonPopup} 

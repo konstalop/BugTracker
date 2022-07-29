@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { NavLink, renderMatches } from 'react-router-dom'
 import { ProjectContext } from '../../contexts/projects/ProjectContext'
+import Confirmation from '../confirmation-components/Confirmation'
 
 /**
  * Project row displayed at home page
@@ -11,6 +12,8 @@ const Project = ({project}) => {
     
     const projectContext = useContext(ProjectContext)
     const {clearSelection } = projectContext
+    const [style, setStyle] = useState({display: 'none'});
+    const [confirm, setConfirm] = useState(false)
 
     useEffect(() => {
         clearSelection()
@@ -24,8 +27,36 @@ const Project = ({project}) => {
         param: project._id
     }
 
+    const deleteMessage = `Delete ${project.name}`
+
+    /**
+     * Pop up a confirm box to confirm delete.
+     */
+     const confirmDelete = () => {
+        setConfirm(true)
+    }
+
+    /**
+     * Handle deleting project
+     */
+    const handleDelete= (choose) => {
+        if (choose) {
+            //deleteProject()
+            setConfirm(false)
+        } else {
+            setConfirm(false)
+        }
+    }
+
     return (
-        <tr className='project-row'>
+        <tr className='project-row'
+        onMouseEnter={e => {
+            setStyle({display: 'table', backgroundColor: 'red', padding: '4px', color: 'white', border: 0, borderRadius: '5px', 
+                    fontSize: '12px', float: 'left', width: '80px', cursor: 'pointer', margin: 0});
+        }}
+        onMouseLeave={e => {
+            setStyle({display: 'none'})
+        }}>
             <td className='project-name' 
                 >
                 <NavLink 
@@ -37,6 +68,19 @@ const Project = ({project}) => {
             </td>
             <td className='project-desc'>{project.desc}</td>
             <td className='project-author'>{project.date}</td>
+            <td className='project-desc' 
+                >
+                <button style={style} onClick={confirmDelete}>
+                    Delete
+                </button>
+            <Confirmation
+            action={handleDelete}
+            confirm={confirm}
+            message={deleteMessage}
+            message2='ALL TICKETS WILL BE LOST'
+            >    
+            </Confirmation>
+            </td>
         </tr>
     )
 }
