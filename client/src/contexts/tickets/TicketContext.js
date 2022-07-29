@@ -57,6 +57,18 @@ const TicketContextProvider = (props) => {
             console.error(err)
         }
     }
+
+    /**
+     * Delete all tickets when deleting project
+     * @param {ObjectId} id id of the project
+     */
+    const deleteTicketsProject = async (id) => {
+        try {
+            await axios.delete(`/tickets/project/${id}`)
+        } catch(err) {
+            console.error(err)
+        }
+    }
  
     /**
      * Handle creating a new ticket.
@@ -168,6 +180,7 @@ const TicketContextProvider = (props) => {
                 deleteTicket,
                 updateTicket,
                 clearSelectedTicket,
+                deleteTicketsProject
                 }}>
             {props.children} 
         </TicketContext.Provider>

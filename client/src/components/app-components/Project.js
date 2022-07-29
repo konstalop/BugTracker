@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ProjectContext } from '../../contexts/projects/ProjectContext'
+import { TicketContext } from '../../contexts/tickets/TicketContext'
 import Confirmation from '../confirmation-components/Confirmation'
 
 /**
@@ -12,6 +13,7 @@ const Project = ({project}) => {
     
     const projectContext = useContext(ProjectContext)
     const {clearSelection, deleteProject} = projectContext
+    const {deleteTicketsProject} = useContext(TicketContext)
     const [style, setStyle] = useState({display: 'none'});
     const [confirm, setConfirm] = useState(false)
 
@@ -41,6 +43,7 @@ const Project = ({project}) => {
      */
     const handleDelete= (choose) => {
         if (choose) {
+            deleteTicketsProject(project._id)
             deleteProject(project._id)
             setConfirm(false)
         } else {

@@ -25,6 +25,15 @@ router.get('/project/:id', verify, (req, res) => {
 })
 
 /**
+ * Delete all tickets with a certain project id
+ */
+router.delete('/project/:id', verify, (req, res) => {
+    Ticket.deleteMany({project: req.params.id}) 
+        .then(() => res.json('All tickets from project deleted!'))
+        .catch(err => res.status(400).json('error '+ err))
+})
+
+/**
  * Create a new ticket and add it to the database. Also check authorization.
  */
 router.post('/add', verify, [
