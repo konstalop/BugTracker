@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState}from 'react'
-import { Link } from "react-router-dom"
 import Footer from './Footer';
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from '../../contexts/auth/AuthContext';
@@ -73,6 +72,14 @@ const loginDemo = (e) => {
   })
 }
 
+/**
+ * Navigate to register
+ */
+const register = (e) => {
+  e.preventDefault()
+  navigate('/register')
+}
+
   return (
     <div className="container-auth">
       <h1 className='header-auth'>BugTracker</h1>
@@ -95,20 +102,26 @@ const loginDemo = (e) => {
                className="input-auth" 
                onChange={handleChange}
               />
+          
               <input 
               type="submit"
               className="input-auth-submit" 
               value="Login"
-             />
-             <button
-             type="demo"
-             className='input-auth-demo'
-             onClick={loginDemo}
-             >
+              />
+              <button
+              type="demo"
+              className='input-auth-demo'
+              onClick={loginDemo}
+              >
               Login as a demo user!
-             </button>
-            <p className="new-user-text"><Link to="/register" >Create account</Link></p>
-            <p className="new-user-text"><Link to="/">Forgot password?</Link></p>
+              </button>
+              <button
+              type="demo"
+              className='input-auth-register'
+              onClick={register}>
+              Create account
+              </button>
+           
          </fieldset>
         </form>
         <Footer></Footer>

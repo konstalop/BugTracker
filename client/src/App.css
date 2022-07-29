@@ -68,7 +68,7 @@ fieldset {
   border-radius: 4px;
 }
 
-.input-auth-submit, .input-auth-demo {
+.input-auth-submit, .input-auth-demo, .input-auth-register {
   border: 0;
   width: 90%;
   height: 30px;
@@ -82,10 +82,15 @@ fieldset {
 
 .input-auth-demo {
   width: 50%;
+  background-color: #000000
+}
+
+.input-auth-register {
+  width: 40%;
   background-color: var(--primary-color);
 }
 
-.input-auth-submit:hover, .new-button:hover, .new-button-member:hover, .new-ticket:hover, .delete-ticket:hover, .input-auth-demo:hover {
+.input-auth-submit:hover, .new-button:hover, .new-button-member:hover, .new-ticket:hover, .delete-ticket:hover, .input-auth-demo:hover, .input-auth-register:hover {
   opacity: 0.9;
 }
 
