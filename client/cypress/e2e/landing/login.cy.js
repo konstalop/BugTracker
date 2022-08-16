@@ -1,5 +1,5 @@
 /**
- * Test the home page of an user
+ * Test login functionality and component
  */
 
 describe('Test home page', () => {
