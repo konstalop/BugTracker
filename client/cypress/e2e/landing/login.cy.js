@@ -4,7 +4,7 @@
 
 describe('Test home page', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/')
+        cy.visit('/')
     })
 
     it('Login to the application', () => {
