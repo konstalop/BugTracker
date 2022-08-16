@@ -64,7 +64,17 @@ https://mern-bugtracker.herokuapp.com/
 
 ## TODO:
 
+#### Application
 Implement teams, commenting tickets, analytics of tickets and different roles for users (developer, admin, manager)
+
+#### Testing
+Implement E2E testing for whole application
+
+Currently testing is done for landing and home.
+
+#### Documentation
+
+Write testing instructions
 
 ## License
 
