@@ -86,6 +86,7 @@ describe('View full information of ticket and delete it', () => {
         cy.get('.delete-ticket').click()
         cy.get('.confirm-container').should('exist')
             .get('.confirm-inner-container').should('exist').get('.save-button').click()
+        cy.wait(2500)
     })
 })
 
