@@ -8,8 +8,8 @@ https://mern-bugtracker.herokuapp.com/
 
 ## Requirements
 
-- Node (Made with node 16.13.2)
-- Git
+- [Node](https://nodejs.org/en/) (Made with node 16.13.2)
+- [Git](https://git-scm.com/)
 
 
 ## How to install
@@ -43,8 +43,23 @@ npm run dev
 Now BugTracker should be running at http://localhost:3000
 
 ## Testing
+E2E Testing is done using [Cypress](https://www.cypress.io/)
 
-Instructions soon.
+Navigate to `/client/` folder
+
+Install cypress with
+ ```
+ npm install cypress --save-dev
+ ```
+
+Running tests with cypress browser
+```
+npx cypress open
+``` 
+Running tests in terminal
+```
+npm run cypress
+```
 
 ## Features
 - Login / register users
@@ -68,17 +83,12 @@ Instructions soon.
 
 ## TODO:
 
-#### Application
-Implement teams, commenting tickets, analytics of tickets and different roles for users (developer, admin, manager)
+#### For application
+- Teams
+- Commenting tickets
+- Analytics of tickets (graphs of data etc.)
+- Roles (Developer, Admin, Manager)
 
-#### Testing
-Implement E2E testing for whole application
-
-Currently testing is done for landing and home.
-
-#### Documentation
-
-Write testing instructions
 
 ## License
 
