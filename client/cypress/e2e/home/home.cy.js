@@ -35,6 +35,17 @@ describe('Login and create a project', () => {
         cy.get('table').contains('Cypress test title')
         cy.get('table').contains('Cypress test desc')
     })
+
+    it('Delete project', () => {
+        cy.get('.project-desc').eq(1).trigger('mouseover')
+            .get('button').eq(2).click({force: true})
+        cy.get('.confirm-container').should('exist')
+            .get('.confirm-inner-container').should('exist').get('.save-button').click()
+    })
+
+    it('Check that project was deleted', () => {
+        cy.get('tr').should('have.length', 1)
+    })
 })
 
 describe('Test logging out from application', () => {

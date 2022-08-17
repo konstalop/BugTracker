@@ -26,6 +26,15 @@ describe('Login and navigate to a project page', () => {
         cy.get('.input-auth-submit').click()
     })
 
+    it('Create a new project', () => {
+        cy.get('.sidebar-wrapper').should('exist')
+            .get('.new-button').should('exist').click()
+        cy.get('.create-project').should('exist')
+        cy.get('.create-project-inner').get('.input-project-title').type('Cypress test title')
+        cy.get('.create-project-inner').get('.input-project-desc').type('Cypress test desc')
+        cy.get('.create-project-inner').get('.save-button').click()
+    })
+
     it('Open up a project', () => {
         cy.get('.projects-table').should('exist')
             .get('.project-name').eq(1).click()
@@ -67,7 +76,7 @@ describe('Try creating a ticket', () => {
     })
 })
 
-describe('View full information of ticket', () => {
+describe('View full information of ticket and delete it', () => {
     it('View ticket', () => {
         cy.get('.ticket-row').contains('Cypress test ticket').click()
         cy.get('.ticket-info-table').contains('Cypress test ticket')
@@ -77,5 +86,24 @@ describe('View full information of ticket', () => {
         cy.get('.delete-ticket').click()
         cy.get('.confirm-container').should('exist')
             .get('.confirm-inner-container').should('exist').get('.save-button').click()
+    })
+})
+
+describe('Navigate back to home page and delete project', () => {
+
+    it('Go back to home page', () => {
+        cy.get('.sidebar-text').eq(0).click()
+    })
+
+
+    it('Delete project', () => {
+        cy.get('.project-desc').eq(1).trigger('mouseover')
+            .get('button').eq(2).click({force: true})
+        cy.get('.confirm-container').should('exist')
+            .get('.confirm-inner-container').should('exist').get('.save-button').click()
+    })
+
+    it('Check that project was deleted', () => {
+        cy.get('tr').should('have.length', 1)
     })
 })
