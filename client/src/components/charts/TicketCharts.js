@@ -20,12 +20,6 @@ const TicketCharts = () => {
                 'rgba(222, 222, 22, 0.45)', 
                 'rgba(165, 18, 18, 0.8)'
             ],
-            borderColor: [
-                'green',
-                'yellow',
-                'red'
-            ],
-            borderWidth: 1,
           },
         ],
     }
@@ -42,13 +36,6 @@ const TicketCharts = () => {
                 'rgba(235, 137, 40, 0.7)',
                 'rgba(165, 18, 18, 0.8)'
             ],
-            borderColor: [
-                'green',
-                'yellow',
-                'orange',
-                'red'
-            ],
-            borderWidth: 1,
           },
         ],
     }
@@ -64,12 +51,6 @@ const TicketCharts = () => {
                 'rgba(18, 165, 91, 0.8)',
                 'rgba(222, 222, 22, 0.45)',
             ],
-            borderColor: [
-                'red',
-                'green',
-                'yellow',
-            ],
-            borderWidth: 1,
           },
         ],
       };
