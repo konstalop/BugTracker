@@ -86,7 +86,7 @@ npm run cypress
 #### For application
 - Teams
 - Commenting tickets
-- Analytics of tickets (graphs of data etc.)
+- Add functionality to charts 
 - Roles (Developer, Admin, Manager)
 
 
