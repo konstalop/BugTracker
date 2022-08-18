@@ -248,6 +248,11 @@ span {display: block;}
   overflow: auto;
   box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
 }
+
+.projects-container {
+  max-height: 375px;
+}
+
 .project-container {
   background-color: white;
   width: 50% parent;
@@ -526,4 +531,25 @@ textarea {
 
 .confirm-inner-container {
     text-align: center;
+}
+
+.ticket-charts-container {
+  padding-bottom: 10px;
+  background-color: white;
+  margin-top: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: parent;
+  border-radius: 6px;
+  height: 360px;
+  overflow: auto;
+  box-shadow:  0 0 15px 2px rgba(0, 0, 255, 0.1);
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.type-chart, .priority-chart, .status-chart {
+  width: 250px;
+  max-height: 250px;
 }

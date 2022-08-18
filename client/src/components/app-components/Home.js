@@ -3,6 +3,7 @@ import { ProjectContext } from '../../contexts/projects/ProjectContext';
 import { TicketContext } from '../../contexts/tickets/TicketContext';
 import Project from './Project'
 import Spinner from './Spinner';
+import TicketCharts from '../charts/TicketCharts';
 
 /**
  * Generates home page which shows all projects
@@ -51,7 +52,10 @@ const Home = () => {
                         }  
                         </tbody>
                     </table>
-                    
+            </div>
+            <h2 className='home-h1'>Your Tickets Visualized</h2>
+            <div className='ticket-charts-container'> 
+                <TicketCharts/>
             </div>
         </div>
     )
