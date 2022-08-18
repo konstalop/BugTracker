@@ -158,6 +158,7 @@ fieldset {
 .sidebar-welcome {
   color: var(--primary-color);
   font-weight: 700;
+  cursor: default;
 }
 
 span {display: block;}

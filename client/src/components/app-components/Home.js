@@ -53,7 +53,6 @@ const Home = () => {
                         </tbody>
                     </table>
             </div>
-            <h2 className='home-h1'>Your Tickets Visualized</h2>
             <div className='ticket-charts-container'> 
                 <TicketCharts/>
             </div>
