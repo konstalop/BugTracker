@@ -4,19 +4,11 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
 /**
  * Component to visualize tickets with charts
  * @returns charts of tickets
  */
 const TicketCharts = () => {
-
-    const options = {
-        legend: {
-            display: false
-        }
-    }
-
     const statusData ={
         labels: ['Open', 'Working', 'Closed'],
         datasets: [
@@ -24,14 +16,14 @@ const TicketCharts = () => {
             label: 'Number of tickets',
             data: [1, 2, 1],
             backgroundColor: [
-                'rgba(165, 18, 18, 0.6)',
-                'rgba(18, 165, 91, 0.6)',
-                'rgba(222, 222, 22, 0.3)',
+                'rgba(18, 165, 91, 0.8)', 
+                'rgba(222, 222, 22, 0.45)', 
+                'rgba(165, 18, 18, 0.8)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
+                'green',
+                'yellow',
+                'red'
             ],
             borderWidth: 1,
           },
@@ -45,14 +37,16 @@ const TicketCharts = () => {
             label: 'Number of tickets',
             data: [1, 2, 1, 1],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
+                'rgba(18, 165, 91, 0.8)',
+                'rgba(222, 222, 22, 0.45)',
+                'rgba(235, 137, 40, 0.7)',
+                'rgba(165, 18, 18, 0.8)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
+                'green',
+                'yellow',
+                'orange',
+                'red'
             ],
             borderWidth: 1,
           },
@@ -66,14 +60,14 @@ const TicketCharts = () => {
             label: 'Number of tickets',
             data: [1, 2, 1],
             backgroundColor: [
-              'rgba(165, 18, 18, 0.6)',
-              'rgba(18, 165, 91, 0.6)',
-              'rgba(222, 222, 22, 0.3)',
+                'rgba(165, 18, 18, 0.8)',
+                'rgba(18, 165, 91, 0.8)',
+                'rgba(222, 222, 22, 0.45)',
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
+                'red',
+                'green',
+                'yellow',
             ],
             borderWidth: 1,
           },
@@ -92,9 +86,7 @@ const TicketCharts = () => {
             </div>
             <div className='status-chart'>
                 <h4>Status Of Ticket</h4>
-                <Doughnut data={statusData} options={{
-                    
-                }}/>
+                <Doughnut data={statusData}/>
             </div>
         </>
     )
