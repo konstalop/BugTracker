@@ -2,9 +2,6 @@
 
 BugTracker is a project management / bugtracking tool made with React frontend and Node/Express in the backend with MongoDB as database. Sensitive user information is securely hashed with salting. JWT tokens are used to authorize users.
 
-## Live demo of the project
-
-https://mern-bugtracker.herokuapp.com/
 
 ## Requirements
 
